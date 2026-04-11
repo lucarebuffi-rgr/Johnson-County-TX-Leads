@@ -108,14 +108,22 @@ def build_parcel_lookup() -> dict:
     try:
         if dbf_data[:2] == b"PK":
             with zipfile.ZipFile(io.BytesIO(dbf_data)) as z:
+                log.info(f"ZIP contents: {z.namelist()}")
                 for name in z.namelist():
-                    if name.lower().endswith(".dbf"):
+                    if name.lower().endswith(".dbf") and "prop" in name.lower():
                         dbf_data = z.read(name)
+                        log.info(f"Using DBF: {name}")
                         break
+                else:
+                    for name in z.namelist():
+                        if name.lower().endswith(".dbf"):
+                            dbf_data = z.read(name)
+                            log.info(f"Using DBF: {name}")
+                            break
 
         tmp = Path("/tmp/parcels.dbf")
         tmp.write_bytes(dbf_data)
-        records = list(DBF(str(tmp), load=True, ignore_missing_memofile=True))
+        records = list(DBF(str(tmp), load=True, ignore_missing_memofile=True, char_decode_errors="ignore"))
         log.info(f"Loaded {len(records):,} parcel records")
 
         for rec in records:
