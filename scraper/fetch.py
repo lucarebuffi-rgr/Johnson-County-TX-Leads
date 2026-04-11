@@ -109,7 +109,7 @@ def build_parcel_lookup() -> dict:
         with zipfile.ZipFile(io.BytesIO(zip_data)) as z:
             log.info(f"ZIP contents: {z.namelist()}")
 
-            # ── Read owner file (externalowner.tab) ──────────────────────
+            # ── Read owner file ───────────────────────────────────────────
             owner_rows: dict[str, dict] = {}
             owner_file = next((n for n in z.namelist() if "owner" in n.lower()), None)
             if owner_file:
@@ -126,7 +126,7 @@ def build_parcel_lookup() -> dict:
                         if key:
                             owner_rows[key] = row
 
-            # ── Read NAL file (externalnal.tab) – Name Address Legal ──────
+            # ── Read NAL file ─────────────────────────────────────────────
             nal_rows: dict[str, dict] = {}
             nal_file = next((n for n in z.namelist() if n.lower() == "externalnal.tab"), None)
             if not nal_file:
@@ -137,42 +137,36 @@ def build_parcel_lookup() -> dict:
                 log.info(f"NAL file: {len(lines)} lines")
                 if lines:
                     hdrs = [h.strip().upper() for h in lines[0].split("\t")]
-                    log.info(f"NAL headers: {hdrs}")
+                    log.info(f"NAL headers: {hdrs[:10]}")
                     if len(lines) > 1:
-                        log.info(f"NAL sample: {lines[1][:300]}")
+                        log.info(f"NAL sample: {lines[1][:200]}")
                     for line in lines[1:]:
                         parts = line.split("\t")
                         row = {hdrs[i]: parts[i].strip() for i in range(min(len(hdrs), len(parts)))}
-                        key = row.get("PARCEL_ID") or row.get("PROP_ID") or row.get("ACCOUNT") or ""
-                        if key:
-                            nal_rows[key] = row
+                        acct = row.get("ACCOUNT") or row.get("PARCEL_ID") or row.get("PROP_ID") or ""
+                        if acct:
+                            # Store by full key (e.g. R000000128)
+                            nal_rows[acct] = row
+                            # Also store by numeric only (e.g. 128)
+                            numeric = acct.lstrip("R").lstrip("0") or "0"
+                            nal_rows[numeric] = row
 
-            # ── Read all other tab files to find address columns ───────────
-            all_rows: dict[str, dict] = {}
-            for fname in z.namelist():
-                if fname.lower().endswith(".tab") and fname not in [owner_file, nal_file]:
-                    try:
-                        lines = z.read(fname).decode("latin-1").splitlines()
-                        if not lines:
-                            continue
-                        hdrs = [h.strip().upper() for h in lines[0].split("\t")]
-                        # Only process if it has address-like columns
-                        addr_cols = [h for h in hdrs if any(k in h for k in
-                                     ["ADDR", "SITUS", "STREET", "CITY", "ZIP", "STATE"])]
-                        if addr_cols:
-                            log.info(f"Found address cols in {fname}: {addr_cols}")
-                            for line in lines[1:]:
-                                parts = line.split("\t")
-                                row = {hdrs[i]: parts[i].strip() for i in range(min(len(hdrs), len(parts)))}
-                                key = row.get("PARCEL_ID") or row.get("PROP_ID") or row.get("ACCOUNT") or ""
-                                if key:
-                                    all_rows.setdefault(key, {}).update(row)
-                    except Exception:
-                        continue
+            log.info(f"owner_rows: {len(owner_rows)}, nal_rows: {len(nal_rows)}")
 
-            log.info(f"owner_rows: {len(owner_rows)}, nal_rows: {len(nal_rows)}, all_rows: {len(all_rows)}")
+            # Debug sample
+            sample_key = next(iter(owner_rows), None)
+            if sample_key:
+                orow = owner_rows[sample_key]
+                nrow = nal_rows.get(sample_key)
+                log.info(f"Sample owner key: '{sample_key}' → NAL match: {bool(nrow)}")
+                if not nrow:
+                    # Try R-prefixed
+                    r_key = "R" + sample_key.zfill(9)
+                    nrow2 = nal_rows.get(r_key)
+                    log.info(f"Tried R-key '{r_key}' → match: {bool(nrow2)}")
 
-            # ── Build lookup by owner name ────────────────────────────────
+            # ── Build lookup by owner name ─────────────────────────────────
+            matched_count = 0
             for key, orow in owner_rows.items():
                 owner_name = (
                     orow.get("OWN_NAME") or orow.get("NAME") or
@@ -182,54 +176,36 @@ def build_parcel_lookup() -> dict:
                 if not owner_name:
                     continue
 
-                # NAL uses 'R000000128' format, owner uses '128'
-                nrow = (nal_rows.get(key) or
-                        nal_rows.get("R" + key.zfill(9)) or
-                        nal_rows.get("R" + key.zfill(8)) or
-                        nal_rows.get(key.lstrip("0")) or
-                        nal_rows.get(key.zfill(9)) or {})
-                arow = all_rows.get(key, {})
+                # Try to find matching NAL row
+                nrow = (
+                    nal_rows.get(key) or
+                    nal_rows.get("R" + key.zfill(9)) or
+                    nal_rows.get("R" + key.zfill(8)) or
+                    nal_rows.get(key.lstrip("0") or "0") or
+                    {}
+                )
 
-                # Merge all available data
-                merged = {**arow, **nrow, **orow}
+                if nrow:
+                    matched_count += 1
 
-                # Property address - using exact column names from NAL file
-                situs_num    = merged.get("SITUS STREET NUM","") or merged.get("SITUS_NUM","")
-                situs_street = merged.get("SITUS STREET NAME","") or merged.get("SITUS_STREET","")
-                prop_address = f"{situs_num} {situs_street}".strip()
+                # Build address from NAL row
+                situs_num    = nrow.get("SITUS STREET NUM", "") or nrow.get("SITUS_STREET_NUM", "")
+                situs_name   = nrow.get("SITUS STREET NAME", "") or nrow.get("SITUS_STREET_NAME", "")
+                situs_sfx    = nrow.get("SITUS STREET SFX", "") or nrow.get("SITUS STREET SFX2", "")
+                prop_address = f"{situs_num} {situs_name} {situs_sfx}".strip()
                 if not prop_address:
-                    prop_address = (
-                        merged.get("SITUS","") or merged.get("SITE_ADDR","") or
-                        merged.get("PROP_ADDR","") or merged.get("ADDRESS","") or ""
-                    )
+                    prop_address = nrow.get("SITUS", "") or nrow.get("SITE_ADDR", "") or ""
 
-                prop_city = (
-                    merged.get("SITUS CITY","") or merged.get("SITUS_CITY","") or
-                    merged.get("SITE_CITY","") or "Cleburne"
-                )
-                prop_zip = (
-                    merged.get("SITUS ZIP","") or merged.get("SITUS_ZIP","") or
-                    merged.get("SITE_ZIP","") or ""
-                )
+                prop_city = nrow.get("SITUS CITY", "") or nrow.get("SITUS_CITY", "") or "Cleburne"
+                prop_zip  = nrow.get("SITUS ZIP", "")  or nrow.get("SITUS_ZIP", "")  or ""
 
-                # Mailing address - using exact column names from NAL file
                 mail_address = (
-                    merged.get("MAIL ADDRESS LINE 1","") or
-                    merged.get("MAIL_ADDRESS_LINE_1","") or
-                    merged.get("ADDR1","") or merged.get("MAIL_ADDR","") or ""
+                    nrow.get("MAIL ADDRESS LINE 1", "") or
+                    orow.get("ADDR1", "") or orow.get("MAIL_ADDR", "") or ""
                 )
-                mail_city = (
-                    merged.get("MAIL CITY","") or merged.get("MAIL_CITY","") or
-                    merged.get("CITY","") or ""
-                )
-                mail_state = (
-                    merged.get("MAIL STATE","") or merged.get("MAIL_STATE","") or
-                    merged.get("STATE","") or "TX"
-                )
-                mail_zip = (
-                    merged.get("MAIL ZIP","") or merged.get("MAIL_ZIP","") or
-                    merged.get("ZIP","") or ""
-                )
+                mail_city  = nrow.get("MAIL CITY", "")  or orow.get("CITY", "")  or ""
+                mail_state = nrow.get("MAIL STATE", "") or orow.get("STATE", "") or "TX"
+                mail_zip   = nrow.get("MAIL ZIP", "")   or orow.get("ZIP", "")   or ""
 
                 parcel = {
                     "prop_address": prop_address,
@@ -245,14 +221,7 @@ def build_parcel_lookup() -> dict:
                 for variant in name_variants(owner_name):
                     lookup[variant] = parcel
 
-            # Debug: show a sample matched record
-            sample_key = next(iter(owner_rows), None)
-            if sample_key:
-                orow = owner_rows[sample_key]
-                nrow = nal_rows.get(sample_key, {})
-                log.info(f"Sample owner key: '{sample_key}' → NAL match: {bool(nrow)}")
-                log.info(f"Sample owner row: {dict(list(orow.items())[:4])}")
-                log.info(f"Sample NAL row: {dict(list(nrow.items())[:6]) if nrow else 'NO MATCH'}")
+            log.info(f"NAL matches: {matched_count}/{len(owner_rows)}")
             log.info(f"Built parcel lookup: {len(lookup):,} name variants")
 
     except Exception:
