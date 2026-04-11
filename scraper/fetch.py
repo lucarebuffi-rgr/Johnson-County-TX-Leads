@@ -88,9 +88,9 @@ def build_parcel_lookup() -> dict:
     dbf_data = None
 
     for url in [
+        "https://johnsoncad.com/wp-content/uploads/2026/04/JCAD-2026-Preliminary-Data-2026-04-06.zip",
         "https://www.johnsoncad.com/data/download/property.zip",
         "https://www.johnsoncad.com/data/download/parcel.zip",
-        "https://johnsoncad.com/downloads/JohnsonCAD_Parcels.zip",
     ]:
         try:
             r = session.get(url, timeout=REQUEST_TIMEOUT)
