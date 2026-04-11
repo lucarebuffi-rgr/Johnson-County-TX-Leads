@@ -2,9 +2,9 @@
 """
 Johnson County TX – Motivated Seller Lead Scraper
 Targets: johnson.tx.publicsearch.us (Tyler Technologies PublicSearch)
+Uses direct URL scraping with correct document type codes.
 """
 
-import asyncio
 import csv
 import io
 import json
@@ -21,12 +21,6 @@ import requests
 from bs4 import BeautifulSoup
 
 try:
-    from playwright.async_api import async_playwright, TimeoutError as PWTimeout
-    HAS_PLAYWRIGHT = True
-except ImportError:
-    HAS_PLAYWRIGHT = False
-
-try:
     from dbfread import DBF
     HAS_DBF = True
 except ImportError:
@@ -40,49 +34,32 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 BASE_URL = "https://johnson.tx.publicsearch.us"
-API_URL  = "https://johnson.tx.publicsearch.us/api/search"
+
+# Exact document type codes from PublicSearch URL parameters
+DOC_TYPES = {
+    "LiPn":  ("pre_foreclosure", "Lis Pendens"),
+    "ReoLPn":("pre_foreclosure", "Release of Lis Pendens"),
+    "FeTLe": ("lien",            "Federal Tax Lien"),
+    "StTLe": ("lien",            "State Tax Lien"),
+    "Jun":   ("judgment",        "Judgment"),
+    "AboJn": ("judgment",        "Abstract of Judgment"),
+    "Prt":   ("probate",         "Probate"),
+    "Lie":   ("lien",            "Lien"),
+    "NooLe": ("lien",            "Notice of Lien"),
+    "MeLCc": ("lien",            "Mechanics Lien Contract"),
+    "HoLe":  ("lien",            "Hospital Lien"),
+    "ChSLe": ("lien",            "Child Support Lien"),
+}
+
+LOOKBACK_DAYS   = 14
+REQUEST_TIMEOUT = 30
+RETRY_ATTEMPTS  = 3
 
 CAD_BULK_URLS = [
     "https://www.johnsoncad.com/data/download/",
     "https://www.johnsoncad.com/downloads/",
     "https://johnsoncad.com/appraisaldata/",
 ]
-
-LOOKBACK_DAYS   = 7
-RETRY_ATTEMPTS  = 3
-RETRY_DELAY     = 3
-REQUEST_TIMEOUT = 30
-
-DOC_TYPE_MAP = {
-    "LP":       ("pre_foreclosure", "Lis Pendens"),
-    "NOFC":     ("pre_foreclosure", "Notice of Foreclosure"),
-    "TAXDEED":  ("tax",             "Tax Deed"),
-    "JUD":      ("judgment",        "Judgment"),
-    "CCJ":      ("judgment",        "Certified Judgment"),
-    "DRJUD":    ("judgment",        "Domestic Judgment"),
-    "LNCORPTX": ("lien",            "Corp Tax Lien"),
-    "LNIRS":    ("lien",            "IRS Lien"),
-    "LNFED":    ("lien",            "Federal Lien"),
-    "LN":       ("lien",            "Lien"),
-    "LNMECH":   ("lien",            "Mechanic Lien"),
-    "LNHOA":    ("lien",            "HOA Lien"),
-    "MEDLN":    ("lien",            "Medicaid Lien"),
-    "PRO":      ("probate",         "Probate Document"),
-    "NOC":      ("construction",    "Notice of Commencement"),
-    "RELLP":    ("pre_foreclosure", "Release Lis Pendens"),
-}
-
-TARGET_TYPES = set(DOC_TYPE_MAP.keys())
-
-def retry(fn, *args, attempts=RETRY_ATTEMPTS, delay=RETRY_DELAY, **kwargs):
-    for i in range(attempts):
-        try:
-            return fn(*args, **kwargs)
-        except Exception as exc:
-            log.warning(f"Attempt {i+1}/{attempts} failed: {exc}")
-            if i < attempts - 1:
-                time.sleep(delay)
-    return None
 
 def parse_amount(raw) -> Optional[float]:
     try:
@@ -132,7 +109,7 @@ def build_parcel_lookup() -> dict:
             continue
 
     if not dbf_data or not HAS_DBF:
-        log.warning("Parcel data not available – addresses will be empty")
+        log.warning("Parcel data not available")
         return lookup
 
     try:
@@ -170,258 +147,199 @@ def build_parcel_lookup() -> dict:
 
     return lookup
 
-# ── PUBLICSEARCH API ──────────────────────────────────────────────────────
+# ── SCRAPER ───────────────────────────────────────────────────────────────
 
-def scrape_publicsearch(date_from: str, date_to: str) -> list[dict]:
+def scrape_all(date_from: str, date_to: str) -> list[dict]:
     """
-    Query the Tyler Technologies PublicSearch API directly.
+    Scrape PublicSearch results pages directly using the URL pattern:
+    /results?department=RP&docTypes=CODE&recordedDateRange=YYYYMMDD,YYYYMMDD&searchType=advancedSearch
     """
-    records: list[dict] = []
+    all_records: list[dict] = []
+
     session = requests.Session()
     session.headers.update({
-        "User-Agent":   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120.0 Safari/537.36",
-        "Accept":       "application/json, text/plain, */*",
-        "Referer":      BASE_URL,
-        "Origin":       BASE_URL,
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                      "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept":     "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Referer":    BASE_URL,
     })
 
-    # First hit the main page to get any cookies/tokens
-    try:
-        session.get(BASE_URL, timeout=REQUEST_TIMEOUT)
-    except Exception:
-        pass
-
-    # Convert dates to format API expects: YYYYMMDD
+    # Convert dates to YYYYMMDD format
     try:
         dt_from = datetime.strptime(date_from, "%m/%d/%Y").strftime("%Y%m%d")
         dt_to   = datetime.strptime(date_to,   "%m/%d/%Y").strftime("%Y%m%d")
     except Exception:
-        dt_from = date_from
-        dt_to   = date_to
+        dt_from = date_from.replace("/", "")
+        dt_to   = date_to.replace("/", "")
 
-    # Try each doc type
-    for doc_code in TARGET_TYPES:
-        log.info(f"  Querying PublicSearch for {doc_code} …")
+    date_range = f"{dt_from},{dt_to}"
 
-        # Try API endpoint
-        params = {
-            "county":       "johnson",
-            "state":        "tx",
-            "docType":      doc_code,
-            "dateFrom":     dt_from,
-            "dateTo":       dt_to,
-            "page":         0,
-            "size":         100,
-        }
+    for doc_code, (cat, cat_label) in DOC_TYPES.items():
+        url = (f"{BASE_URL}/results"
+               f"?department=RP"
+               f"&docTypes={doc_code}"
+               f"&recordedDateRange={date_range}"
+               f"&searchType=advancedSearch")
 
-        try:
-            r = session.get(API_URL, params=params, timeout=REQUEST_TIMEOUT)
-            if r.status_code == 200:
+        log.info(f"  Scraping {doc_code} ({cat_label}) …")
+
+        page_num = 1
+        while True:
+            page_url = url if page_num == 1 else f"{url}&page={page_num}"
+
+            for attempt in range(RETRY_ATTEMPTS):
                 try:
-                    data = r.json()
-                    hits = data.get("hits", {}).get("hits", []) or data.get("results", []) or []
-                    for hit in hits:
-                        src = hit.get("_source", hit)
-                        rec = parse_publicsearch_record(src, doc_code)
-                        if rec:
-                            records.append(rec)
-                    log.info(f"    API → {len(hits)} hits")
-                    continue
-                except Exception:
-                    pass
-        except Exception:
-            pass
+                    r = session.get(page_url, timeout=REQUEST_TIMEOUT)
+                    r.raise_for_status()
+                    break
+                except Exception as e:
+                    log.warning(f"    Attempt {attempt+1} failed: {e}")
+                    time.sleep(2)
+                    r = None
 
-        # Try alternate API paths
-        alt_urls = [
-            f"{BASE_URL}/api/instruments",
-            f"{BASE_URL}/api/documents",
-            f"{BASE_URL}/results",
-        ]
-        for url in alt_urls:
-            try:
-                r = session.get(url, params=params, timeout=REQUEST_TIMEOUT)
-                if r.status_code == 200 and "json" in r.headers.get("content-type", ""):
-                    data = r.json()
-                    hits = (data.get("hits", {}).get("hits", []) or
-                            data.get("results", []) or
-                            data.get("instruments", []) or [])
-                    for hit in hits:
-                        src = hit.get("_source", hit)
-                        rec = parse_publicsearch_record(src, doc_code)
-                        if rec:
-                            records.append(rec)
-                    if hits:
-                        log.info(f"    Alt API {url} → {len(hits)} hits")
-                        break
-            except Exception:
-                continue
+            if not r:
+                break
 
-        time.sleep(0.5)
+            records, has_next = parse_results_page(r.text, doc_code, cat, cat_label)
+            all_records.extend(records)
+            log.info(f"    Page {page_num}: {len(records)} records")
 
-    return records
+            if not has_next or not records:
+                break
+
+            page_num += 1
+            if page_num > 20:
+                break
+
+            time.sleep(1)
+
+    return all_records
 
 
-def parse_publicsearch_record(src: dict, doc_code: str) -> Optional[dict]:
-    try:
-        filed_raw = (src.get("recordedDate") or src.get("filedDate") or
-                     src.get("instrumentDate") or src.get("date") or "")
-        doc_num = (src.get("instrumentNumber") or src.get("docNumber") or
-                   src.get("instrument") or src.get("id") or "")
-        grantor = ""
-        grantee = ""
+def parse_results_page(html: str, doc_code: str, cat: str, cat_label: str) -> tuple[list[dict], bool]:
+    """Parse a PublicSearch results page and return records + whether there's a next page."""
+    records = []
+    soup = BeautifulSoup(html, "lxml")
 
-        parties = src.get("parties", [])
-        for p in parties:
-            role = str(p.get("role", "")).upper()
-            name = p.get("name", "")
-            if "GRANTOR" in role or "SELLER" in role or "OWNER" in role:
-                grantor = name
-            elif "GRANTEE" in role or "BUYER" in role:
-                grantee = name
+    # Find results table
+    table = soup.find("table")
+    if not table:
+        # Try finding rows directly
+        rows = soup.find_all("tr")
+    else:
+        rows = table.find_all("tr")
 
-        if not grantor:
-            grantor = src.get("grantor", "") or src.get("grantorName", "")
-        if not grantee:
-            grantee = src.get("grantee", "") or src.get("granteeName", "")
+    for row in rows:
+        cells = row.find_all("td")
+        if len(cells) < 4:
+            continue
 
-        dtype = (src.get("docType") or src.get("instrumentType") or doc_code).upper()
-        amount_raw = src.get("consideration") or src.get("amount") or src.get("docAmount") or ""
-        legal = src.get("legalDescription") or src.get("legal") or ""
-        doc_id = src.get("id") or src.get("instrumentId") or doc_num
+        texts = [c.get_text(strip=True) for c in cells]
 
-        return {
-            "doc_num":   str(doc_num),
-            "doc_type":  dtype,
-            "filed":     parse_date(str(filed_raw)) or str(filed_raw),
+        # Try to identify columns by position
+        # Typical order: checkbox, icon, GRANTOR, GRANTEE, DOC TYPE, RECORDED DATE, DOC NUMBER, BOOK/VOL/PAGE, LEGAL DESC
+        grantor  = ""
+        grantee  = ""
+        doc_type = ""
+        filed    = ""
+        doc_num  = ""
+        legal    = ""
+
+        # Skip header rows
+        if any(h in texts[0].upper() for h in ["GRANTOR", "GRANTEE", "DOC TYPE"]):
+            continue
+
+        # Find the link to the document
+        link = ""
+        for a in row.find_all("a", href=True):
+            href = a["href"]
+            if "/doc/" in href or "/instrument/" in href or "/record/" in href:
+                link = BASE_URL + href if href.startswith("/") else href
+                break
+
+        # Parse cells - skip first 2 (checkbox + icon)
+        data_cells = [c.get_text(strip=True) for c in cells]
+
+        # Try to find date pattern to anchor columns
+        date_idx = -1
+        for i, t in enumerate(data_cells):
+            if re.match(r"\d{1,2}/\d{1,2}/\d{4}", t):
+                date_idx = i
+                break
+
+        if date_idx >= 2:
+            filed    = data_cells[date_idx]
+            doc_num  = data_cells[date_idx + 1] if date_idx + 1 < len(data_cells) else ""
+            legal    = data_cells[date_idx + 3] if date_idx + 3 < len(data_cells) else ""
+            grantor  = data_cells[date_idx - 2] if date_idx >= 2 else ""
+            grantee  = data_cells[date_idx - 1] if date_idx >= 1 else ""
+            doc_type = data_cells[date_idx - 0] if date_idx >= 0 else doc_code
+        elif len(data_cells) >= 6:
+            # Fallback: assume standard column order
+            offset = 2 if len(data_cells) > 6 else 0
+            grantor  = data_cells[offset]     if offset < len(data_cells) else ""
+            grantee  = data_cells[offset + 1] if offset + 1 < len(data_cells) else ""
+            doc_type = data_cells[offset + 2] if offset + 2 < len(data_cells) else cat_label
+            filed    = data_cells[offset + 3] if offset + 3 < len(data_cells) else ""
+            doc_num  = data_cells[offset + 4] if offset + 4 < len(data_cells) else ""
+            legal    = data_cells[offset + 6] if offset + 6 < len(data_cells) else ""
+
+        if not grantor and not doc_num:
+            continue
+
+        records.append({
+            "doc_num":   doc_num,
+            "doc_type":  doc_code,
+            "cat":       cat,
+            "cat_label": cat_label,
+            "filed":     parse_date(filed) or filed,
             "grantor":   grantor,
             "grantee":   grantee,
             "legal":     legal,
-            "amount":    parse_amount(amount_raw),
-            "clerk_url": f"{BASE_URL}/doc/{doc_id}" if doc_id else BASE_URL,
-        }
-    except Exception:
-        return None
+            "amount":    None,
+            "clerk_url": link or f"{BASE_URL}/results?department=RP&docTypes={doc_code}&recordedDateRange={datetime.strptime(filed, '%Y-%m-%d').strftime('%Y%m%d') if filed else ''},{datetime.strptime(filed, '%Y-%m-%d').strftime('%Y%m%d') if filed else ''}",
+            "_demo":     False,
+        })
 
+    # Check for next page
+    has_next = bool(soup.find("a", string=re.compile(r"next|›|»", re.I)) or
+                    soup.find("a", attrs={"aria-label": re.compile(r"next", re.I)}))
 
-# ── PLAYWRIGHT FALLBACK ───────────────────────────────────────────────────
-
-async def scrape_playwright(date_from: str, date_to: str) -> list[dict]:
-    if not HAS_PLAYWRIGHT:
-        return []
-
-    records: list[dict] = []
-    log.info("Trying Playwright on PublicSearch …")
-
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        page = await browser.new_page()
-        captured = []
-
-        async def handle_response(response):
-            try:
-                if "publicsearch" in response.url and response.status == 200:
-                    ct = response.headers.get("content-type", "")
-                    if "json" in ct:
-                        data = await response.json()
-                        hits = (data.get("hits", {}).get("hits", []) or
-                                data.get("results", []) or [])
-                        for hit in hits:
-                            src = hit.get("_source", hit)
-                            dtype = (src.get("docType") or src.get("instrumentType") or "").upper()
-                            if dtype in TARGET_TYPES:
-                                rec = parse_publicsearch_record(src, dtype)
-                                if rec:
-                                    captured.append(rec)
-            except Exception:
-                pass
-
-        page.on("response", handle_response)
-
-        try:
-            await page.goto(BASE_URL, timeout=30_000)
-            await page.wait_for_load_state("networkidle", timeout=15_000)
-
-            # Try to find and use the search form
-            for doc_code in list(TARGET_TYPES)[:5]:  # Try first 5 to save time
-                try:
-                    # Look for doc type input
-                    for sel in ['input[placeholder*="Type"]', 'input[name*="type"]',
-                                'select[name*="type"]']:
-                        el = page.locator(sel).first
-                        if await el.count() > 0:
-                            await el.fill(doc_code)
-                            break
-
-                    # Look for date fields
-                    for sel in ['input[placeholder*="Start"]', 'input[name*="from"]',
-                                'input[placeholder*="From"]']:
-                        el = page.locator(sel).first
-                        if await el.count() > 0:
-                            await el.fill(date_from)
-                            break
-
-                    for sel in ['input[placeholder*="End"]', 'input[name*="to"]',
-                                'input[placeholder*="To"]']:
-                        el = page.locator(sel).first
-                        if await el.count() > 0:
-                            await el.fill(date_to)
-                            break
-
-                    # Submit
-                    for sel in ['button[type="submit"]', 'button:has-text("Search")']:
-                        el = page.locator(sel).first
-                        if await el.count() > 0:
-                            await el.click()
-                            await page.wait_for_load_state("networkidle", timeout=10_000)
-                            break
-
-                    await asyncio.sleep(2)
-                except Exception:
-                    pass
-
-        except Exception:
-            log.error(f"Playwright error:\n{traceback.format_exc()}")
-        finally:
-            await browser.close()
-
-    records.extend(captured)
-    log.info(f"Playwright captured {len(records)} records")
-    return records
-
+    return records, has_next
 
 # ── DEMO DATA ─────────────────────────────────────────────────────────────
 
 def generate_demo_records(date_from: str, date_to: str) -> list[dict]:
     samples = [
-        ("LP",       "2024-LPJOHN-0001", "SMITH JOHN A",         "FIRST NATIONAL BANK",      125000, "LT 14 BLK 7 OAK MEADOWS"),
-        ("NOFC",     "2024-NOFC-0002",   "JONES MARY B",          "MORTGAGE SOLUTIONS LLC",    87500, "LT 3 BLK 2 CLEBURNE HEIGHTS"),
-        ("LNIRS",    "2024-IRS-0003",    "WILLIAMS DAVID",        "INTERNAL REVENUE SERVICE",  45200, "TRACT 22 AB 341 JOHNSON CTY"),
-        ("JUD",      "2024-JUD-0004",    "GARCIA PROPERTIES LLC", "CLEBURNE SUPPLY CO",        18700, "LT 9 BLK 4 RIVER OAKS ADD"),
-        ("LNMECH",   "2024-MECH-0005",   "BROWN PATRICIA",        "LONE STAR CONTRACTORS",     22000, "LT 1 BLK 1 CREEKSIDE EST"),
-        ("PRO",      "2024-PRO-0006",    "ESTATE OF DAVIS JAMES", "JOHNSON COUNTY PROBATE",        0, "LT 6 BLK 12 HERITAGE HILLS"),
-        ("TAXDEED",  "2024-TAX-0007",    "HENDERSON ROBERT",      "JOHNSON COUNTY TAX",         9800, "LT 17 BLK 3 SUNSET RIDGE"),
-        ("LNHOA",    "2024-HOA-0008",    "MARTINEZ CARLOS",       "LAKE RIDGE HOA",             3500, "LT 22 BLK 8 LAKE RIDGE ADD"),
-        ("LNCORPTX", "2024-CTX-0009",    "APEX VENTURES LLC",     "TX COMPTROLLER",            67300, "TRACT 5 AB 112 JOHNSON CTY"),
-        ("NOC",      "2024-NOC-0010",    "TAYLOR CONSTRUCTION",   "CITYBANK NA",                   0, "LT 4 BLK 2 GRAND PRAIRIE EST"),
+        ("LiPn",  "pre_foreclosure", "Lis Pendens",           "SMITH JOHN A",         "FIRST NATIONAL BANK",      125000),
+        ("Jun",   "judgment",        "Judgment",               "JONES MARY B",          "CAPITAL ONE NA",            87500),
+        ("FeTLe", "lien",            "Federal Tax Lien",       "WILLIAMS DAVID",        "IRS",                       45200),
+        ("AboJn", "judgment",        "Abstract of Judgment",   "GARCIA PROPERTIES LLC", "CLEBURNE SUPPLY CO",        18700),
+        ("MeLCc", "lien",            "Mechanics Lien Contract","BROWN PATRICIA",        "LONE STAR CONTRACTORS",     22000),
+        ("Prt",   "probate",         "Probate",                "ESTATE OF DAVIS JAMES", "JOHNSON COUNTY PROBATE",        0),
+        ("StTLe", "lien",            "State Tax Lien",         "HENDERSON ROBERT",      "STATE OF TEXAS",             9800),
+        ("NooLe", "lien",            "Notice of Lien",         "MARTINEZ CARLOS",       "BELCLAIRE RESIDENTIAL",      3500),
+        ("HoLe",  "lien",            "Hospital Lien",          "THOMPSON SARAH",        "TEXAS HEALTH MANSFIELD",     2100),
+        ("ChSLe", "lien",            "Child Support Lien",     "RODRIGUEZ JUAN",        "ATTY/GEN",                   5000),
     ]
     base = datetime.strptime(date_from, "%m/%d/%Y")
     recs = []
-    for i, (dtype, docnum, grantor, grantee, amt, legal) in enumerate(samples):
+    for i, (code, cat, cat_label, grantor, grantee, amt) in enumerate(samples):
         filed_dt = base + timedelta(days=i % LOOKBACK_DAYS)
         recs.append({
-            "doc_num":   docnum,
-            "doc_type":  dtype,
+            "doc_num":   f"2026-DEMO-{i+1:04d}",
+            "doc_type":  code,
+            "cat":       cat,
+            "cat_label": cat_label,
             "filed":     filed_dt.strftime("%Y-%m-%d"),
             "grantor":   grantor,
             "grantee":   grantee,
-            "legal":     legal,
+            "legal":     "DEMO RECORD – NOT A REAL FILING",
             "amount":    float(amt) if amt else None,
-            "clerk_url": f"{BASE_URL}#demo-{docnum}",
+            "clerk_url": f"{BASE_URL}/results?department=RP&docTypes={code}&recordedDateRange=20260101,20260402&searchType=advancedSearch",
             "_demo":     True,
         })
     return recs
-
 
 # ── ENRICHMENT ────────────────────────────────────────────────────────────
 
@@ -446,23 +364,24 @@ def enrich_with_parcel(records: list[dict], lookup: dict) -> list[dict]:
             rec.setdefault("mail_zip",     "")
     return records
 
-
 # ── SCORING ───────────────────────────────────────────────────────────────
 
 def score_record(rec: dict) -> tuple[int, list[str]]:
     score = 30
     flags: list[str] = []
-    dtype  = rec.get("doc_type", "").upper()
+    dtype  = rec.get("doc_type", "")
     amount = rec.get("amount") or 0
 
-    if dtype in ("LP", "RELLP"):    flags.append("Lis pendens")
-    if dtype == "NOFC":             flags.append("Pre-foreclosure")
-    if dtype in ("JUD","CCJ","DRJUD"): flags.append("Judgment lien")
-    if dtype in ("LNCORPTX","LNIRS","LNFED","TAXDEED"): flags.append("Tax lien")
-    if dtype == "LNMECH":           flags.append("Mechanic lien")
-    if dtype == "LNHOA":            flags.append("HOA lien")
-    if dtype == "MEDLN":            flags.append("Medical lien")
-    if dtype == "PRO":              flags.append("Probate / estate")
+    if dtype == "LiPn":   flags.append("Lis pendens")
+    if dtype == "ReoLPn": flags.append("Lis pendens")
+    if dtype in ("FeTLe","StTLe"): flags.append("Tax lien")
+    if dtype in ("Jun","AboJn"):   flags.append("Judgment lien")
+    if dtype == "Prt":    flags.append("Probate / estate")
+    if dtype == "MeLCc":  flags.append("Mechanic lien")
+    if dtype == "NooLe":  flags.append("Notice of lien")
+    if dtype == "HoLe":   flags.append("Hospital lien")
+    if dtype == "ChSLe":  flags.append("Child support lien")
+    if dtype == "Lie":    flags.append("Lien")
 
     owner = rec.get("grantor", "").upper()
     if any(x in owner for x in ("LLC","INC","CORP","LTD","LP ","L.P.")):
@@ -470,20 +389,19 @@ def score_record(rec: dict) -> tuple[int, list[str]]:
 
     try:
         filed = datetime.strptime(rec.get("filed",""), "%Y-%m-%d")
-        if (datetime.today() - filed).days <= 7:
+        if (datetime.today() - filed).days <= 14:
             flags.append("New this week")
     except Exception:
         pass
 
     has_addr = bool(rec.get("prop_address") or rec.get("mail_address"))
     score += 10 * len(flags)
-    if "Lis pendens" in flags and "Pre-foreclosure" in flags: score += 20
+    if "Lis pendens" in flags: score += 20
     if amount and amount > 100_000: score += 15
     elif amount and amount > 50_000: score += 10
     if "New this week" in flags: score += 5
     if has_addr: score += 5
     return min(score, 100), flags
-
 
 # ── OUTPUT ────────────────────────────────────────────────────────────────
 
@@ -491,15 +409,13 @@ def build_output(raw_records: list[dict], date_from: str, date_to: str) -> dict:
     out_records = []
     for raw in raw_records:
         try:
-            dtype = raw.get("doc_type", "").upper()
-            cat, cat_label = DOC_TYPE_MAP.get(dtype, ("other", dtype))
             score, flags = score_record(raw)
             out_records.append({
                 "doc_num":      raw.get("doc_num", ""),
-                "doc_type":     dtype,
+                "doc_type":     raw.get("doc_type", ""),
                 "filed":        raw.get("filed", ""),
-                "cat":          cat,
-                "cat_label":    cat_label,
+                "cat":          raw.get("cat", "other"),
+                "cat_label":    raw.get("cat_label", ""),
                 "owner":        raw.get("grantor", ""),
                 "grantee":      raw.get("grantee", ""),
                 "amount":       raw.get("amount"),
@@ -532,14 +448,12 @@ def build_output(raw_records: list[dict], date_from: str, date_to: str) -> dict:
         "records":      out_records,
     }
 
-
 def save_output(data: dict):
     for path in ["dashboard/records.json", "data/records.json"]:
         p = Path(path)
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(json.dumps(data, indent=2))
         log.info(f"Saved {data['total']} records → {path}")
-
 
 def export_ghl_csv(data: dict):
     fieldnames = [
@@ -575,13 +489,13 @@ def export_ghl_csv(data: dict):
             "Public Records URL":     r.get("clerk_url",""),
         })
     Path("data/ghl_export.csv").write_text(buf.getvalue())
-    log.info(f"GHL CSV saved")
-
+    log.info("GHL CSV saved")
 
 # ── MAIN ──────────────────────────────────────────────────────────────────
 
-async def main():
+def main():
     today     = datetime.today()
+    # Look back 14 days to account for the ~9 day portal delay
     start     = today - timedelta(days=LOOKBACK_DAYS)
     date_from = start.strftime("%m/%d/%Y")
     date_to   = today.strftime("%m/%d/%Y")
@@ -593,13 +507,9 @@ async def main():
     parcel_lookup = build_parcel_lookup()
     log.info(f"  {len(parcel_lookup):,} name variants indexed")
 
-    log.info("Scraping PublicSearch API …")
-    raw_records = scrape_publicsearch(date_from, date_to)
-    log.info(f"  API returned {len(raw_records)} records")
-
-    if not raw_records and HAS_PLAYWRIGHT:
-        log.info("Trying Playwright fallback …")
-        raw_records = await scrape_playwright(date_from, date_to)
+    log.info("Scraping PublicSearch …")
+    raw_records = scrape_all(date_from, date_to)
+    log.info(f"Total raw records: {len(raw_records)}")
 
     if not raw_records:
         log.warning("No live records – using demo data")
@@ -614,4 +524,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
