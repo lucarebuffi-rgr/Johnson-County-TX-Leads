@@ -55,7 +55,7 @@ DOC_TYPES = {
 }
 
 # For these types the GRANTEE is the property owner being liened against
-GRANTEE_IS_OWNER = {"NooLe", "Lie", "MeLCc", "HoLe", "ChSLe", "FeTLe", "StTLe", "Jun", "AboJn", "ChSLe"}
+GRANTEE_IS_OWNER = {"NooLe", "Lie", "MeLCc", "HoLe", "ChSLe", "FeTLe", "StTLe", "Jun", "AboJn", "LiPn", "ReoLPn"}
 
 LOOKBACK_DAYS   = 14
 REQUEST_TIMEOUT = 30
