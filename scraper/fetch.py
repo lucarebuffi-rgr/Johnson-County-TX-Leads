@@ -54,11 +54,11 @@ DOC_TYPES = {
     "ChSLe": ("lien",            "Child Support Lien"),
 }
 
-# For these types the GRANTEE is the property owner being liened against
+# For these types the GRANTEE is the property owner
 GRANTEE_IS_OWNER = {"NooLe", "Lie", "HoLe", "ChSLe", "FeTLe", "StTLe", "Jun", "AboJn", "LiPn", "ReoLPn"}
 
 LOOKBACK_DAYS   = 14
-REQUEST_TIMEOUT = 30
+REQUEST_TIMEOUT = 60
 
 
 def parse_date(raw: str) -> Optional[str]:
@@ -109,90 +109,122 @@ def build_parcel_lookup() -> dict:
         with zipfile.ZipFile(io.BytesIO(zip_data)) as z:
             log.info(f"ZIP contents: {z.namelist()}")
 
-            # Read owner file
-            owner_data = {}
+            # ── Read owner file (externalowner.tab) ──────────────────────
+            owner_rows: dict[str, dict] = {}
             owner_file = next((n for n in z.namelist() if "owner" in n.lower()), None)
             if owner_file:
                 log.info(f"Reading owner file: {owner_file}")
                 lines = z.read(owner_file).decode("latin-1").splitlines()
-                log.info(f"Owner file has {len(lines)} lines")
+                log.info(f"Owner file: {len(lines)} lines")
                 if lines:
-                    headers = [h.strip().upper() for h in lines[0].split("\t")]
-                    log.info(f"Owner headers: {headers}")
+                    hdrs = [h.strip().upper() for h in lines[0].split("\t")]
+                    log.info(f"Owner headers: {hdrs}")
                     for line in lines[1:]:
                         parts = line.split("\t")
-                        if len(parts) < 2:
-                            continue
-                        row = {headers[i]: parts[i].strip() for i in range(min(len(headers), len(parts)))}
-                        acct = row.get("PROP_ID") or row.get("ACCOUNT") or row.get("ID") or ""
-                        owner_data[acct] = row
+                        row = {hdrs[i]: parts[i].strip() for i in range(min(len(hdrs), len(parts)))}
+                        key = row.get("PARCEL_ID") or row.get("PROP_ID") or row.get("ACCOUNT") or ""
+                        if key:
+                            owner_rows[key] = row
 
-            # Read property/address file
-            addr_data = {}
-            addr_file = next((n for n in z.namelist() if "nal" in n.lower() or "prop" in n.lower() or "real" in n.lower()), None)
-            if not addr_file:
-                addr_file = next((n for n in z.namelist() if "date" in n.lower()), None)
-            if addr_file:
-                log.info(f"Reading address file: {addr_file}")
-                lines = z.read(addr_file).decode("latin-1").splitlines()
-                log.info(f"Address file has {len(lines)} lines")
+            # ── Read NAL file (externalnal.tab) – Name Address Legal ──────
+            nal_rows: dict[str, dict] = {}
+            nal_file = next((n for n in z.namelist() if n.lower() == "externalnal.tab"), None)
+            if not nal_file:
+                nal_file = next((n for n in z.namelist() if "nal" in n.lower()), None)
+            if nal_file:
+                log.info(f"Reading NAL file: {nal_file}")
+                lines = z.read(nal_file).decode("latin-1").splitlines()
+                log.info(f"NAL file: {len(lines)} lines")
                 if lines:
-                    headers = [h.strip().upper() for h in lines[0].split("\t")]
-                    log.info(f"Address headers: {headers}")
+                    hdrs = [h.strip().upper() for h in lines[0].split("\t")]
+                    log.info(f"NAL headers: {hdrs}")
+                    if len(lines) > 1:
+                        log.info(f"NAL sample: {lines[1][:300]}")
                     for line in lines[1:]:
                         parts = line.split("\t")
-                        if len(parts) < 2:
+                        row = {hdrs[i]: parts[i].strip() for i in range(min(len(hdrs), len(parts)))}
+                        key = row.get("PARCEL_ID") or row.get("PROP_ID") or row.get("ACCOUNT") or ""
+                        if key:
+                            nal_rows[key] = row
+
+            # ── Read all other tab files to find address columns ───────────
+            all_rows: dict[str, dict] = {}
+            for fname in z.namelist():
+                if fname.lower().endswith(".tab") and fname not in [owner_file, nal_file]:
+                    try:
+                        lines = z.read(fname).decode("latin-1").splitlines()
+                        if not lines:
                             continue
-                        row = {headers[i]: parts[i].strip() for i in range(min(len(headers), len(parts)))}
-                        acct = row.get("PROP_ID") or row.get("ACCOUNT") or row.get("ID") or ""
-                        addr_data[acct] = row
+                        hdrs = [h.strip().upper() for h in lines[0].split("\t")]
+                        # Only process if it has address-like columns
+                        addr_cols = [h for h in hdrs if any(k in h for k in
+                                     ["ADDR", "SITUS", "STREET", "CITY", "ZIP", "STATE"])]
+                        if addr_cols:
+                            log.info(f"Found address cols in {fname}: {addr_cols}")
+                            for line in lines[1:]:
+                                parts = line.split("\t")
+                                row = {hdrs[i]: parts[i].strip() for i in range(min(len(hdrs), len(parts)))}
+                                key = row.get("PARCEL_ID") or row.get("PROP_ID") or row.get("ACCOUNT") or ""
+                                if key:
+                                    all_rows.setdefault(key, {}).update(row)
+                    except Exception:
+                        continue
 
-            # Try reading externaldates.tab for property addresses
-            dates_file = next((n for n in z.namelist() if "dates" in n.lower()), None)
-            dates_data = {}
-            if dates_file:
-                log.info(f"Reading dates file: {dates_file}")
-                lines = z.read(dates_file).decode("latin-1").splitlines()
-                if lines:
-                    headers = [h.strip().upper() for h in lines[0].split("\t")]
-                    log.info(f"Dates headers: {headers[:10]}")
-                    for line in lines[1:]:
-                        parts = line.split("\t")
-                        if len(parts) < 2:
-                            continue
-                        row = {headers[i]: parts[i].strip() for i in range(min(len(headers), len(parts)))}
-                        acct = row.get("PROP_ID") or row.get("ACCOUNT") or row.get("ID") or ""
-                        dates_data[acct] = row
+            log.info(f"owner_rows: {len(owner_rows)}, nal_rows: {len(nal_rows)}, all_rows: {len(all_rows)}")
 
-            log.info(f"owner_data: {len(owner_data)} records, addr_data: {len(addr_data)} records")
-
-            # Build lookup by owner name
-            for acct, orow in owner_data.items():
+            # ── Build lookup by owner name ────────────────────────────────
+            for key, orow in owner_rows.items():
                 owner_name = (
-                    orow.get("NAME") or orow.get("OWNER") or
-                    orow.get("OWNER_NAME") or orow.get("OWN_NAME") or ""
+                    orow.get("OWN_NAME") or orow.get("NAME") or
+                    orow.get("OWNER") or orow.get("OWNER_NAME") or ""
                 ).upper().strip()
 
                 if not owner_name:
                     continue
 
-                arow = addr_data.get(acct, {})
-                drow = dates_data.get(acct, {})
+                nrow = nal_rows.get(key, {})
+                arow = all_rows.get(key, {})
 
+                # Merge all available data
+                merged = {**arow, **nrow, **orow}
+
+                # Property address
                 prop_address = (
-                    arow.get("SITUS_NUM","") + " " + arow.get("SITUS_STREET","")
-                ).strip() or arow.get("SITUS","") or arow.get("ADDRESS","") or drow.get("SITUS","") or ""
+                    merged.get("SITUS_NUM","") + " " + merged.get("SITUS_STREET","")
+                ).strip()
+                if not prop_address:
+                    prop_address = (
+                        merged.get("SITUS","") or merged.get("SITE_ADDR","") or
+                        merged.get("PROP_ADDR","") or merged.get("ADDRESS","") or
+                        merged.get("STREET_ADDR","") or ""
+                    )
 
-                prop_city = arow.get("SITUS_CITY","") or drow.get("SITUS_CITY","") or "Cleburne"
-                prop_zip  = arow.get("SITUS_ZIP","")  or drow.get("SITUS_ZIP","")  or ""
-
-                mail_address = (
-                    orow.get("ADDR1","") or orow.get("MAIL_ADDR","") or
-                    orow.get("MAILING_ADDRESS","") or ""
+                prop_city = (
+                    merged.get("SITUS_CITY","") or merged.get("SITE_CITY","") or
+                    merged.get("PROP_CITY","") or "Cleburne"
                 )
-                mail_city  = orow.get("CITY","")  or orow.get("MAIL_CITY","")  or ""
-                mail_state = orow.get("STATE","")  or orow.get("MAIL_STATE","") or "TX"
-                mail_zip   = orow.get("ZIP","")    or orow.get("MAIL_ZIP","")   or ""
+                prop_zip = (
+                    merged.get("SITUS_ZIP","") or merged.get("SITE_ZIP","") or
+                    merged.get("PROP_ZIP","") or ""
+                )
+
+                # Mailing address
+                mail_address = (
+                    merged.get("ADDR1","") or merged.get("MAIL_ADDR","") or
+                    merged.get("MAILING_ADDRESS","") or merged.get("MAIL_ADDRESS","") or
+                    merged.get("ADDRESS1","") or ""
+                )
+                mail_city = (
+                    merged.get("CITY","") or merged.get("MAIL_CITY","") or
+                    merged.get("MAILING_CITY","") or ""
+                )
+                mail_state = (
+                    merged.get("STATE","") or merged.get("MAIL_STATE","") or "TX"
+                )
+                mail_zip = (
+                    merged.get("ZIP","") or merged.get("MAIL_ZIP","") or
+                    merged.get("MAILING_ZIP","") or ""
+                )
 
                 parcel = {
                     "prop_address": prop_address,
@@ -208,7 +240,7 @@ def build_parcel_lookup() -> dict:
                 for variant in name_variants(owner_name):
                     lookup[variant] = parcel
 
-            log.info(f"Built parcel lookup with {len(lookup):,} name variants")
+            log.info(f"Built parcel lookup: {len(lookup):,} name variants")
 
     except Exception:
         log.error(f"Parcel error:\n{traceback.format_exc()}")
@@ -227,8 +259,8 @@ def parse_text_block(text: str, doc_code: str, cat: str, cat_label: str, dt_from
         if len(parts) < 3:
             return None
 
-        grantor  = parts[0] if len(parts) > 0 else ""
-        grantee  = parts[1] if len(parts) > 1 else ""
+        grantor   = parts[0] if len(parts) > 0 else ""
+        grantee   = parts[1] if len(parts) > 1 else ""
         filed_raw = ""
         doc_num   = ""
         legal     = ""
@@ -319,7 +351,6 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
                 await page.goto(url, timeout=30_000)
                 await asyncio.sleep(8)
 
-                # Try API responses first
                 for data in captured_api:
                     hits = (
                         data.get("hits", {}).get("hits", []) or
@@ -367,7 +398,6 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
                                     "_demo":     False,
                                 })
 
-                # Fallback: parse JS state text blocks
                 if not captured_api or not all_records:
                     log.info(f"    No API data, trying JS state …")
                     js_result = await page.evaluate("""
@@ -461,6 +491,7 @@ def generate_demo_records(date_from: str, date_to: str) -> list[dict]:
 # ── ENRICHMENT ────────────────────────────────────────────────────────────
 
 def enrich_with_parcel(records: list[dict], lookup: dict) -> list[dict]:
+    matched = 0
     for rec in records:
         owner = rec.get("grantor", "").upper().strip()
         parcel = None
@@ -470,6 +501,7 @@ def enrich_with_parcel(records: list[dict], lookup: dict) -> list[dict]:
                 break
         if parcel:
             rec.update(parcel)
+            matched += 1
         else:
             rec.setdefault("prop_address", "")
             rec.setdefault("prop_city",    "")
@@ -479,6 +511,7 @@ def enrich_with_parcel(records: list[dict], lookup: dict) -> list[dict]:
             rec.setdefault("mail_city",    "")
             rec.setdefault("mail_state",   "TX")
             rec.setdefault("mail_zip",     "")
+    log.info(f"Parcel enrichment: {matched}/{len(records)} records matched")
     return records
 
 
@@ -529,7 +562,6 @@ def build_output(raw_records: list[dict], date_from: str, date_to: str) -> dict:
         try:
             dtype = raw.get("doc_type", "")
 
-            # For lien types, the grantee is the property owner
             if dtype in GRANTEE_IS_OWNER:
                 owner   = raw.get("grantee", "")
                 grantee = raw.get("grantor", "")
