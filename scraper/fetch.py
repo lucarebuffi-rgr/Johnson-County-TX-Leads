@@ -652,6 +652,15 @@ def build_output(raw_records: list, date_from: str, date_to: str) -> dict:
         except Exception:
             log.warning(f"Skipping: {traceback.format_exc()}")
 
+    # Remove records with no address
+    out_records = [r for r in out_records if r.get("prop_address") or r.get("mail_address")]
+
+    # Remove LLC/corp owned properties
+    out_records = [r for r in out_records if not any(
+        x in (r.get("owner", "")).upper()
+        for x in ("LLC", "INC", "CORP", "LTD", "LP ", "L.P.", "TRUST", "ASSOC", "HOMEOWNERS")
+    )]
+
     out_records.sort(key=lambda r: (-r["score"], r.get("filed", "") or ""))
     with_address = sum(1 for r in out_records if r["prop_address"] or r["mail_address"])
 
