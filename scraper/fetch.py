@@ -87,7 +87,7 @@ def name_variants(full: str) -> list:
         return [full]
 
     variants = set()
-    variants.add(" ".join(tokens))  # Original cleaned
+    variants.add(" ".join(tokens))
 
     if len(tokens) < 2:
         return list(variants)
@@ -96,28 +96,23 @@ def name_variants(full: str) -> list:
     first = tokens[1] if len(tokens) > 1 else ""
     mid   = tokens[2] if len(tokens) > 2 else ""
 
-    # With middle
     variants.add(f"{last} {first} {mid}".strip())
     variants.add(f"{last}, {first} {mid}".strip())
-    # Without middle (key fix: drops middle initial)
     variants.add(f"{last} {first}")
     variants.add(f"{last}, {first}")
-    # First/Last swapped
     variants.add(f"{first} {last}")
     if mid:
         variants.add(f"{first} {mid} {last}")
         variants.add(f"{first} {last}")
         if len(mid) == 1:
-            variants.add(f"{last} {first}")  # drop initial entirely
+            variants.add(f"{last} {first}")
 
     return [v for v in variants if v]
 
 
 def normalize_for_fuzzy(name: str) -> tuple:
-    """Returns (last_name, set_of_first_tokens) with suffixes/initials stripped."""
     name = re.sub(r"[^\w\s]", "", name.strip().upper())
     tokens = strip_suffixes(name.split())
-    # Remove single-char tokens (middle initials) if we still have 2+ tokens left
     filtered = [t for t in tokens if len(t) > 1]
     if len(filtered) >= 2:
         tokens = filtered
@@ -156,7 +151,6 @@ def build_parcel_lookup() -> dict:
         with zipfile.ZipFile(io.BytesIO(zip_data)) as z:
             log.info(f"ZIP contents: {z.namelist()}")
 
-            # ── Read owner file ───────────────────────────────────────────
             owner_rows = {}
             owner_file = next((n for n in z.namelist() if "owner" in n.lower()), None)
             if owner_file:
@@ -173,7 +167,6 @@ def build_parcel_lookup() -> dict:
                         if key:
                             owner_rows[key] = row
 
-            # ── Read NAL file ─────────────────────────────────────────────
             nal_rows = {}
             nal_file = next((n for n in z.namelist() if n.lower() == "externalnal.tab"), None)
             if not nal_file:
@@ -198,10 +191,8 @@ def build_parcel_lookup() -> dict:
 
             log.info(f"owner_rows: {len(owner_rows)}, nal_rows: {len(nal_rows)}")
 
-            # Debug sample
             sample_key = next(iter(owner_rows), None)
             if sample_key:
-                orow = owner_rows[sample_key]
                 nrow = nal_rows.get(sample_key)
                 log.info(f"Sample owner key: '{sample_key}' → NAL match: {bool(nrow)}")
                 if not nrow:
@@ -209,7 +200,6 @@ def build_parcel_lookup() -> dict:
                     nrow2 = nal_rows.get(r_key)
                     log.info(f"Tried R-key '{r_key}' → match: {bool(nrow2)}")
 
-            # ── Build lookup by owner name ─────────────────────────────────
             matched_count = 0
             for key, orow in owner_rows.items():
                 owner_name = (
@@ -231,15 +221,15 @@ def build_parcel_lookup() -> dict:
                 if nrow:
                     matched_count += 1
 
-                situs_num    = nrow.get("SITUS STREET NUM", "") or nrow.get("SITUS_STREET_NUM", "")
-                situs_name   = nrow.get("SITUS STREET NAME", "") or nrow.get("SITUS_STREET_NAME", "")
-                situs_sfx    = nrow.get("SITUS STREET SFX", "") or nrow.get("SITUS STREET SFX2", "")
+                situs_num  = nrow.get("SITUS STREET NUM", "") or nrow.get("SITUS_STREET_NUM", "")
+                situs_name = nrow.get("SITUS STREET NAME", "") or nrow.get("SITUS_STREET_NAME", "")
+                situs_sfx  = nrow.get("SITUS STREET SFX", "") or nrow.get("SITUS STREET SFX2", "")
                 prop_address = f"{situs_num} {situs_name} {situs_sfx}".strip()
                 if not prop_address:
                     prop_address = nrow.get("SITUS", "") or nrow.get("SITE_ADDR", "") or ""
 
                 prop_city = nrow.get("SITUS CITY", "") or nrow.get("SITUS_CITY", "") or "Cleburne"
-                prop_zip  = nrow.get("SITUS ZIP", "")  or nrow.get("SITUS_ZIP", "")  or ""
+                prop_zip  = nrow.get("SITUS ZIP", "") or nrow.get("SITUS_ZIP", "") or ""
 
                 mail_address = (
                     nrow.get("MAIL ADDRESS LINE 1", "") or
@@ -528,8 +518,11 @@ def enrich_with_parcel(records: list, lookup: dict) -> list:
     matched = 0
     for rec in records:
         dtype = rec.get("doc_type", "")
-owner = (rec.get("grantee", "") if dtype in GRANTEE_IS_OWNER else rec.get("grantor", "")).upper().strip()
-log.info(f"DEBUG lookup: '{owner}' | variants: {name_variants(owner)[:4]}")
+        if dtype in GRANTEE_IS_OWNER:
+            owner = rec.get("grantee", "").upper().strip()
+        else:
+            owner = rec.get("grantor", "").upper().strip()
+        log.info(f"DEBUG lookup: '{owner}' (doc_type={dtype})")
         parcel = None
 
         # 1. Fast exact variant lookup
@@ -544,9 +537,8 @@ log.info(f"DEBUG lookup: '{owner}' | variants: {name_variants(owner)[:4]}")
             if o_last:
                 for c_last, c_firsts, candidate in fuzzy_index:
                     if c_last != o_last:
-                        continue  # Last name must match exactly
+                        continue
 
-                    # Subset match: e.g. {"JOSHUA"} is subset of {"JOSHUA", "R"}
                     smaller = o_firsts if len(o_firsts) <= len(c_firsts) else c_firsts
                     larger  = o_firsts if len(o_firsts) >  len(c_firsts) else c_firsts
                     if not smaller or smaller.issubset(larger):
@@ -554,7 +546,6 @@ log.info(f"DEBUG lookup: '{owner}' | variants: {name_variants(owner)[:4]}")
                         log.debug(f"Fuzzy subset match: '{owner}' → {c_firsts}")
                         break
 
-                    # Fuzzy string compare on first tokens
                     o_str = " ".join(sorted(o_firsts))
                     c_str = " ".join(sorted(c_firsts))
                     if o_str and c_str and SequenceMatcher(None, o_str, c_str).ratio() >= 0.82:
