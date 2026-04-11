@@ -323,10 +323,41 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
                             log.info(f"    JS state keys: {list(data.keys()) if isinstance(data, dict) else 'list'}")
                             # If we got texts, parse them
                             texts = data.get("texts", []) if isinstance(data, dict) else []
-                            for text in texts:
-                                lines = [l.strip() for l in text.split("\n") if l.strip()]
-                                if len(lines) >= 3:
-                                    log.info(f"    Text block: {lines[:5]}")
+                    for text in texts:
+                        if not text:
+                            continue
+                        # Split by tab - data is tab-separated
+                        parts = [p.strip() for p in text.split("\t") if p.strip()]
+                        if len(parts) < 4:
+                            continue
+                        log.info(f"    Parsing text block: {parts[:6]}")
+                        try:
+                            grantor  = parts[0] if len(parts) > 0 else ""
+                            grantee  = parts[1] if len(parts) > 1 else ""
+                            doc_type_raw = parts[2] if len(parts) > 2 else doc_code
+                            filed_raw = parts[3] if len(parts) > 3 else ""
+                            doc_num   = parts[4] if len(parts) > 4 else ""
+                            legal     = parts[6] if len(parts) > 6 else ""
+
+                            if not grantor:
+                                continue
+
+                            all_records.append({
+                                "doc_num":   doc_num,
+                                "doc_type":  doc_code,
+                                "cat":       cat,
+                                "cat_label": cat_label,
+                                "filed":     parse_date(filed_raw) or filed_raw,
+                                "grantor":   grantor,
+                                "grantee":   grantee,
+                                "legal":     legal,
+                                "amount":    None,
+                                "clerk_url": f"{BASE_URL}/results?department=RP&docTypes={doc_code}&recordedDateRange={dt_from},{dt_to}&searchType=advancedSearch",
+                                "_demo":     False,
+                            })
+                        except Exception as e:
+                            log.warning(f"    Parse error: {e}")
+                            continue
                     except Exception as e:
                         log.warning(f"    JS state error: {e}")
 
