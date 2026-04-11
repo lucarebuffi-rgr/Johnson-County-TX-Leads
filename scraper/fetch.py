@@ -182,7 +182,10 @@ def build_parcel_lookup() -> dict:
                 if not owner_name:
                     continue
 
-                nrow = nal_rows.get(key, {})
+                # Try multiple key formats to match NAL rows
+                nrow = (nal_rows.get(key) or
+                        nal_rows.get(key.lstrip("0")) or
+                        nal_rows.get(key.zfill(10)) or {})
                 arow = all_rows.get(key, {})
 
                 # Merge all available data
@@ -240,6 +243,14 @@ def build_parcel_lookup() -> dict:
                 for variant in name_variants(owner_name):
                     lookup[variant] = parcel
 
+            # Debug: show a sample matched record
+            sample_key = next(iter(owner_rows), None)
+            if sample_key:
+                orow = owner_rows[sample_key]
+                nrow = nal_rows.get(sample_key, {})
+                log.info(f"Sample owner key: '{sample_key}' → NAL match: {bool(nrow)}")
+                log.info(f"Sample owner row: {dict(list(orow.items())[:4])}")
+                log.info(f"Sample NAL row: {dict(list(nrow.items())[:6]) if nrow else 'NO MATCH'}")
             log.info(f"Built parcel lookup: {len(lookup):,} name variants")
 
     except Exception:
