@@ -527,8 +527,9 @@ def enrich_with_parcel(records: list, lookup: dict) -> list:
 
     matched = 0
     for rec in records:
-        owner = rec.get("grantor", "").upper().strip()
-        log.info(f"DEBUG lookup: '{owner}' | variants: {name_variants(owner)[:4]}")
+        dtype = rec.get("doc_type", "")
+owner = (rec.get("grantee", "") if dtype in GRANTEE_IS_OWNER else rec.get("grantor", "")).upper().strip()
+log.info(f"DEBUG lookup: '{owner}' | variants: {name_variants(owner)[:4]}")
         parcel = None
 
         # 1. Fast exact variant lookup
