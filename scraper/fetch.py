@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 Johnson County TX – Motivated Seller Lead Scraper
-Uses Playwright to render JavaScript pages on PublicSearch.
-Targets React div-based results with class doc-preview-group__summary-group-item
+Intercepts API calls made by the PublicSearch React app.
 """
 
 import asyncio
@@ -11,7 +10,6 @@ import io
 import json
 import logging
 import re
-import time
 import traceback
 import zipfile
 from datetime import datetime, timedelta
@@ -31,7 +29,6 @@ except ImportError:
     HAS_DBF = False
 
 import requests
-from bs4 import BeautifulSoup
 
 logging.basicConfig(
     level=logging.INFO,
@@ -137,130 +134,104 @@ def build_parcel_lookup() -> dict:
 
     return lookup
 
-# ── HTML PARSER ───────────────────────────────────────────────────────────
+# ── API INTERCEPTOR ───────────────────────────────────────────────────────
 
-def parse_html_table(html: str, doc_code: str, cat: str, cat_label: str, dt_from: str, dt_to: str) -> tuple[list[dict], bool]:
+def parse_api_response(data: dict, doc_code: str, cat: str, cat_label: str) -> list[dict]:
+    """Parse JSON API response from PublicSearch."""
     records = []
-    soup = BeautifulSoup(html, "lxml")
 
-    search_url = f"{BASE_URL}/results?department=RP&docTypes={doc_code}&recordedDateRange={dt_from},{dt_to}&searchType=advancedSearch"
-
-    # Try React div-based results first
-    result_items = (
-        soup.select("[class*='doc-preview-group__summary-group-item']") or
-        soup.select("[class*='result-item']") or
-        soup.select("[class*='ResultItem']") or
-        soup.select("[class*='document-row']") or
-        soup.select("[class*='docPreview']")
+    # Try different response structures
+    hits = (
+        data.get("hits", {}).get("hits", []) or
+        data.get("results", []) or
+        data.get("documents", []) or
+        data.get("instruments", []) or
+        []
     )
 
-    if result_items:
-        log.info(f"    Found {len(result_items)} React result items")
-        for item in result_items:
-            texts = [t.strip() for t in item.stripped_strings if t.strip()]
-            if len(texts) < 3:
-                continue
+    if not hits and isinstance(data, list):
+        hits = data
 
-            link = ""
-            for a in item.find_all("a", href=True):
-                href = a["href"]
-                link = BASE_URL + href if href.startswith("/") else href
-                break
+    log.info(f"    API response: {len(hits)} hits")
 
-            date_idx = -1
-            for i, t in enumerate(texts):
-                if re.match(r"\d{1,2}/\d{1,2}/\d{4}", t):
-                    date_idx = i
-                    break
+    for hit in hits:
+        try:
+            src = hit.get("_source", hit)
 
-            grantor = grantee = filed = doc_num = legal = ""
-            if date_idx >= 2:
-                grantor  = texts[date_idx - 2]
-                grantee  = texts[date_idx - 1]
-                filed    = texts[date_idx]
-                doc_num  = texts[date_idx + 1] if date_idx + 1 < len(texts) else ""
-                legal    = texts[date_idx + 3] if date_idx + 3 < len(texts) else ""
-            elif len(texts) >= 3:
-                grantor  = texts[0]
-                grantee  = texts[1]
-                filed    = next((t for t in texts if re.match(r"\d{1,2}/\d{1,2}/\d{4}", t)), "")
-                doc_num  = texts[3] if len(texts) > 3 else ""
+            # Extract parties
+            grantor = ""
+            grantee = ""
+            parties = src.get("parties", [])
+            for party in parties:
+                role = str(party.get("role", "")).upper()
+                name = str(party.get("name", "")).strip()
+                if any(r in role for r in ["GRANTOR","SELLER","OWNER","DEBTOR"]):
+                    if not grantor:
+                        grantor = name
+                elif any(r in role for r in ["GRANTEE","BUYER","CREDITOR","SECURED"]):
+                    if not grantee:
+                        grantee = name
 
+            # Fallback party fields
             if not grantor:
+                grantor = (src.get("grantor") or src.get("grantorName") or
+                          src.get("party1Name") or src.get("ownerName") or "")
+            if not grantee:
+                grantee = (src.get("grantee") or src.get("granteeName") or
+                          src.get("party2Name") or "")
+
+            # Date
+            filed_raw = (
+                src.get("recordedDate") or src.get("filedDate") or
+                src.get("instrumentDate") or src.get("date") or
+                src.get("bookDate") or ""
+            )
+
+            # Doc number
+            doc_num = (
+                src.get("instrumentNumber") or src.get("docNumber") or
+                src.get("documentNumber") or src.get("instrument") or
+                src.get("id") or ""
+            )
+
+            # Amount
+            amount_raw = (
+                src.get("consideration") or src.get("amount") or
+                src.get("docAmount") or src.get("consideration_amount") or ""
+            )
+            try:
+                amount = float(re.sub(r"[^\d.]", "", str(amount_raw))) if amount_raw else None
+            except Exception:
+                amount = None
+
+            # Legal
+            legal = src.get("legalDescription") or src.get("legal") or ""
+
+            # Link
+            doc_id = src.get("id") or src.get("instrumentId") or doc_num
+            link = f"{BASE_URL}/doc/{doc_id}" if doc_id else BASE_URL
+
+            if not grantor and not doc_num:
                 continue
 
             records.append({
-                "doc_num":   doc_num,
+                "doc_num":   str(doc_num),
                 "doc_type":  doc_code,
                 "cat":       cat,
                 "cat_label": cat_label,
-                "filed":     parse_date(filed) or filed,
+                "filed":     parse_date(str(filed_raw)) or str(filed_raw),
                 "grantor":   grantor,
                 "grantee":   grantee,
                 "legal":     legal,
-                "amount":    None,
-                "clerk_url": link or search_url,
+                "amount":    amount,
+                "clerk_url": link,
                 "_demo":     False,
             })
+        except Exception:
+            continue
 
-    else:
-        # Fallback: try regular HTML table
-        rows = soup.select("table tr")
-        for row in rows:
-            cells = row.find_all("td")
-            if len(cells) < 4:
-                continue
-            texts = [c.get_text(strip=True) for c in cells]
-            if not texts or texts[0].upper() in ["GRANTOR", ""]:
-                continue
+    return records
 
-            link = ""
-            for a in row.find_all("a", href=True):
-                href = a["href"]
-                if any(k in href for k in ["/doc/", "/instrument/", "/record/"]):
-                    link = BASE_URL + href if href.startswith("/") else href
-                    break
-
-            date_idx = -1
-            for i, t in enumerate(texts):
-                if re.match(r"\d{1,2}/\d{1,2}/\d{4}", t):
-                    date_idx = i
-                    break
-
-            grantor = grantee = filed = doc_num = legal = ""
-            if date_idx >= 2:
-                grantor  = texts[date_idx - 2]
-                grantee  = texts[date_idx - 1]
-                filed    = texts[date_idx]
-                doc_num  = texts[date_idx + 1] if date_idx + 1 < len(texts) else ""
-                legal    = texts[date_idx + 3] if date_idx + 3 < len(texts) else ""
-
-            if not grantor:
-                continue
-
-            records.append({
-                "doc_num":   doc_num,
-                "doc_type":  doc_code,
-                "cat":       cat,
-                "cat_label": cat_label,
-                "filed":     parse_date(filed) or filed,
-                "grantor":   grantor,
-                "grantee":   grantee,
-                "legal":     legal,
-                "amount":    None,
-                "clerk_url": link or search_url,
-                "_demo":     False,
-            })
-
-    has_next = bool(
-        soup.find("a", string=re.compile(r"next|›|»", re.I)) or
-        soup.find("a", attrs={"aria-label": re.compile(r"next", re.I)}) or
-        soup.find(class_=re.compile(r"next", re.I))
-    )
-
-    return records, has_next
-
-# ── PLAYWRIGHT SCRAPER ────────────────────────────────────────────────────
 
 async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
     if not HAS_PLAYWRIGHT:
@@ -278,10 +249,6 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
-        context = await browser.new_context(
-            user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-                       "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        )
 
         for doc_code, (cat, cat_label) in DOC_TYPES.items():
             url = (f"{BASE_URL}/results"
@@ -292,50 +259,82 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
 
             log.info(f"  Scraping {doc_code} ({cat_label}) …")
 
-            page_num = 1
-            while True:
-                page_url = url if page_num == 1 else f"{url}&page={page_num}"
+            captured_responses = []
 
+            context = await browser.new_context(
+                user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                           "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            )
+            page = await context.new_page()
+
+            async def handle_response(response):
                 try:
-                    page = await context.new_page()
-                    await page.goto(page_url, timeout=30_000)
+                    rurl = response.url
+                    # Capture any JSON response that looks like search results
+                    if (response.status == 200 and
+                        any(k in rurl for k in ["search", "instrument", "document",
+                                                 "result", "query", "api", "elastic"])):
+                        ct = response.headers.get("content-type", "")
+                        if "json" in ct:
+                            try:
+                                data = await response.json()
+                                log.info(f"    Captured API: {rurl[:80]}")
+                                captured_responses.append((rurl, data))
+                            except Exception:
+                                pass
+                except Exception:
+                    pass
 
-                    # Wait for React to render results
+            page.on("response", handle_response)
+
+            try:
+                await page.goto(url, timeout=30_000)
+                # Wait longer for React to load and API calls to complete
+                await asyncio.sleep(8)
+
+                # Log what we captured
+                log.info(f"    Captured {len(captured_responses)} API responses")
+                for rurl, data in captured_responses:
+                    log.info(f"      URL: {rurl[:100]}")
+                    recs = parse_api_response(data, doc_code, cat, cat_label)
+                    all_records.extend(recs)
+                    log.info(f"      → {len(recs)} records")
+
+                # If no API captured, try to read from page's JavaScript state
+                if not captured_responses:
+                    log.info(f"    No API captured, trying JS state …")
                     try:
-                        await page.wait_for_selector(
-                            "[class*='doc-preview'], [class*='result'], table tr td, [class*='summary-group-item']",
-                            timeout=15_000
-                        )
-                    except PWTimeout:
-                        # Even if timeout, still grab HTML and try to parse
-                        pass
+                        # Try to extract data from React's window state
+                        js_data = await page.evaluate("""
+                            () => {
+                                // Try common React state locations
+                                if (window.__INITIAL_STATE__) return JSON.stringify(window.__INITIAL_STATE__);
+                                if (window.__REDUX_STATE__) return JSON.stringify(window.__REDUX_STATE__);
+                                if (window.__APP_STATE__) return JSON.stringify(window.__APP_STATE__);
+                                // Try to find data in React fiber
+                                const results = document.querySelectorAll('[class*="result"], [class*="doc-preview"], [class*="instrument"]');
+                                const texts = [];
+                                results.forEach(el => texts.push(el.innerText));
+                                return JSON.stringify({texts: texts});
+                            }
+                        """)
+                        if js_data:
+                            data = json.loads(js_data)
+                            log.info(f"    JS state keys: {list(data.keys()) if isinstance(data, dict) else 'list'}")
+                            # If we got texts, parse them
+                            texts = data.get("texts", []) if isinstance(data, dict) else []
+                            for text in texts:
+                                lines = [l.strip() for l in text.split("\n") if l.strip()]
+                                if len(lines) >= 3:
+                                    log.info(f"    Text block: {lines[:5]}")
+                    except Exception as e:
+                        log.warning(f"    JS state error: {e}")
 
-                    # Extra wait for JS to finish rendering
-                    await asyncio.sleep(3)
-
-                    html = await page.content()
-                    await page.close()
-
-                    records, has_next = parse_html_table(html, doc_code, cat, cat_label, dt_from, dt_to)
-                    all_records.extend(records)
-                    log.info(f"    Page {page_num}: {len(records)} records")
-
-                    if not records or not has_next:
-                        break
-
-                    page_num += 1
-                    if page_num > 20:
-                        break
-
-                    await asyncio.sleep(2)
-
-                except Exception as e:
-                    log.warning(f"    Error on {doc_code} page {page_num}: {e}")
-                    try:
-                        await page.close()
-                    except Exception:
-                        pass
-                    break
+            except Exception as e:
+                log.warning(f"    Page error for {doc_code}: {e}")
+            finally:
+                await page.close()
+                await context.close()
 
         await browser.close()
 
@@ -539,7 +538,7 @@ async def main():
     parcel_lookup = build_parcel_lookup()
     log.info(f"  {len(parcel_lookup):,} name variants indexed")
 
-    log.info("Scraping with Playwright …")
+    log.info("Scraping with Playwright (API intercept) …")
     raw_records = await scrape_all_playwright(date_from, date_to)
     log.info(f"Total raw records: {len(raw_records)}")
 
