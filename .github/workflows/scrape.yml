@@ -43,6 +43,24 @@ jobs:
         run: |
           python scraper/fetch.py
 
+      - name: Show debug HTML
+        run: |
+          python -c "
+          import asyncio
+          from playwright.async_api import async_playwright
+          async def debug():
+              async with async_playwright() as p:
+                  browser = await p.chromium.launch(headless=True)
+                  page = await browser.new_page()
+                  await page.goto('https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260328,20260411&searchType=advancedSearch', timeout=30000)
+                  await asyncio.sleep(5)
+                  html = await page.content()
+                  await browser.close()
+                  # Print first 3000 chars
+                  print(html[:3000])
+          asyncio.run(debug())
+          "
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
