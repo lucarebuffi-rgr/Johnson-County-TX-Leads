@@ -54,6 +54,9 @@ DOC_TYPES = {
     "ChSLe": ("lien",            "Child Support Lien"),
 }
 
+# For these types the GRANTEE is the property owner being liened against
+GRANTEE_IS_OWNER = {"NooLe", "Lie", "MeLCc", "HoLe", "ChSLe", "FeTLe", "StTLe"}
+
 LOOKBACK_DAYS   = 14
 REQUEST_TIMEOUT = 30
 
@@ -141,7 +144,6 @@ def build_parcel_lookup() -> dict:
 # ── TEXT BLOCK PARSER ─────────────────────────────────────────────────────
 
 def parse_text_block(text: str, doc_code: str, cat: str, cat_label: str, dt_from: str, dt_to: str) -> Optional[dict]:
-    """Parse a tab-separated text block from the React JS state."""
     try:
         if not text:
             return None
@@ -156,7 +158,6 @@ def parse_text_block(text: str, doc_code: str, cat: str, cat_label: str, dt_from
         doc_num   = ""
         legal     = ""
 
-        # Find date in parts
         for i, p in enumerate(parts):
             if re.match(r"\d{1,2}/\d{1,2}/\d{4}", p):
                 filed_raw = p
@@ -297,7 +298,6 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
                     js_result = await page.evaluate("""
                         () => {
                             const texts = [];
-                            // Try table rows first
                             const rows = document.querySelectorAll('tbody tr');
                             if (rows.length > 0) {
                                 rows.forEach(row => {
@@ -310,7 +310,6 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
                                 });
                                 return texts;
                             }
-                            // Fallback: try list items
                             const items = document.querySelectorAll(
                                 '[class*="group-item"], [class*="doc-row"], [class*="instrument-row"]'
                             );
@@ -322,7 +321,7 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
                                     texts.push(parts.join('\\t'));
                                 } else {
                                     const t = el.innerText.trim();
-                                    if (t.length > 10 && t.length < 500) texts.push(t);
+                                    if (t && t.length > 10 && t.length < 500) texts.push(t);
                                 }
                             });
                             return texts;
@@ -426,7 +425,7 @@ def score_record(rec: dict) -> tuple[int, list[str]]:
     if dtype == "ChSLe": flags.append("Child support lien")
     if dtype == "Lie":   flags.append("Lien")
 
-    owner = rec.get("grantor", "").upper()
+    owner = rec.get("owner", "").upper()
     if any(x in owner for x in ("LLC", "INC", "CORP", "LTD", "LP ", "L.P.")):
         flags.append("LLC / corp owner")
 
@@ -453,15 +452,26 @@ def build_output(raw_records: list[dict], date_from: str, date_to: str) -> dict:
     out_records = []
     for raw in raw_records:
         try:
-            score, flags = score_record(raw)
+            dtype = raw.get("doc_type", "")
+
+            # For lien types, the grantee is the property owner
+            if dtype in GRANTEE_IS_OWNER:
+                owner   = raw.get("grantee", "")
+                grantee = raw.get("grantor", "")
+            else:
+                owner   = raw.get("grantor", "")
+                grantee = raw.get("grantee", "")
+
+            score, flags = score_record({**raw, "owner": owner})
+
             out_records.append({
                 "doc_num":      raw.get("doc_num", ""),
-                "doc_type":     raw.get("doc_type", ""),
+                "doc_type":     dtype,
                 "filed":        raw.get("filed", ""),
                 "cat":          raw.get("cat", "other"),
                 "cat_label":    raw.get("cat_label", ""),
-                "owner":        raw.get("grantor", ""),
-                "grantee":      raw.get("grantee", ""),
+                "owner":        owner,
+                "grantee":      grantee,
                 "amount":       raw.get("amount"),
                 "legal":        raw.get("legal", ""),
                 "prop_address": raw.get("prop_address", ""),
