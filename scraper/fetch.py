@@ -75,8 +75,32 @@ def name_variants(full: str) -> list[str]:
     parts = full.split()
     if len(parts) < 2:
         return [full]
-    first, last = parts[0], parts[-1]
-    return [full, f"{last} {first}", f"{last}, {first}", f"{last},{first}"]
+
+    variants = set()
+    variants.add(full)
+
+    last  = parts[0]
+    first = parts[1] if len(parts) > 1 else ""
+    mid   = parts[2] if len(parts) > 2 else ""
+
+    # LAST FIRST MIDDLE
+    variants.add(f"{last} {first} {mid}".strip())
+    # LAST FIRST (no middle)
+    variants.add(f"{last} {first}")
+    # LAST, FIRST MIDDLE
+    variants.add(f"{last}, {first} {mid}".strip())
+    # LAST, FIRST (no middle)
+    variants.add(f"{last}, {first}")
+    # FIRST LAST (no middle)
+    variants.add(f"{first} {last}")
+    # FIRST MIDDLE LAST
+    if mid:
+        variants.add(f"{first} {mid} {last}")
+        # Without middle initial
+        variants.add(f"{first} {last}")
+        variants.add(f"{last} {first}")
+
+    return list(variants)
 
 
 # ── PARCEL LOOKUP ─────────────────────────────────────────────────────────
