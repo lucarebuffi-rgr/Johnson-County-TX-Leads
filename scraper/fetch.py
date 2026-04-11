@@ -182,10 +182,12 @@ def build_parcel_lookup() -> dict:
                 if not owner_name:
                     continue
 
-                # Try multiple key formats to match NAL rows
+                # NAL uses 'R000000128' format, owner uses '128'
                 nrow = (nal_rows.get(key) or
+                        nal_rows.get("R" + key.zfill(9)) or
+                        nal_rows.get("R" + key.zfill(8)) or
                         nal_rows.get(key.lstrip("0")) or
-                        nal_rows.get(key.zfill(10)) or {})
+                        nal_rows.get(key.zfill(9)) or {})
                 arow = all_rows.get(key, {})
 
                 # Merge all available data
