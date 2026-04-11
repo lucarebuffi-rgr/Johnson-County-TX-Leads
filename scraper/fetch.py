@@ -41,12 +41,10 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-CLERK_PORTAL = "https://www.johnsoncountytx.org/government/county-clerk/online-records"
+CLERK_PORTAL = "https://johnson.tx.publicsearch.us/"
 
 CLERK_SEARCH_URLS = [
-    "https://countyclerk.johnsoncountytx.org/",
-    "https://www.corelogic.com/solutions/",
-    "https://texassearch.net/johnsoncounty/",
+    "https://johnson.tx.publicsearch.us/",
 ]
 
 CAD_BULK_URLS = [
