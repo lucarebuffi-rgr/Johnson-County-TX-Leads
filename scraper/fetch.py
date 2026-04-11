@@ -188,42 +188,42 @@ def build_parcel_lookup() -> dict:
                 # Merge all available data
                 merged = {**arow, **nrow, **orow}
 
-                # Property address
-                prop_address = (
-                    merged.get("SITUS_NUM","") + " " + merged.get("SITUS_STREET","")
-                ).strip()
+                # Property address - using exact column names from NAL file
+                situs_num    = merged.get("SITUS STREET NUM","") or merged.get("SITUS_NUM","")
+                situs_street = merged.get("SITUS STREET NAME","") or merged.get("SITUS_STREET","")
+                prop_address = f"{situs_num} {situs_street}".strip()
                 if not prop_address:
                     prop_address = (
                         merged.get("SITUS","") or merged.get("SITE_ADDR","") or
-                        merged.get("PROP_ADDR","") or merged.get("ADDRESS","") or
-                        merged.get("STREET_ADDR","") or ""
+                        merged.get("PROP_ADDR","") or merged.get("ADDRESS","") or ""
                     )
 
                 prop_city = (
-                    merged.get("SITUS_CITY","") or merged.get("SITE_CITY","") or
-                    merged.get("PROP_CITY","") or "Cleburne"
+                    merged.get("SITUS CITY","") or merged.get("SITUS_CITY","") or
+                    merged.get("SITE_CITY","") or "Cleburne"
                 )
                 prop_zip = (
-                    merged.get("SITUS_ZIP","") or merged.get("SITE_ZIP","") or
-                    merged.get("PROP_ZIP","") or ""
+                    merged.get("SITUS ZIP","") or merged.get("SITUS_ZIP","") or
+                    merged.get("SITE_ZIP","") or ""
                 )
 
-                # Mailing address
+                # Mailing address - using exact column names from NAL file
                 mail_address = (
-                    merged.get("ADDR1","") or merged.get("MAIL_ADDR","") or
-                    merged.get("MAILING_ADDRESS","") or merged.get("MAIL_ADDRESS","") or
-                    merged.get("ADDRESS1","") or ""
+                    merged.get("MAIL ADDRESS LINE 1","") or
+                    merged.get("MAIL_ADDRESS_LINE_1","") or
+                    merged.get("ADDR1","") or merged.get("MAIL_ADDR","") or ""
                 )
                 mail_city = (
-                    merged.get("CITY","") or merged.get("MAIL_CITY","") or
-                    merged.get("MAILING_CITY","") or ""
+                    merged.get("MAIL CITY","") or merged.get("MAIL_CITY","") or
+                    merged.get("CITY","") or ""
                 )
                 mail_state = (
-                    merged.get("STATE","") or merged.get("MAIL_STATE","") or "TX"
+                    merged.get("MAIL STATE","") or merged.get("MAIL_STATE","") or
+                    merged.get("STATE","") or "TX"
                 )
                 mail_zip = (
-                    merged.get("ZIP","") or merged.get("MAIL_ZIP","") or
-                    merged.get("MAILING_ZIP","") or ""
+                    merged.get("MAIL ZIP","") or merged.get("MAIL_ZIP","") or
+                    merged.get("ZIP","") or ""
                 )
 
                 parcel = {
