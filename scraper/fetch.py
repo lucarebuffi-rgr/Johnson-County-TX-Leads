@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Johnson County TX – Motivated Seller Lead Scraper
-Intercepts API calls made by the PublicSearch React app.
+Intercepts API calls and parses JS state from PublicSearch React app.
 """
 
 import asyncio
@@ -57,6 +57,7 @@ DOC_TYPES = {
 LOOKBACK_DAYS   = 14
 REQUEST_TIMEOUT = 30
 
+
 def parse_date(raw: str) -> Optional[str]:
     for fmt in ("%m/%d/%Y", "%Y-%m-%d", "%m-%d-%Y", "%Y%m%d"):
         try:
@@ -65,6 +66,7 @@ def parse_date(raw: str) -> Optional[str]:
             continue
     return None
 
+
 def name_variants(full: str) -> list[str]:
     full = full.strip().upper()
     parts = full.split()
@@ -72,6 +74,7 @@ def name_variants(full: str) -> list[str]:
         return [full]
     first, last = parts[0], parts[-1]
     return [full, f"{last} {first}", f"{last}, {first}", f"{last},{first}"]
+
 
 # ── PARCEL LOOKUP ─────────────────────────────────────────────────────────
 
@@ -134,104 +137,57 @@ def build_parcel_lookup() -> dict:
 
     return lookup
 
-# ── API INTERCEPTOR ───────────────────────────────────────────────────────
 
-def parse_api_response(data: dict, doc_code: str, cat: str, cat_label: str) -> list[dict]:
-    """Parse JSON API response from PublicSearch."""
-    records = []
+# ── TEXT BLOCK PARSER ─────────────────────────────────────────────────────
 
-    # Try different response structures
-    hits = (
-        data.get("hits", {}).get("hits", []) or
-        data.get("results", []) or
-        data.get("documents", []) or
-        data.get("instruments", []) or
-        []
-    )
+def parse_text_block(text: str, doc_code: str, cat: str, cat_label: str, dt_from: str, dt_to: str) -> Optional[dict]:
+    """Parse a tab-separated text block from the React JS state."""
+    try:
+        if not text:
+            return None
+        parts = [p.strip() for p in text.split("\t")]
+        parts = [p for p in parts if p]
+        if len(parts) < 3:
+            return None
 
-    if not hits and isinstance(data, list):
-        hits = data
+        grantor  = parts[0] if len(parts) > 0 else ""
+        grantee  = parts[1] if len(parts) > 1 else ""
+        filed_raw = ""
+        doc_num   = ""
+        legal     = ""
 
-    log.info(f"    API response: {len(hits)} hits")
+        # Find date in parts
+        for i, p in enumerate(parts):
+            if re.match(r"\d{1,2}/\d{1,2}/\d{4}", p):
+                filed_raw = p
+                doc_num   = parts[i + 1] if i + 1 < len(parts) else ""
+                legal     = parts[i + 3] if i + 3 < len(parts) else ""
+                break
 
-    for hit in hits:
-        try:
-            src = hit.get("_source", hit)
+        if not grantor:
+            return None
 
-            # Extract parties
-            grantor = ""
-            grantee = ""
-            parties = src.get("parties", [])
-            for party in parties:
-                role = str(party.get("role", "")).upper()
-                name = str(party.get("name", "")).strip()
-                if any(r in role for r in ["GRANTOR","SELLER","OWNER","DEBTOR"]):
-                    if not grantor:
-                        grantor = name
-                elif any(r in role for r in ["GRANTEE","BUYER","CREDITOR","SECURED"]):
-                    if not grantee:
-                        grantee = name
+        search_url = (f"{BASE_URL}/results?department=RP&docTypes={doc_code}"
+                      f"&recordedDateRange={dt_from},{dt_to}&searchType=advancedSearch")
 
-            # Fallback party fields
-            if not grantor:
-                grantor = (src.get("grantor") or src.get("grantorName") or
-                          src.get("party1Name") or src.get("ownerName") or "")
-            if not grantee:
-                grantee = (src.get("grantee") or src.get("granteeName") or
-                          src.get("party2Name") or "")
+        return {
+            "doc_num":   doc_num,
+            "doc_type":  doc_code,
+            "cat":       cat,
+            "cat_label": cat_label,
+            "filed":     parse_date(filed_raw) or filed_raw,
+            "grantor":   grantor,
+            "grantee":   grantee,
+            "legal":     legal,
+            "amount":    None,
+            "clerk_url": search_url,
+            "_demo":     False,
+        }
+    except Exception:
+        return None
 
-            # Date
-            filed_raw = (
-                src.get("recordedDate") or src.get("filedDate") or
-                src.get("instrumentDate") or src.get("date") or
-                src.get("bookDate") or ""
-            )
 
-            # Doc number
-            doc_num = (
-                src.get("instrumentNumber") or src.get("docNumber") or
-                src.get("documentNumber") or src.get("instrument") or
-                src.get("id") or ""
-            )
-
-            # Amount
-            amount_raw = (
-                src.get("consideration") or src.get("amount") or
-                src.get("docAmount") or src.get("consideration_amount") or ""
-            )
-            try:
-                amount = float(re.sub(r"[^\d.]", "", str(amount_raw))) if amount_raw else None
-            except Exception:
-                amount = None
-
-            # Legal
-            legal = src.get("legalDescription") or src.get("legal") or ""
-
-            # Link
-            doc_id = src.get("id") or src.get("instrumentId") or doc_num
-            link = f"{BASE_URL}/doc/{doc_id}" if doc_id else BASE_URL
-
-            if not grantor and not doc_num:
-                continue
-
-            records.append({
-                "doc_num":   str(doc_num),
-                "doc_type":  doc_code,
-                "cat":       cat,
-                "cat_label": cat_label,
-                "filed":     parse_date(str(filed_raw)) or str(filed_raw),
-                "grantor":   grantor,
-                "grantee":   grantee,
-                "legal":     legal,
-                "amount":    amount,
-                "clerk_url": link,
-                "_demo":     False,
-            })
-        except Exception:
-            continue
-
-    return records
-
+# ── PLAYWRIGHT SCRAPER ────────────────────────────────────────────────────
 
 async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
     if not HAS_PLAYWRIGHT:
@@ -242,8 +198,8 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
         dt_from = datetime.strptime(date_from, "%m/%d/%Y").strftime("%Y%m%d")
         dt_to   = datetime.strptime(date_to,   "%m/%d/%Y").strftime("%Y%m%d")
     except Exception:
-        dt_from = date_from.replace("/","")
-        dt_to   = date_to.replace("/","")
+        dt_from = date_from.replace("/", "")
+        dt_to   = date_to.replace("/", "")
 
     all_records: list[dict] = []
 
@@ -259,8 +215,7 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
 
             log.info(f"  Scraping {doc_code} ({cat_label}) …")
 
-            captured_responses = []
-
+            captured_api: list[dict] = []
             context = await browser.new_context(
                 user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
                            "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -270,18 +225,15 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
             async def handle_response(response):
                 try:
                     rurl = response.url
-                    # Capture any JSON response that looks like search results
-                    if (response.status == 200 and
-                        any(k in rurl for k in ["search", "instrument", "document",
-                                                 "result", "query", "api", "elastic"])):
+                    if response.status == 200 and any(
+                        k in rurl for k in ["search", "instrument", "document",
+                                            "result", "query", "api", "elastic"]
+                    ):
                         ct = response.headers.get("content-type", "")
                         if "json" in ct:
-                            try:
-                                data = await response.json()
-                                log.info(f"    Captured API: {rurl[:80]}")
-                                captured_responses.append((rurl, data))
-                            except Exception:
-                                pass
+                            data = await response.json()
+                            captured_api.append(data)
+                            log.info(f"    Captured API: {rurl[:80]}")
                 except Exception:
                     pass
 
@@ -289,80 +241,84 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
 
             try:
                 await page.goto(url, timeout=30_000)
-                # Wait longer for React to load and API calls to complete
                 await asyncio.sleep(8)
 
-                # Log what we captured
-                log.info(f"    Captured {len(captured_responses)} API responses")
-                for rurl, data in captured_responses:
-                    log.info(f"      URL: {rurl[:100]}")
-                    recs = parse_api_response(data, doc_code, cat, cat_label)
-                    all_records.extend(recs)
-                    log.info(f"      → {len(recs)} records")
-
-                # If no API captured, try to read from page's JavaScript state
-                if not captured_responses:
-                    log.info(f"    No API captured, trying JS state …")
-                    try:
-                        # Try to extract data from React's window state
-                        js_data = await page.evaluate("""
-                            () => {
-                                // Try common React state locations
-                                if (window.__INITIAL_STATE__) return JSON.stringify(window.__INITIAL_STATE__);
-                                if (window.__REDUX_STATE__) return JSON.stringify(window.__REDUX_STATE__);
-                                if (window.__APP_STATE__) return JSON.stringify(window.__APP_STATE__);
-                                // Try to find data in React fiber
-                                const results = document.querySelectorAll('[class*="result"], [class*="doc-preview"], [class*="instrument"]');
-                                const texts = [];
-                                results.forEach(el => texts.push(el.innerText));
-                                return JSON.stringify({texts: texts});
-                            }
-                        """)
-                        if js_data:
-                            data = json.loads(js_data)
-                            log.info(f"    JS state keys: {list(data.keys()) if isinstance(data, dict) else 'list'}")
-                            # If we got texts, parse them
-                            texts = data.get("texts", []) if isinstance(data, dict) else []
-                    for text in texts:
-                        if not text:
-                            continue
-                        # Split by tab - data is tab-separated
-                        parts = [p.strip() for p in text.split("\t") if p.strip()]
-                        if len(parts) < 4:
-                            continue
-                        log.info(f"    Parsing text block: {parts[:6]}")
-                        try:
-                            grantor  = parts[0] if len(parts) > 0 else ""
-                            grantee  = parts[1] if len(parts) > 1 else ""
-                            doc_type_raw = parts[2] if len(parts) > 2 else doc_code
-                            filed_raw = parts[3] if len(parts) > 3 else ""
-                            doc_num   = parts[4] if len(parts) > 4 else ""
-                            legal     = parts[6] if len(parts) > 6 else ""
-
+                # Try API responses first
+                for data in captured_api:
+                    hits = (
+                        data.get("hits", {}).get("hits", []) or
+                        data.get("results", []) or
+                        data.get("documents", []) or
+                        []
+                    )
+                    if hits:
+                        log.info(f"    API hits: {len(hits)}")
+                        for hit in hits:
+                            src = hit.get("_source", hit)
+                            grantor = ""
+                            grantee = ""
+                            for party in src.get("parties", []):
+                                role = str(party.get("role", "")).upper()
+                                name = str(party.get("name", "")).strip()
+                                if any(r in role for r in ["GRANTOR", "SELLER", "DEBTOR", "OWNER"]):
+                                    grantor = grantor or name
+                                else:
+                                    grantee = grantee or name
                             if not grantor:
-                                continue
+                                grantor = src.get("grantor") or src.get("grantorName") or ""
+                            if not grantee:
+                                grantee = src.get("grantee") or src.get("granteeName") or ""
 
-                            all_records.append({
-                                "doc_num":   doc_num,
-                                "doc_type":  doc_code,
-                                "cat":       cat,
-                                "cat_label": cat_label,
-                                "filed":     parse_date(filed_raw) or filed_raw,
-                                "grantor":   grantor,
-                                "grantee":   grantee,
-                                "legal":     legal,
-                                "amount":    None,
-                                "clerk_url": f"{BASE_URL}/results?department=RP&docTypes={doc_code}&recordedDateRange={dt_from},{dt_to}&searchType=advancedSearch",
-                                "_demo":     False,
-                            })
-                        except Exception as e:
-                            log.warning(f"    Parse error: {e}")
-                            continue
-                    except Exception as e:
-                        log.warning(f"    JS state error: {e}")
+                            filed_raw = (src.get("recordedDate") or src.get("filedDate") or
+                                        src.get("instrumentDate") or "")
+                            doc_num   = (src.get("instrumentNumber") or src.get("docNumber") or
+                                        src.get("id") or "")
+                            legal     = src.get("legalDescription") or src.get("legal") or ""
+                            doc_id    = src.get("id") or doc_num
+
+                            if grantor or doc_num:
+                                all_records.append({
+                                    "doc_num":   str(doc_num),
+                                    "doc_type":  doc_code,
+                                    "cat":       cat,
+                                    "cat_label": cat_label,
+                                    "filed":     parse_date(str(filed_raw)) or str(filed_raw),
+                                    "grantor":   grantor,
+                                    "grantee":   grantee,
+                                    "legal":     legal,
+                                    "amount":    None,
+                                    "clerk_url": f"{BASE_URL}/doc/{doc_id}" if doc_id else url,
+                                    "_demo":     False,
+                                })
+
+                # Fallback: parse JS state text blocks
+                if not captured_api or not all_records:
+                    log.info(f"    No API data, trying JS state …")
+                    js_result = await page.evaluate("""
+                        () => {
+                            const els = document.querySelectorAll(
+                                '[class*="result"], [class*="doc-preview"], [class*="instrument"], [class*="summary"]'
+                            );
+                            const texts = [];
+                            els.forEach(el => {
+                                const t = el.innerText;
+                                if (t && t.length > 10) texts.push(t);
+                            });
+                            return texts;
+                        }
+                    """)
+
+                    if js_result:
+                        log.info(f"    JS returned {len(js_result)} text blocks")
+                        for text in js_result:
+                            rec = parse_text_block(text, doc_code, cat, cat_label, dt_from, dt_to)
+                            if rec:
+                                all_records.append(rec)
+                    else:
+                        log.info(f"    JS returned nothing")
 
             except Exception as e:
-                log.warning(f"    Page error for {doc_code}: {e}")
+                log.warning(f"    Error for {doc_code}: {e}")
             finally:
                 await page.close()
                 await context.close()
@@ -370,6 +326,7 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
         await browser.close()
 
     return all_records
+
 
 # ── DEMO DATA ─────────────────────────────────────────────────────────────
 
@@ -405,6 +362,7 @@ def generate_demo_records(date_from: str, date_to: str) -> list[dict]:
         })
     return recs
 
+
 # ── ENRICHMENT ────────────────────────────────────────────────────────────
 
 def enrich_with_parcel(records: list[dict], lookup: dict) -> list[dict]:
@@ -428,6 +386,7 @@ def enrich_with_parcel(records: list[dict], lookup: dict) -> list[dict]:
             rec.setdefault("mail_zip",     "")
     return records
 
+
 # ── SCORING ───────────────────────────────────────────────────────────────
 
 def score_record(rec: dict) -> tuple[int, list[str]]:
@@ -436,22 +395,22 @@ def score_record(rec: dict) -> tuple[int, list[str]]:
     dtype  = rec.get("doc_type", "")
     amount = rec.get("amount") or 0
 
-    if dtype in ("LiPn","ReoLPn"): flags.append("Lis pendens")
-    if dtype in ("FeTLe","StTLe"): flags.append("Tax lien")
-    if dtype in ("Jun","AboJn"):   flags.append("Judgment lien")
-    if dtype == "Prt":    flags.append("Probate / estate")
-    if dtype == "MeLCc":  flags.append("Mechanic lien")
-    if dtype == "NooLe":  flags.append("Notice of lien")
-    if dtype == "HoLe":   flags.append("Hospital lien")
-    if dtype == "ChSLe":  flags.append("Child support lien")
-    if dtype == "Lie":    flags.append("Lien")
+    if dtype in ("LiPn", "ReoLPn"): flags.append("Lis pendens")
+    if dtype in ("FeTLe", "StTLe"): flags.append("Tax lien")
+    if dtype in ("Jun", "AboJn"):   flags.append("Judgment lien")
+    if dtype == "Prt":   flags.append("Probate / estate")
+    if dtype == "MeLCc": flags.append("Mechanic lien")
+    if dtype == "NooLe": flags.append("Notice of lien")
+    if dtype == "HoLe":  flags.append("Hospital lien")
+    if dtype == "ChSLe": flags.append("Child support lien")
+    if dtype == "Lie":   flags.append("Lien")
 
     owner = rec.get("grantor", "").upper()
-    if any(x in owner for x in ("LLC","INC","CORP","LTD","LP ","L.P.")):
+    if any(x in owner for x in ("LLC", "INC", "CORP", "LTD", "LP ", "L.P.")):
         flags.append("LLC / corp owner")
 
     try:
-        filed = datetime.strptime(rec.get("filed",""), "%Y-%m-%d")
+        filed = datetime.strptime(rec.get("filed", ""), "%Y-%m-%d")
         if (datetime.today() - filed).days <= 14:
             flags.append("New this week")
     except Exception:
@@ -466,6 +425,7 @@ def score_record(rec: dict) -> tuple[int, list[str]]:
     if has_addr: score += 5
     return min(score, 100), flags
 
+
 # ── OUTPUT ────────────────────────────────────────────────────────────────
 
 def build_output(raw_records: list[dict], date_from: str, date_to: str) -> dict:
@@ -474,32 +434,32 @@ def build_output(raw_records: list[dict], date_from: str, date_to: str) -> dict:
         try:
             score, flags = score_record(raw)
             out_records.append({
-                "doc_num":      raw.get("doc_num",""),
-                "doc_type":     raw.get("doc_type",""),
-                "filed":        raw.get("filed",""),
-                "cat":          raw.get("cat","other"),
-                "cat_label":    raw.get("cat_label",""),
-                "owner":        raw.get("grantor",""),
-                "grantee":      raw.get("grantee",""),
+                "doc_num":      raw.get("doc_num", ""),
+                "doc_type":     raw.get("doc_type", ""),
+                "filed":        raw.get("filed", ""),
+                "cat":          raw.get("cat", "other"),
+                "cat_label":    raw.get("cat_label", ""),
+                "owner":        raw.get("grantor", ""),
+                "grantee":      raw.get("grantee", ""),
                 "amount":       raw.get("amount"),
-                "legal":        raw.get("legal",""),
-                "prop_address": raw.get("prop_address",""),
-                "prop_city":    raw.get("prop_city",""),
-                "prop_state":   raw.get("prop_state","TX"),
-                "prop_zip":     raw.get("prop_zip",""),
-                "mail_address": raw.get("mail_address",""),
-                "mail_city":    raw.get("mail_city",""),
-                "mail_state":   raw.get("mail_state","TX"),
-                "mail_zip":     raw.get("mail_zip",""),
-                "clerk_url":    raw.get("clerk_url",""),
+                "legal":        raw.get("legal", ""),
+                "prop_address": raw.get("prop_address", ""),
+                "prop_city":    raw.get("prop_city", ""),
+                "prop_state":   raw.get("prop_state", "TX"),
+                "prop_zip":     raw.get("prop_zip", ""),
+                "mail_address": raw.get("mail_address", ""),
+                "mail_city":    raw.get("mail_city", ""),
+                "mail_state":   raw.get("mail_state", "TX"),
+                "mail_zip":     raw.get("mail_zip", ""),
+                "clerk_url":    raw.get("clerk_url", ""),
                 "flags":        flags,
                 "score":        score,
-                "_demo":        raw.get("_demo",False),
+                "_demo":        raw.get("_demo", False),
             })
         except Exception:
             log.warning(f"Skipping: {traceback.format_exc()}")
 
-    out_records.sort(key=lambda r: (-r["score"], r.get("filed","") or ""))
+    out_records.sort(key=lambda r: (-r["score"], r.get("filed", "") or ""))
     with_address = sum(1 for r in out_records if r["prop_address"] or r["mail_address"])
 
     return {
@@ -511,6 +471,7 @@ def build_output(raw_records: list[dict], date_from: str, date_to: str) -> dict:
         "records":      out_records,
     }
 
+
 def save_output(data: dict):
     for path in ["dashboard/records.json", "data/records.json"]:
         p = Path(path)
@@ -518,41 +479,43 @@ def save_output(data: dict):
         p.write_text(json.dumps(data, indent=2))
         log.info(f"Saved {data['total']} records → {path}")
 
+
 def export_ghl_csv(data: dict):
     fieldnames = [
-        "First Name","Last Name","Mailing Address","Mailing City","Mailing State","Mailing Zip",
-        "Property Address","Property City","Property State","Property Zip",
-        "Lead Type","Document Type","Date Filed","Document Number","Amount/Debt Owed",
-        "Seller Score","Motivated Seller Flags","Source","Public Records URL",
+        "First Name", "Last Name", "Mailing Address", "Mailing City", "Mailing State", "Mailing Zip",
+        "Property Address", "Property City", "Property State", "Property Zip",
+        "Lead Type", "Document Type", "Date Filed", "Document Number", "Amount/Debt Owed",
+        "Seller Score", "Motivated Seller Flags", "Source", "Public Records URL",
     ]
     buf = io.StringIO()
     writer = csv.DictWriter(buf, fieldnames=fieldnames)
     writer.writeheader()
     for r in data["records"]:
-        parts = (r.get("owner","")).split()
+        parts = (r.get("owner", "")).split()
         writer.writerow({
             "First Name":             parts[0] if parts else "",
-            "Last Name":              " ".join(parts[1:]) if len(parts)>1 else "",
-            "Mailing Address":        r.get("mail_address",""),
-            "Mailing City":           r.get("mail_city",""),
-            "Mailing State":          r.get("mail_state","TX"),
-            "Mailing Zip":            r.get("mail_zip",""),
-            "Property Address":       r.get("prop_address",""),
-            "Property City":          r.get("prop_city",""),
-            "Property State":         r.get("prop_state","TX"),
-            "Property Zip":           r.get("prop_zip",""),
-            "Lead Type":              r.get("cat_label",""),
-            "Document Type":          r.get("doc_type",""),
-            "Date Filed":             r.get("filed",""),
-            "Document Number":        r.get("doc_num",""),
-            "Amount/Debt Owed":       str(r.get("amount","") or ""),
-            "Seller Score":           str(r.get("score","")),
-            "Motivated Seller Flags": "|".join(r.get("flags",[])),
+            "Last Name":              " ".join(parts[1:]) if len(parts) > 1 else "",
+            "Mailing Address":        r.get("mail_address", ""),
+            "Mailing City":           r.get("mail_city", ""),
+            "Mailing State":          r.get("mail_state", "TX"),
+            "Mailing Zip":            r.get("mail_zip", ""),
+            "Property Address":       r.get("prop_address", ""),
+            "Property City":          r.get("prop_city", ""),
+            "Property State":         r.get("prop_state", "TX"),
+            "Property Zip":           r.get("prop_zip", ""),
+            "Lead Type":              r.get("cat_label", ""),
+            "Document Type":          r.get("doc_type", ""),
+            "Date Filed":             r.get("filed", ""),
+            "Document Number":        r.get("doc_num", ""),
+            "Amount/Debt Owed":       str(r.get("amount", "") or ""),
+            "Seller Score":           str(r.get("score", "")),
+            "Motivated Seller Flags": "|".join(r.get("flags", [])),
             "Source":                 "Johnson County TX",
-            "Public Records URL":     r.get("clerk_url",""),
+            "Public Records URL":     r.get("clerk_url", ""),
         })
     Path("data/ghl_export.csv").write_text(buf.getvalue())
     log.info("GHL CSV saved")
+
 
 # ── MAIN ──────────────────────────────────────────────────────────────────
 
@@ -569,7 +532,7 @@ async def main():
     parcel_lookup = build_parcel_lookup()
     log.info(f"  {len(parcel_lookup):,} name variants indexed")
 
-    log.info("Scraping with Playwright (API intercept) …")
+    log.info("Scraping with Playwright (API intercept + JS state) …")
     raw_records = await scrape_all_playwright(date_from, date_to)
     log.info(f"Total raw records: {len(raw_records)}")
 
