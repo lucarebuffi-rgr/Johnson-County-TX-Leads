@@ -13,6 +13,7 @@ import re
 import traceback
 import zipfile
 from datetime import datetime, timedelta
+from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Optional
 
@@ -60,6 +61,10 @@ GRANTEE_IS_OWNER = {"NooLe", "Lie", "HoLe", "ChSLe", "FeTLe", "StTLe", "Jun", "A
 LOOKBACK_DAYS   = 14
 REQUEST_TIMEOUT = 60
 
+# Suffixes to strip before name comparison
+NAME_SUFFIXES = {"JR", "SR", "II", "III", "IV", "V", "ESQ", "TRUSTEE", "TR",
+                 "ETAL", "ET", "AL", "ET AL", "ETUX", "ET UX", "ESTATE"}
+
 
 def parse_date(raw: str) -> Optional[str]:
     for fmt in ("%m/%d/%Y", "%Y-%m-%d", "%m-%d-%Y", "%Y%m%d"):
@@ -70,43 +75,61 @@ def parse_date(raw: str) -> Optional[str]:
     return None
 
 
-def name_variants(full: str) -> list[str]:
-    full = full.strip().upper()
-    parts = full.split()
-    if len(parts) < 2:
+def strip_suffixes(tokens: list) -> list:
+    return [t for t in tokens if t not in NAME_SUFFIXES]
+
+
+def name_variants(full: str) -> list:
+    full = re.sub(r"[^\w\s]", "", full.strip().upper())
+    tokens = full.split()
+    tokens = strip_suffixes(tokens)
+    if not tokens:
         return [full]
 
     variants = set()
-    variants.add(full)
+    variants.add(" ".join(tokens))  # Original cleaned
 
-    last  = parts[0]
-    first = parts[1] if len(parts) > 1 else ""
-    mid   = parts[2] if len(parts) > 2 else ""
+    if len(tokens) < 2:
+        return list(variants)
 
-    # LAST FIRST MIDDLE
+    last  = tokens[0]
+    first = tokens[1] if len(tokens) > 1 else ""
+    mid   = tokens[2] if len(tokens) > 2 else ""
+
+    # With middle
     variants.add(f"{last} {first} {mid}".strip())
-    # LAST FIRST (no middle)
-    variants.add(f"{last} {first}")
-    # LAST, FIRST MIDDLE
     variants.add(f"{last}, {first} {mid}".strip())
-    # LAST, FIRST (no middle)
+    # Without middle (key fix: drops middle initial)
+    variants.add(f"{last} {first}")
     variants.add(f"{last}, {first}")
-    # FIRST LAST (no middle)
+    # First/Last swapped
     variants.add(f"{first} {last}")
-    # FIRST MIDDLE LAST
     if mid:
         variants.add(f"{first} {mid} {last}")
-        # Without middle initial
         variants.add(f"{first} {last}")
-        variants.add(f"{last} {first}")
+        if len(mid) == 1:
+            variants.add(f"{last} {first}")  # drop initial entirely
 
-    return list(variants)
+    return [v for v in variants if v]
+
+
+def normalize_for_fuzzy(name: str) -> tuple:
+    """Returns (last_name, set_of_first_tokens) with suffixes/initials stripped."""
+    name = re.sub(r"[^\w\s]", "", name.strip().upper())
+    tokens = strip_suffixes(name.split())
+    # Remove single-char tokens (middle initials) if we still have 2+ tokens left
+    filtered = [t for t in tokens if len(t) > 1]
+    if len(filtered) >= 2:
+        tokens = filtered
+    if not tokens:
+        return ("", set())
+    return tokens[0], set(tokens[1:])
 
 
 # ── PARCEL LOOKUP ─────────────────────────────────────────────────────────
 
 def build_parcel_lookup() -> dict:
-    lookup: dict[str, dict] = {}
+    lookup = {}
     session = requests.Session()
     session.headers.update({"User-Agent": "Mozilla/5.0"})
     zip_data = None
@@ -134,7 +157,7 @@ def build_parcel_lookup() -> dict:
             log.info(f"ZIP contents: {z.namelist()}")
 
             # ── Read owner file ───────────────────────────────────────────
-            owner_rows: dict[str, dict] = {}
+            owner_rows = {}
             owner_file = next((n for n in z.namelist() if "owner" in n.lower()), None)
             if owner_file:
                 log.info(f"Reading owner file: {owner_file}")
@@ -151,7 +174,7 @@ def build_parcel_lookup() -> dict:
                             owner_rows[key] = row
 
             # ── Read NAL file ─────────────────────────────────────────────
-            nal_rows: dict[str, dict] = {}
+            nal_rows = {}
             nal_file = next((n for n in z.namelist() if n.lower() == "externalnal.tab"), None)
             if not nal_file:
                 nal_file = next((n for n in z.namelist() if "nal" in n.lower()), None)
@@ -169,9 +192,7 @@ def build_parcel_lookup() -> dict:
                         row = {hdrs[i]: parts[i].strip() for i in range(min(len(hdrs), len(parts)))}
                         acct = row.get("ACCOUNT") or row.get("PARCEL_ID") or row.get("PROP_ID") or ""
                         if acct:
-                            # Store by full key (e.g. R000000128)
                             nal_rows[acct] = row
-                            # Also store by numeric only (e.g. 128)
                             numeric = acct.lstrip("R").lstrip("0") or "0"
                             nal_rows[numeric] = row
 
@@ -184,7 +205,6 @@ def build_parcel_lookup() -> dict:
                 nrow = nal_rows.get(sample_key)
                 log.info(f"Sample owner key: '{sample_key}' → NAL match: {bool(nrow)}")
                 if not nrow:
-                    # Try R-prefixed
                     r_key = "R" + sample_key.zfill(9)
                     nrow2 = nal_rows.get(r_key)
                     log.info(f"Tried R-key '{r_key}' → match: {bool(nrow2)}")
@@ -200,7 +220,6 @@ def build_parcel_lookup() -> dict:
                 if not owner_name:
                     continue
 
-                # Try to find matching NAL row
                 nrow = (
                     nal_rows.get(key) or
                     nal_rows.get("R" + key.zfill(9)) or
@@ -212,7 +231,6 @@ def build_parcel_lookup() -> dict:
                 if nrow:
                     matched_count += 1
 
-                # Build address from NAL row
                 situs_num    = nrow.get("SITUS STREET NUM", "") or nrow.get("SITUS_STREET_NUM", "")
                 situs_name   = nrow.get("SITUS STREET NAME", "") or nrow.get("SITUS_STREET_NAME", "")
                 situs_sfx    = nrow.get("SITUS STREET SFX", "") or nrow.get("SITUS STREET SFX2", "")
@@ -303,7 +321,7 @@ def parse_text_block(text: str, doc_code: str, cat: str, cat_label: str, dt_from
 
 # ── PLAYWRIGHT SCRAPER ────────────────────────────────────────────────────
 
-async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
+async def scrape_all_playwright(date_from: str, date_to: str) -> list:
     if not HAS_PLAYWRIGHT:
         log.error("Playwright not available!")
         return []
@@ -315,7 +333,7 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
         dt_from = date_from.replace("/", "")
         dt_to   = date_to.replace("/", "")
 
-    all_records: list[dict] = []
+    all_records = []
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
@@ -329,7 +347,7 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
 
             log.info(f"  Scraping {doc_code} ({cat_label}) …")
 
-            captured_api: list[dict] = []
+            captured_api = []
             context = await browser.new_context(
                 user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
                            "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -461,7 +479,7 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
 
 # ── DEMO DATA ─────────────────────────────────────────────────────────────
 
-def generate_demo_records(date_from: str, date_to: str) -> list[dict]:
+def generate_demo_records(date_from: str, date_to: str) -> list:
     samples = [
         ("LiPn",  "pre_foreclosure", "Lis Pendens",            "ROCKET MORTGAGE LLC",   "WRIGHT ROSEANN",        0),
         ("Jun",   "judgment",        "Judgment",                "JONES MARY B",          "CAPITAL ONE NA",    87500),
@@ -496,15 +514,52 @@ def generate_demo_records(date_from: str, date_to: str) -> list[dict]:
 
 # ── ENRICHMENT ────────────────────────────────────────────────────────────
 
-def enrich_with_parcel(records: list[dict], lookup: dict) -> list[dict]:
+def enrich_with_parcel(records: list, lookup: dict) -> list:
+    # Pre-build a fuzzy index: list of (last_name, first_tokens_set, parcel)
+    fuzzy_index = []
+    seen = set()
+    for variant, parcel in lookup.items():
+        last, firsts = normalize_for_fuzzy(variant)
+        key = (last, frozenset(firsts))
+        if last and key not in seen:
+            seen.add(key)
+            fuzzy_index.append((last, firsts, parcel))
+
     matched = 0
     for rec in records:
         owner = rec.get("grantor", "").upper().strip()
         parcel = None
+
+        # 1. Fast exact variant lookup
         for variant in name_variants(owner):
             parcel = lookup.get(variant)
             if parcel:
                 break
+
+        # 2. Fuzzy fallback if no exact match
+        if not parcel and owner:
+            o_last, o_firsts = normalize_for_fuzzy(owner)
+            if o_last:
+                for c_last, c_firsts, candidate in fuzzy_index:
+                    if c_last != o_last:
+                        continue  # Last name must match exactly
+
+                    # Subset match: e.g. {"JOSHUA"} is subset of {"JOSHUA", "R"}
+                    smaller = o_firsts if len(o_firsts) <= len(c_firsts) else c_firsts
+                    larger  = o_firsts if len(o_firsts) >  len(c_firsts) else c_firsts
+                    if not smaller or smaller.issubset(larger):
+                        parcel = candidate
+                        log.debug(f"Fuzzy subset match: '{owner}' → {c_firsts}")
+                        break
+
+                    # Fuzzy string compare on first tokens
+                    o_str = " ".join(sorted(o_firsts))
+                    c_str = " ".join(sorted(c_firsts))
+                    if o_str and c_str and SequenceMatcher(None, o_str, c_str).ratio() >= 0.82:
+                        parcel = candidate
+                        log.debug(f"Fuzzy ratio match: '{owner}' → {c_firsts}")
+                        break
+
         if parcel:
             rec.update(parcel)
             matched += 1
@@ -517,15 +572,16 @@ def enrich_with_parcel(records: list[dict], lookup: dict) -> list[dict]:
             rec.setdefault("mail_city",    "")
             rec.setdefault("mail_state",   "TX")
             rec.setdefault("mail_zip",     "")
+
     log.info(f"Parcel enrichment: {matched}/{len(records)} records matched")
     return records
 
 
 # ── SCORING ───────────────────────────────────────────────────────────────
 
-def score_record(rec: dict) -> tuple[int, list[str]]:
+def score_record(rec: dict) -> tuple:
     score = 30
-    flags: list[str] = []
+    flags = []
     dtype  = rec.get("doc_type", "")
     amount = rec.get("amount") or 0
 
@@ -562,7 +618,7 @@ def score_record(rec: dict) -> tuple[int, list[str]]:
 
 # ── OUTPUT ────────────────────────────────────────────────────────────────
 
-def build_output(raw_records: list[dict], date_from: str, date_to: str) -> dict:
+def build_output(raw_records: list, date_from: str, date_to: str) -> dict:
     out_records = []
     for raw in raw_records:
         try:
