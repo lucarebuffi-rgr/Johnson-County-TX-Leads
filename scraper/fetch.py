@@ -296,13 +296,34 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
                     log.info(f"    No API data, trying JS state …")
                     js_result = await page.evaluate("""
                         () => {
-                            const els = document.querySelectorAll(
-                                '[class*="result"], [class*="doc-preview"], [class*="instrument"], [class*="summary"]'
-                            );
                             const texts = [];
-                            els.forEach(el => {
-                                const t = el.innerText;
-                                if (t && t.length > 10) texts.push(t);
+                            // Try table rows first
+                            const rows = document.querySelectorAll('tbody tr');
+                            if (rows.length > 0) {
+                                rows.forEach(row => {
+                                    const cells = row.querySelectorAll('td');
+                                    if (cells.length >= 4) {
+                                        const parts = [];
+                                        cells.forEach(td => parts.push(td.innerText.trim()));
+                                        texts.push(parts.join('\\t'));
+                                    }
+                                });
+                                return texts;
+                            }
+                            // Fallback: try list items
+                            const items = document.querySelectorAll(
+                                '[class*="group-item"], [class*="doc-row"], [class*="instrument-row"]'
+                            );
+                            items.forEach(el => {
+                                const cells = el.querySelectorAll('[class*="cell"], [class*="col"], td, [class*="field"]');
+                                if (cells.length >= 3) {
+                                    const parts = [];
+                                    cells.forEach(c => parts.push(c.innerText.trim()));
+                                    texts.push(parts.join('\\t'));
+                                } else {
+                                    const t = el.innerText.trim();
+                                    if (t.length > 10 && t.length < 500) texts.push(t);
+                                }
                             });
                             return texts;
                         }
