@@ -2,6 +2,7 @@
 """
 Johnson County TX – Motivated Seller Lead Scraper
 Uses Playwright to render JavaScript pages on PublicSearch.
+Targets React div-based results with class doc-preview-group__summary-group-item
 """
 
 import asyncio
@@ -136,6 +137,129 @@ def build_parcel_lookup() -> dict:
 
     return lookup
 
+# ── HTML PARSER ───────────────────────────────────────────────────────────
+
+def parse_html_table(html: str, doc_code: str, cat: str, cat_label: str, dt_from: str, dt_to: str) -> tuple[list[dict], bool]:
+    records = []
+    soup = BeautifulSoup(html, "lxml")
+
+    search_url = f"{BASE_URL}/results?department=RP&docTypes={doc_code}&recordedDateRange={dt_from},{dt_to}&searchType=advancedSearch"
+
+    # Try React div-based results first
+    result_items = (
+        soup.select("[class*='doc-preview-group__summary-group-item']") or
+        soup.select("[class*='result-item']") or
+        soup.select("[class*='ResultItem']") or
+        soup.select("[class*='document-row']") or
+        soup.select("[class*='docPreview']")
+    )
+
+    if result_items:
+        log.info(f"    Found {len(result_items)} React result items")
+        for item in result_items:
+            texts = [t.strip() for t in item.stripped_strings if t.strip()]
+            if len(texts) < 3:
+                continue
+
+            link = ""
+            for a in item.find_all("a", href=True):
+                href = a["href"]
+                link = BASE_URL + href if href.startswith("/") else href
+                break
+
+            date_idx = -1
+            for i, t in enumerate(texts):
+                if re.match(r"\d{1,2}/\d{1,2}/\d{4}", t):
+                    date_idx = i
+                    break
+
+            grantor = grantee = filed = doc_num = legal = ""
+            if date_idx >= 2:
+                grantor  = texts[date_idx - 2]
+                grantee  = texts[date_idx - 1]
+                filed    = texts[date_idx]
+                doc_num  = texts[date_idx + 1] if date_idx + 1 < len(texts) else ""
+                legal    = texts[date_idx + 3] if date_idx + 3 < len(texts) else ""
+            elif len(texts) >= 3:
+                grantor  = texts[0]
+                grantee  = texts[1]
+                filed    = next((t for t in texts if re.match(r"\d{1,2}/\d{1,2}/\d{4}", t)), "")
+                doc_num  = texts[3] if len(texts) > 3 else ""
+
+            if not grantor:
+                continue
+
+            records.append({
+                "doc_num":   doc_num,
+                "doc_type":  doc_code,
+                "cat":       cat,
+                "cat_label": cat_label,
+                "filed":     parse_date(filed) or filed,
+                "grantor":   grantor,
+                "grantee":   grantee,
+                "legal":     legal,
+                "amount":    None,
+                "clerk_url": link or search_url,
+                "_demo":     False,
+            })
+
+    else:
+        # Fallback: try regular HTML table
+        rows = soup.select("table tr")
+        for row in rows:
+            cells = row.find_all("td")
+            if len(cells) < 4:
+                continue
+            texts = [c.get_text(strip=True) for c in cells]
+            if not texts or texts[0].upper() in ["GRANTOR", ""]:
+                continue
+
+            link = ""
+            for a in row.find_all("a", href=True):
+                href = a["href"]
+                if any(k in href for k in ["/doc/", "/instrument/", "/record/"]):
+                    link = BASE_URL + href if href.startswith("/") else href
+                    break
+
+            date_idx = -1
+            for i, t in enumerate(texts):
+                if re.match(r"\d{1,2}/\d{1,2}/\d{4}", t):
+                    date_idx = i
+                    break
+
+            grantor = grantee = filed = doc_num = legal = ""
+            if date_idx >= 2:
+                grantor  = texts[date_idx - 2]
+                grantee  = texts[date_idx - 1]
+                filed    = texts[date_idx]
+                doc_num  = texts[date_idx + 1] if date_idx + 1 < len(texts) else ""
+                legal    = texts[date_idx + 3] if date_idx + 3 < len(texts) else ""
+
+            if not grantor:
+                continue
+
+            records.append({
+                "doc_num":   doc_num,
+                "doc_type":  doc_code,
+                "cat":       cat,
+                "cat_label": cat_label,
+                "filed":     parse_date(filed) or filed,
+                "grantor":   grantor,
+                "grantee":   grantee,
+                "legal":     legal,
+                "amount":    None,
+                "clerk_url": link or search_url,
+                "_demo":     False,
+            })
+
+    has_next = bool(
+        soup.find("a", string=re.compile(r"next|›|»", re.I)) or
+        soup.find("a", attrs={"aria-label": re.compile(r"next", re.I)}) or
+        soup.find(class_=re.compile(r"next", re.I))
+    )
+
+    return records, has_next
+
 # ── PLAYWRIGHT SCRAPER ────────────────────────────────────────────────────
 
 async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
@@ -176,18 +300,23 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
                     page = await context.new_page()
                     await page.goto(page_url, timeout=30_000)
 
-                    # Wait for table to load
+                    # Wait for React to render results
                     try:
-                        await page.wait_for_selector("table tr td", timeout=10_000)
+                        await page.wait_for_selector(
+                            "[class*='doc-preview'], [class*='result'], table tr td, [class*='summary-group-item']",
+                            timeout=15_000
+                        )
                     except PWTimeout:
-                        log.warning(f"    No table found for {doc_code} page {page_num}")
-                        await page.close()
-                        break
+                        # Even if timeout, still grab HTML and try to parse
+                        pass
+
+                    # Extra wait for JS to finish rendering
+                    await asyncio.sleep(3)
 
                     html = await page.content()
                     await page.close()
 
-                    records, has_next = parse_html_table(html, doc_code, cat, cat_label)
+                    records, has_next = parse_html_table(html, doc_code, cat, cat_label, dt_from, dt_to)
                     all_records.extend(records)
                     log.info(f"    Page {page_num}: {len(records)} records")
 
@@ -198,111 +327,34 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list[dict]:
                     if page_num > 20:
                         break
 
-                    await asyncio.sleep(1)
+                    await asyncio.sleep(2)
 
                 except Exception as e:
                     log.warning(f"    Error on {doc_code} page {page_num}: {e}")
+                    try:
+                        await page.close()
+                    except Exception:
+                        pass
                     break
 
         await browser.close()
 
     return all_records
 
-
-def parse_html_table(html: str, doc_code: str, cat: str, cat_label: str) -> tuple[list[dict], bool]:
-    records = []
-    soup = BeautifulSoup(html, "lxml")
-
-    rows = soup.select("table tr")
-    if not rows:
-        rows = soup.select("tr")
-
-    for row in rows:
-        cells = row.find_all("td")
-        if len(cells) < 4:
-            continue
-
-        texts = [c.get_text(strip=True) for c in cells]
-
-        # Skip header rows
-        if not texts or texts[0].upper() in ["GRANTOR", ""]:
-            continue
-
-        # Find document link
-        link = ""
-        for a in row.find_all("a", href=True):
-            href = a["href"]
-            if any(k in href for k in ["/doc/", "/instrument/", "/record/"]):
-                link = BASE_URL + href if href.startswith("/") else href
-                break
-
-        # Find date to anchor column positions
-        date_idx = -1
-        for i, t in enumerate(texts):
-            if re.match(r"\d{1,2}/\d{1,2}/\d{4}", t):
-                date_idx = i
-                break
-
-        grantor = grantee = filed = doc_num = legal = ""
-
-        if date_idx >= 2:
-            grantor  = texts[date_idx - 2]
-            grantee  = texts[date_idx - 1]
-            filed    = texts[date_idx]
-            doc_num  = texts[date_idx + 1] if date_idx + 1 < len(texts) else ""
-            legal    = texts[date_idx + 3] if date_idx + 3 < len(texts) else ""
-        elif len(texts) >= 5:
-            # Try common offsets
-            for offset in [2, 1, 0]:
-                if offset < len(texts):
-                    grantor = texts[offset]
-                    grantee = texts[offset + 1] if offset + 1 < len(texts) else ""
-                    filed   = texts[offset + 3] if offset + 3 < len(texts) else ""
-                    doc_num = texts[offset + 4] if offset + 4 < len(texts) else ""
-                    break
-
-        if not grantor and not doc_num:
-            continue
-
-        search_url = (f"{BASE_URL}/results?department=RP&docTypes={doc_code}"
-                      f"&recordedDateRange={dt_from},{dt_to}&searchType=advancedSearch")
-
-        records.append({
-            "doc_num":   doc_num,
-            "doc_type":  doc_code,
-            "cat":       cat,
-            "cat_label": cat_label,
-            "filed":     parse_date(filed) or filed,
-            "grantor":   grantor,
-            "grantee":   grantee,
-            "legal":     legal,
-            "amount":    None,
-            "clerk_url": link or search_url,
-            "_demo":     False,
-        })
-
-    has_next = bool(
-        soup.find("a", string=re.compile(r"next|›|»", re.I)) or
-        soup.find("a", attrs={"aria-label": re.compile(r"next", re.I)}) or
-        soup.find(class_=re.compile(r"next", re.I))
-    )
-
-    return records, has_next
-
 # ── DEMO DATA ─────────────────────────────────────────────────────────────
 
 def generate_demo_records(date_from: str, date_to: str) -> list[dict]:
     samples = [
-        ("LiPn",  "pre_foreclosure", "Lis Pendens",            "ROCKET MORTGAGE LLC",   "WRIGHT ROSEANN",       0),
-        ("Jun",   "judgment",        "Judgment",                "JONES MARY B",          "CAPITAL ONE NA",       87500),
-        ("FeTLe", "lien",            "Federal Tax Lien",        "WILLIAMS DAVID",        "IRS",                  45200),
-        ("AboJn", "judgment",        "Abstract of Judgment",    "GARCIA PROPERTIES LLC", "CLEBURNE SUPPLY CO",   18700),
-        ("MeLCc", "lien",            "Mechanics Lien Contract", "BROWN PATRICIA",        "LONE STAR CONTRACTORS",22000),
-        ("Prt",   "probate",         "Probate",                 "ESTATE OF DAVIS JAMES", "JOHNSON CO PROBATE",       0),
-        ("StTLe", "lien",            "State Tax Lien",          "HENDERSON ROBERT",      "STATE OF TEXAS",        9800),
-        ("NooLe", "lien",            "Notice of Lien",          "MARTINEZ CARLOS",       "BELCLAIRE RESIDENTIAL", 3500),
-        ("HoLe",  "lien",            "Hospital Lien",           "THOMPSON SARAH",        "TEXAS HEALTH",          2100),
-        ("ChSLe", "lien",            "Child Support Lien",      "RODRIGUEZ JUAN",        "ATTY/GEN",              5000),
+        ("LiPn",  "pre_foreclosure", "Lis Pendens",            "ROCKET MORTGAGE LLC",   "WRIGHT ROSEANN",        0),
+        ("Jun",   "judgment",        "Judgment",                "JONES MARY B",          "CAPITAL ONE NA",    87500),
+        ("FeTLe", "lien",            "Federal Tax Lien",        "WILLIAMS DAVID",        "IRS",               45200),
+        ("AboJn", "judgment",        "Abstract of Judgment",    "GARCIA PROPERTIES LLC", "CLEBURNE SUPPLY CO",18700),
+        ("MeLCc", "lien",            "Mechanics Lien Contract", "BROWN PATRICIA",        "LONE STAR CONTR",   22000),
+        ("Prt",   "probate",         "Probate",                 "ESTATE OF DAVIS JAMES", "JOHNSON CO PROBATE",    0),
+        ("StTLe", "lien",            "State Tax Lien",          "HENDERSON ROBERT",      "STATE OF TEXAS",     9800),
+        ("NooLe", "lien",            "Notice of Lien",          "MARTINEZ CARLOS",       "BELCLAIRE RESID",    3500),
+        ("HoLe",  "lien",            "Hospital Lien",           "THOMPSON SARAH",        "TEXAS HEALTH",       2100),
+        ("ChSLe", "lien",            "Child Support Lien",      "RODRIGUEZ JUAN",        "ATTY/GEN",           5000),
     ]
     base = datetime.strptime(date_from, "%m/%d/%Y")
     recs = []
