@@ -85,7 +85,7 @@ def build_parcel_lookup() -> dict:
     lookup: dict[str, dict] = {}
     session = requests.Session()
     session.headers.update({"User-Agent": "Mozilla/5.0"})
-    dbf_data = None
+    zip_data = None
 
     for url in [
         "https://johnsoncad.com/wp-content/uploads/2026/04/JCAD-2026-Preliminary-Data-2026-04-06.zip",
@@ -95,54 +95,121 @@ def build_parcel_lookup() -> dict:
         try:
             r = session.get(url, timeout=REQUEST_TIMEOUT)
             if r.status_code == 200 and len(r.content) > 1000:
-                dbf_data = r.content
+                zip_data = r.content
                 log.info(f"Got parcel data from {url}")
                 break
         except Exception:
             continue
 
-    if not dbf_data or not HAS_DBF:
+    if not zip_data:
         log.warning("Parcel data not available")
         return lookup
 
     try:
-        if dbf_data[:2] == b"PK":
-            with zipfile.ZipFile(io.BytesIO(dbf_data)) as z:
-                log.info(f"ZIP contents: {z.namelist()}")
-                for name in z.namelist():
-                    if name.lower().endswith(".dbf") and "prop" in name.lower():
-                        dbf_data = z.read(name)
-                        log.info(f"Using DBF: {name}")
-                        break
-                else:
-                    for name in z.namelist():
-                        if name.lower().endswith(".dbf"):
-                            dbf_data = z.read(name)
-                            log.info(f"Using DBF: {name}")
-                            break
+        with zipfile.ZipFile(io.BytesIO(zip_data)) as z:
+            log.info(f"ZIP contents: {z.namelist()}")
 
-        tmp = Path("/tmp/parcels.dbf")
-        tmp.write_bytes(dbf_data)
-        records = list(DBF(str(tmp), load=True, ignore_missing_memofile=True, char_decode_errors="ignore"))
-        log.info(f"Loaded {len(records):,} parcel records")
+            # Read owner file
+            owner_data = {}
+            owner_file = next((n for n in z.namelist() if "owner" in n.lower()), None)
+            if owner_file:
+                log.info(f"Reading owner file: {owner_file}")
+                lines = z.read(owner_file).decode("latin-1").splitlines()
+                log.info(f"Owner file has {len(lines)} lines")
+                if lines:
+                    headers = [h.strip().upper() for h in lines[0].split("\t")]
+                    log.info(f"Owner headers: {headers}")
+                    for line in lines[1:]:
+                        parts = line.split("\t")
+                        if len(parts) < 2:
+                            continue
+                        row = {headers[i]: parts[i].strip() for i in range(min(len(headers), len(parts)))}
+                        acct = row.get("PROP_ID") or row.get("ACCOUNT") or row.get("ID") or ""
+                        owner_data[acct] = row
 
-        for rec in records:
-            rec = {k.upper(): (v.strip() if isinstance(v, str) else v) for k, v in rec.items()}
-            owner = (rec.get("OWNER") or rec.get("OWN1") or "").upper().strip()
-            if not owner:
-                continue
-            parcel = {
-                "prop_address": rec.get("SITE_ADDR") or rec.get("SITEADDR") or "",
-                "prop_city":    rec.get("SITE_CITY") or "Cleburne",
-                "prop_state":   "TX",
-                "prop_zip":     str(rec.get("SITE_ZIP") or rec.get("SITEZIP") or ""),
-                "mail_address": rec.get("ADDR_1") or rec.get("MAILADR1") or "",
-                "mail_city":    rec.get("CITY") or rec.get("MAILCITY") or "",
-                "mail_state":   rec.get("STATE") or "TX",
-                "mail_zip":     str(rec.get("ZIP") or rec.get("MAILZIP") or ""),
-            }
-            for variant in name_variants(owner):
-                lookup[variant] = parcel
+            # Read property/address file
+            addr_data = {}
+            addr_file = next((n for n in z.namelist() if "nal" in n.lower() or "prop" in n.lower() or "real" in n.lower()), None)
+            if not addr_file:
+                addr_file = next((n for n in z.namelist() if "date" in n.lower()), None)
+            if addr_file:
+                log.info(f"Reading address file: {addr_file}")
+                lines = z.read(addr_file).decode("latin-1").splitlines()
+                log.info(f"Address file has {len(lines)} lines")
+                if lines:
+                    headers = [h.strip().upper() for h in lines[0].split("\t")]
+                    log.info(f"Address headers: {headers}")
+                    for line in lines[1:]:
+                        parts = line.split("\t")
+                        if len(parts) < 2:
+                            continue
+                        row = {headers[i]: parts[i].strip() for i in range(min(len(headers), len(parts)))}
+                        acct = row.get("PROP_ID") or row.get("ACCOUNT") or row.get("ID") or ""
+                        addr_data[acct] = row
+
+            # Try reading externaldates.tab for property addresses
+            dates_file = next((n for n in z.namelist() if "dates" in n.lower()), None)
+            dates_data = {}
+            if dates_file:
+                log.info(f"Reading dates file: {dates_file}")
+                lines = z.read(dates_file).decode("latin-1").splitlines()
+                if lines:
+                    headers = [h.strip().upper() for h in lines[0].split("\t")]
+                    log.info(f"Dates headers: {headers[:10]}")
+                    for line in lines[1:]:
+                        parts = line.split("\t")
+                        if len(parts) < 2:
+                            continue
+                        row = {headers[i]: parts[i].strip() for i in range(min(len(headers), len(parts)))}
+                        acct = row.get("PROP_ID") or row.get("ACCOUNT") or row.get("ID") or ""
+                        dates_data[acct] = row
+
+            log.info(f"owner_data: {len(owner_data)} records, addr_data: {len(addr_data)} records")
+
+            # Build lookup by owner name
+            for acct, orow in owner_data.items():
+                owner_name = (
+                    orow.get("NAME") or orow.get("OWNER") or
+                    orow.get("OWNER_NAME") or orow.get("OWN_NAME") or ""
+                ).upper().strip()
+
+                if not owner_name:
+                    continue
+
+                arow = addr_data.get(acct, {})
+                drow = dates_data.get(acct, {})
+
+                prop_address = (
+                    arow.get("SITUS_NUM","") + " " + arow.get("SITUS_STREET","")
+                ).strip() or arow.get("SITUS","") or arow.get("ADDRESS","") or drow.get("SITUS","") or ""
+
+                prop_city = arow.get("SITUS_CITY","") or drow.get("SITUS_CITY","") or "Cleburne"
+                prop_zip  = arow.get("SITUS_ZIP","")  or drow.get("SITUS_ZIP","")  or ""
+
+                mail_address = (
+                    orow.get("ADDR1","") or orow.get("MAIL_ADDR","") or
+                    orow.get("MAILING_ADDRESS","") or ""
+                )
+                mail_city  = orow.get("CITY","")  or orow.get("MAIL_CITY","")  or ""
+                mail_state = orow.get("STATE","")  or orow.get("MAIL_STATE","") or "TX"
+                mail_zip   = orow.get("ZIP","")    or orow.get("MAIL_ZIP","")   or ""
+
+                parcel = {
+                    "prop_address": prop_address,
+                    "prop_city":    prop_city,
+                    "prop_state":   "TX",
+                    "prop_zip":     prop_zip,
+                    "mail_address": mail_address,
+                    "mail_city":    mail_city,
+                    "mail_state":   mail_state,
+                    "mail_zip":     mail_zip,
+                }
+
+                for variant in name_variants(owner_name):
+                    lookup[variant] = parcel
+
+            log.info(f"Built parcel lookup with {len(lookup):,} name variants")
+
     except Exception:
         log.error(f"Parcel error:\n{traceback.format_exc()}")
 
