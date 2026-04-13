@@ -43,23 +43,13 @@ jobs:
         run: |
           python scraper/fetch.py
 
-      - name: Show debug HTML
+      - name: Commit updated records
         run: |
-          python -c "
-          import asyncio
-          from playwright.async_api import async_playwright
-          async def debug():
-              async with async_playwright() as p:
-                  browser = await p.chromium.launch(headless=True)
-                  page = await browser.new_page()
-                  await page.goto('https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260328,20260411&searchType=advancedSearch', timeout=30000)
-                  await asyncio.sleep(5)
-                  html = await page.content()
-                  await browser.close()
-                  # Print first 3000 chars
-                  print(html[:3000])
-          asyncio.run(debug())
-          "
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dashboard/records.json data/records.json || true
+          git diff --cached --quiet || git commit -m "Update records $(date -u '+%Y-%m-%d %H:%M') UTC"
+          git push
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
