@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-04-13T18:32:25.059062Z",
+  "fetched_at": "2026-04-13T18:46:48.781440Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
     "from": "01/02/2026",
     "to": "04/13/2026"
   },
-  "total": 97,
-  "with_address": 97,
+  "total": 98,
+  "with_address": 98,
   "records": [
     {
       "doc_num": "2026-635",
@@ -617,31 +617,6 @@
       "_demo": false
     },
     {
-      "doc_num": "2026-1811",
-      "doc_type": "AboJn",
-      "filed": "2026-01-22",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "MARTINEZ JERRY L JR",
-      "grantee": "SYNCHRONY BANK",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "700 BRECKENRIDGE PARK DR",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "700 BRECKENRIDGE PARK DR",
-      "mail_city": "ALVARADO",
-      "mail_state": "TX",
-      "mail_zip": "76009",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
       "doc_num": "2026-1813",
       "doc_type": "AboJn",
       "filed": "2026-01-22",
@@ -659,6 +634,31 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760630000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-1811",
+      "doc_type": "AboJn",
+      "filed": "2026-01-22",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "MARTINEZ JERRY L JR",
+      "grantee": "SYNCHRONY BANK",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "700 BRECKENRIDGE PARK DR",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "700 BRECKENRIDGE PARK DR",
+      "mail_city": "ALVARADO",
+      "mail_state": "TX",
+      "mail_zip": "76009",
       "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
       "flags": [
         "Judgment lien"
@@ -1401,14 +1401,14 @@
       "grantee": "STAR RANCH HOMEOWNERS ASSOC INC",
       "amount": null,
       "legal": "Subdivision - Name: STAR RANCH PH 2 Lot: 6 Block: H Reference - 2021/28",
-      "prop_address": "9149 CR 101A",
-      "prop_city": "Cleburne",
+      "prop_address": "1020 LONGBOW DR",
+      "prop_city": "GODLEY",
       "prop_state": "TX",
       "prop_zip": "",
-      "mail_address": "252 MICHELLE ST",
-      "mail_city": "BURLESON",
+      "mail_address": "1020 LONGBOW DR",
+      "mail_city": "GODLEY",
       "mail_state": "TX",
-      "mail_zip": "760280000",
+      "mail_zip": "760440000",
       "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
@@ -1767,31 +1767,6 @@
       "_demo": false
     },
     {
-      "doc_num": "2026-5649",
-      "doc_type": "AboJn",
-      "filed": "2026-02-27",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "REYES ASHLEY NICOLE",
-      "grantee": "RENTAL ACCESS",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "9001 LAKESIDE DR",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "9001 LAKESIDE DR",
-      "mail_city": "RIO VISTA",
-      "mail_state": "TX",
-      "mail_zip": "761790000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
       "doc_num": "2026-5665",
       "doc_type": "AboJn",
       "filed": "2026-02-27",
@@ -1809,6 +1784,31 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-5649",
+      "doc_type": "AboJn",
+      "filed": "2026-02-27",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "REYES ASHLEY NICOLE",
+      "grantee": "RENTAL ACCESS",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "9001 LAKESIDE DR",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "9001 LAKESIDE DR",
+      "mail_city": "RIO VISTA",
+      "mail_state": "TX",
+      "mail_zip": "761790000",
       "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
       "flags": [
         "Judgment lien"
@@ -1887,6 +1887,56 @@
       "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-5846",
+      "doc_type": "AboJn",
+      "filed": "2026-03-02",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "SMITH EARL",
+      "grantee": "SYNCHRONY BANK",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "3105 STANDRIDGE LN",
+      "prop_city": "MANSFIELD",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "3105 STANDRIDGE LN",
+      "mail_city": "VENUS",
+      "mail_state": "TX",
+      "mail_zip": "76084",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-6032",
+      "doc_type": "AboJn",
+      "filed": "2026-03-03",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "WARREN AIMEE",
+      "grantee": "GRACELAND PROPERTIES LLC",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "1219 PACIFICA TRL",
+      "prop_city": "CLEBURNE",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1219 PACIFICA TRL",
+      "mail_city": "CLEBURNE",
+      "mail_state": "TX",
+      "mail_zip": "760330000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien"
       ],
       "score": 45,
       "_demo": false
@@ -2201,14 +2251,14 @@
       "grantee": "IRS",
       "amount": null,
       "legal": "N/A",
-      "prop_address": "0 HULEN ST/ CR 920",
+      "prop_address": "449 THOMAS ST",
       "prop_city": "BURLESON",
       "prop_state": "TX",
       "prop_zip": "",
-      "mail_address": "141 W RENFRO",
-      "mail_city": "BURLESON",
+      "mail_address": "PO BOX 542",
+      "mail_city": "CLEBURNE",
       "mail_state": "TX",
-      "mail_zip": "760280000",
+      "mail_zip": "760330542",
       "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
       "flags": [
         "Tax lien"
@@ -2362,31 +2412,6 @@
       "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
       "flags": [
         "Judgment lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-8236",
-      "doc_type": "Prt",
-      "filed": "2026-03-23",
-      "cat": "probate",
-      "cat_label": "Probate",
-      "owner": "POWELL JAMES L EST",
-      "grantee": "MUNDEY MICHELLE",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "1313 WOOD DR",
-      "prop_city": "MANSFIELD",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1313 WOOD DR",
-      "mail_city": "MANSFIELD",
-      "mail_state": "TX",
-      "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Probate / estate"
       ],
       "score": 45,
       "_demo": false
