@@ -257,9 +257,9 @@ async function loadData(){
     if(hasDemoRecords){document.getElementById('demo-banner').classList.add('show');document.getElementById('status-pill').textContent='DEMO';document.getElementById('status-pill').classList.add('demo');}
     else{document.getElementById('status-pill').textContent='LIVE';document.getElementById('status-pill').classList.add('live');}
     ALL_RECORDS=data.records||[];
-    updateStats(data);applyFilters();
-    document.getElementById('loading-state').style.display='none';
-    document.getElementById('leads-table').style.display='table';
+document.getElementById('loading-state').style.display='none';
+document.getElementById('leads-table').style.display='table';
+updateStats(data);applyFilters();
   }catch(e){document.getElementById('loading-state').innerHTML='<div style="color:var(--red)">Failed to load records.json — '+e.message+'</div>';}
 }
 function updateStats(data){
