@@ -136,7 +136,6 @@ td{padding:.6rem .75rem;vertical-align:top;max-width:220px;}
   <div class="stat"><div class="stat-label">Date Range</div><div class="stat-value" style="font-size:1rem;" id="s-range">—</div></div>
 </div>
 <div class="toolbar">
-  <!-- ROW 1: search + filters + export -->
   <div class="toolbar-row">
     <div class="search-wrap">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -174,7 +173,6 @@ td{padding:.6rem .75rem;vertical-align:top;max-width:220px;}
     <div class="spacer"></div>
     <button class="btn btn-accent" onclick="exportCSV()">↓ GHL Export</button>
   </div>
-  <!-- ROW 2: date range filter -->
   <div class="toolbar-row">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:.5;flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
     <span style="font-size:.78rem;color:var(--muted);white-space:nowrap">Filed Date:</span>
@@ -250,17 +248,24 @@ function setQuickDate(days,mode){
 }
 async function loadData(){
   try{
-    const r=await fetch('records.json?_='+Date.now());
-    const data=await r.json();
-    document.getElementById('fetch-time').textContent=data.fetched_at?'Updated '+formatDate(data.fetched_at):'Not yet run';
-    const hasDemoRecords=(data.records||[]).some(r=>r._demo);
-    if(hasDemoRecords){document.getElementById('demo-banner').classList.add('show');document.getElementById('status-pill').textContent='DEMO';document.getElementById('status-pill').classList.add('demo');}
-    else{document.getElementById('status-pill').textContent='LIVE';document.getElementById('status-pill').classList.add('live');}
+    const resp=await fetch('records.json?_='+Date.now());
+    if(!resp.ok)throw new Error('HTTP '+resp.status);
+    const data=await resp.json();
+    try{document.getElementById('fetch-time').textContent=data.fetched_at?'Updated '+formatDate(data.fetched_at):'Not yet run';}catch(e){}
+    try{
+      const hasDemoRecords=(data.records||[]).some(r=>r._demo);
+      if(hasDemoRecords){document.getElementById('demo-banner').classList.add('show');document.getElementById('status-pill').textContent='DEMO';document.getElementById('status-pill').classList.add('demo');}
+      else{document.getElementById('status-pill').textContent='LIVE';document.getElementById('status-pill').classList.add('live');}
+    }catch(e){}
     ALL_RECORDS=data.records||[];
-document.getElementById('loading-state').style.display='none';
-document.getElementById('leads-table').style.display='table';
-updateStats(data);applyFilters();
-  }catch(e){document.getElementById('loading-state').innerHTML='<div style="color:var(--red)">Failed to load records.json — '+e.message+'</div>';}
+    try{document.getElementById('loading-state').style.display='none';}catch(e){}
+    try{document.getElementById('leads-table').style.display='table';}catch(e){}
+    try{updateStats(data);}catch(e){console.log('updateStats error:',e);}
+    try{applyFilters();}catch(e){console.log('applyFilters error:',e);}
+  }catch(e){
+    console.log('loadData error:',e);
+    try{document.getElementById('loading-state').innerHTML='<div style="color:var(--red)">Failed to load: '+e.message+'</div>';}catch(x){}
+  }
 }
 function updateStats(data){
   const recs=data.records||[];
@@ -300,3 +305,109 @@ function sortFiltered(){
   });
 }
 function renderTable(){
+  const tbody=document.getElementById('leads-body');
+  const noData=document.getElementById('no-data');
+  const table=document.getElementById('leads-table');
+  if(!filtered.length){table.style.display='none';noData.style.display='block';document.getElementById('pagination').innerHTML='';return;}
+  noData.style.display='none';table.style.display='table';
+  const start=(page-1)*PAGE_SIZE;
+  const slice=filtered.slice(start,start+PAGE_SIZE);
+  tbody.innerHTML=slice.map((r)=>`
+    <tr class="${r._demo?'demo-row':''}" onclick="openModal(${ALL_RECORDS.indexOf(r)})" style="cursor:pointer">
+      <td><div class="score-badge ${scoreCls(r.score)}">${r.score}</div></td>
+      <td><span class="type-badge cat-${r.cat}">${r.doc_type}</span></td>
+      <td style="white-space:nowrap;font-family:var(--font-mono)">${r.filed||'—'}</td>
+      <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(r.owner)}">${esc(r.owner)||'<span style="color:var(--muted)">—</span>'}</td>
+      <td class="amount-cell">${r.amount!=null?'$'+r.amount.toLocaleString():'—'}</td>
+      <td><div class="flags-cell">${(r.flags||[]).map(f=>`<span class="flag-chip">${f}</span>`).join('')}</div></td>
+      <td class="addr-cell">
+        ${r.prop_address?`<div class="addr-prop">${esc(r.prop_address)}, ${r.prop_city||''} ${r.prop_zip||''}</div>`:''}
+        ${r.mail_address&&r.mail_address!==r.prop_address?`<div class="addr-mail">✉ ${esc(r.mail_address)}, ${r.mail_city||''}</div>`:''}
+        ${!r.prop_address&&!r.mail_address?'<span style="color:var(--muted)">No address</span>':''}
+      </td>
+      <td style="font-family:var(--font-mono);font-size:.72rem;white-space:nowrap">${esc(r.doc_num)||'—'}</td>
+      <td onclick="event.stopPropagation()">${r.clerk_url?`<a class="link-btn" href="${esc(r.clerk_url)}" target="_blank" rel="noopener">View ↗</a>`:'—'}</td>
+    </tr>
+  `).join('');
+  renderPagination();
+}
+function scoreCls(s){if(s>=70)return'score-hot';if(s>=45)return'score-warm';return'score-cold';}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function renderPagination(){
+  const total=Math.ceil(filtered.length/PAGE_SIZE);
+  if(total<=1){document.getElementById('pagination').innerHTML='';return;}
+  let html=`<span>${filtered.length} records &nbsp;·&nbsp; Page ${page} of ${total}</span>`;
+  html+=`<button class="page-btn" onclick="goPage(1)" ${page===1?'disabled':''}>«</button>`;
+  html+=`<button class="page-btn" onclick="goPage(${page-1})" ${page===1?'disabled':''}>‹</button>`;
+  const start=Math.max(1,page-2),end=Math.min(total,page+2);
+  for(let i=start;i<=end;i++)html+=`<button class="page-btn ${i===page?'active':''}" onclick="goPage(${i})">${i}</button>`;
+  html+=`<button class="page-btn" onclick="goPage(${page+1})" ${page===total?'disabled':''}>›</button>`;
+  html+=`<button class="page-btn" onclick="goPage(${total})" ${page===total?'disabled':''}>»</button>`;
+  document.getElementById('pagination').innerHTML=html;
+}
+function goPage(n){page=n;renderTable();window.scrollTo(0,0);}
+document.querySelectorAll('thead th[data-col]').forEach(th=>{
+  th.addEventListener('click',()=>{
+    const col=th.dataset.col;
+    if(sortCol===col)sortDir*=-1;else{sortCol=col;sortDir=-1;}
+    document.querySelectorAll('thead th').forEach(t=>t.classList.remove('sorted'));
+    th.classList.add('sorted');
+    th.querySelector('.sort-icon').textContent=sortDir===-1?'↓':'↑';
+    sortFiltered();page=1;renderTable();
+  });
+});
+function openModal(idx){
+  const r=ALL_RECORDS[idx];if(!r)return;
+  document.getElementById('modal-title').textContent=r.cat_label+' — '+(r.owner||'Unknown Owner');
+  document.getElementById('modal-subtitle').textContent=r.doc_type+' · '+(r.filed||'?')+' · Doc #'+(r.doc_num||'?');
+  const f=(label,val,mono=false)=>`<div class="modal-field"><label>${label}</label><div class="val ${mono?'mono':''}">${val||'<span style="color:var(--muted)">—</span>'}</div></div>`;
+  document.getElementById('modal-body').innerHTML=`
+    <div><div class="section-title">Document Info</div><div class="modal-grid">
+      ${f('Document Number',esc(r.doc_num),true)}
+      ${f('Document Type',`<span class="type-badge cat-${r.cat}">${r.doc_type}</span> ${r.cat_label}`)}
+      ${f('Filed Date',r.filed)}
+      ${f('Amount',r.amount!=null?'$'+r.amount.toLocaleString(undefined,{minimumFractionDigits:2}):null,true)}
+      ${f('Grantor / Owner',esc(r.owner))}
+      ${f('Grantee',esc(r.grantee))}
+    </div></div>
+    <div><div class="section-title">Legal Description</div><div style="font-size:.82rem;line-height:1.6;color:var(--text)">${esc(r.legal)||'<span style="color:var(--muted)">Not available</span>'}</div></div>
+    <div><div class="section-title">Property Address</div><div class="modal-grid">
+      ${f('Street',esc(r.prop_address))}
+      ${f('City / State / Zip',[r.prop_city,r.prop_state,r.prop_zip].filter(Boolean).join(', '))}
+    </div></div>
+    <div><div class="section-title">Mailing Address</div><div class="modal-grid">
+      ${f('Street',esc(r.mail_address))}
+      ${f('City / State / Zip',[r.mail_city,r.mail_state,r.mail_zip].filter(Boolean).join(', '))}
+    </div></div>
+    <div><div class="section-title">Seller Score &amp; Flags</div>
+      <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
+        <div class="score-badge ${scoreCls(r.score)}" style="width:52px;height:52px;font-size:1.2rem">${r.score}</div>
+        <div class="flags-cell" style="flex:1">${(r.flags||[]).map(f2=>`<span class="flag-chip">${f2}</span>`).join('')||'<span style="color:var(--muted);font-size:.8rem">No flags</span>'}</div>
+      </div>
+    </div>
+    <div>${r.clerk_url?`<a class="btn btn-accent" href="${esc(r.clerk_url)}" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">View County Clerk Record ↗</a>`:'<span style="color:var(--muted);font-size:.82rem">No clerk link available</span>'}</div>`;
+  document.getElementById('modal-backdrop').classList.add('open');
+}
+function closeModal(e){if(e&&e.target!==document.getElementById('modal-backdrop'))return;document.getElementById('modal-backdrop').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+function exportCSV(){
+  const cols=['First Name','Last Name','Mailing Address','Mailing City','Mailing State','Mailing Zip','Property Address','Property City','Property State','Property Zip','Lead Type','Document Type','Date Filed','Document Number','Amount/Debt Owed','Seller Score','Motivated Seller Flags','Source','Public Records URL'];
+  const rows=[cols];
+  for(const r of filtered){
+    const parts=(r.owner||'').split(' ');
+    rows.push([parts[0]||'',parts.slice(1).join(' '),r.mail_address||'',r.mail_city||'',r.mail_state||'TX',r.mail_zip||'',r.prop_address||'',r.prop_city||'',r.prop_state||'TX',r.prop_zip||'',r.cat_label||'',r.doc_type||'',r.filed||'',r.doc_num||'',r.amount!=null?r.amount:'',r.score||0,(r.flags||[]).join('|'),'Johnson County TX',r.clerk_url||'']);
+  }
+  const csv=rows.map(row=>row.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download=`johnson_county_leads_${new Date().toISOString().slice(0,10)}.csv`;a.click();
+}
+function formatDate(iso){try{return new Date(iso).toLocaleString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'});}catch{return iso;}}
+['search','filter-type','filter-cat'].forEach(id=>document.getElementById(id).addEventListener('input',applyFilters));
+document.getElementById('score-filter').addEventListener('input',function(){document.getElementById('score-val').textContent=this.value;applyFilters();});
+document.getElementById('date-from').addEventListener('input',applyFilters);
+document.getElementById('date-to').addEventListener('input',applyFilters);
+loadData();
+</script>
+</body>
+</html>
