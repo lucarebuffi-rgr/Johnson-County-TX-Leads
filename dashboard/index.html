@@ -43,6 +43,13 @@ select:focus,.btn:hover{border-color:var(--accent);}
 .btn-accent:hover{background:var(--accent2);border-color:var(--accent2);}
 .score-filter{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--muted);white-space:nowrap;}
 .score-filter input[type=range]{accent-color:var(--accent);width:80px;cursor:pointer;}
+/* Date filter */
+.date-filter{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--muted);white-space:nowrap;}
+.date-filter input[type=date]{background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius);padding:.38rem .6rem;color:var(--text);font-family:var(--font-mono);font-size:.78rem;outline:none;cursor:pointer;transition:border .15s;color-scheme:dark;}
+.date-filter input[type=date]:focus{border-color:var(--accent);}
+.date-quick{display:flex;align-items:center;gap:.3rem;}
+.date-quick button{background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius);padding:.3rem .55rem;color:var(--muted);font-family:var(--font-mono);font-size:.7rem;cursor:pointer;transition:border .15s,color .15s;}
+.date-quick button:hover,.date-quick button.active{border-color:var(--accent);color:var(--accent);}
 .spacer{flex:1;}
 .table-wrap{flex:1;overflow-x:auto;overflow-y:auto;padding:1.5rem 2rem;}
 table{width:100%;border-collapse:collapse;font-size:.82rem;}
@@ -167,6 +174,23 @@ td{padding:.6rem .75rem;vertical-align:top;max-width:220px;}
     <option value="yes">Has Address</option>
     <option value="no">No Address</option>
   </select>
+
+  <!-- DATE RANGE FILTER -->
+  <div class="date-filter">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    <input type="date" id="date-from" title="From date">
+    <span style="color:var(--border2)">→</span>
+    <input type="date" id="date-to" title="To date">
+  </div>
+  <div class="date-quick">
+    <button onclick="setQuickDate(0)" id="qd-today">Today</button>
+    <button onclick="setQuickDate(2)" id="qd-2d">2d</button>
+    <button onclick="setQuickDate(7)" id="qd-7d">7d</button>
+    <button onclick="setQuickDate(14)" id="qd-14d">14d</button>
+    <button onclick="setQuickDate(30)" id="qd-30d">30d</button>
+    <button onclick="setQuickDate(0,'clear')" id="qd-all">All</button>
+  </div>
+
   <div class="spacer"></div>
   <button class="btn btn-accent" onclick="exportCSV()">↓ GHL Export</button>
 </div>
@@ -206,6 +230,31 @@ td{padding:.6rem .75rem;vertical-align:top;max-width:220px;}
 <script>
 let ALL_RECORDS=[],filtered=[],sortCol='score',sortDir=-1,page=1;
 const PAGE_SIZE=50;
+
+// ── DATE QUICK FILTER ────────────────────────────────────────────────────
+function toYMD(d){return d.toISOString().slice(0,10);}
+function setQuickDate(days, mode){
+  const allBtn=document.getElementById('qd-all');
+  const ids=['qd-today','qd-2d','qd-7d','qd-14d','qd-30d','qd-all'];
+  ids.forEach(id=>document.getElementById(id).classList.remove('active'));
+
+  if(mode==='clear'){
+    document.getElementById('date-from').value='';
+    document.getElementById('date-to').value='';
+    allBtn.classList.add('active');
+  } else {
+    const today=new Date();
+    const from=new Date();
+    from.setDate(today.getDate()-days);
+    document.getElementById('date-from').value=toYMD(from);
+    document.getElementById('date-to').value=toYMD(today);
+    // highlight the right button
+    const map={0:'qd-today',2:'qd-2d',7:'qd-7d',14:'qd-14d',30:'qd-30d'};
+    if(map[days])document.getElementById(map[days]).classList.add('active');
+  }
+  applyFilters();
+}
+
 async function loadData(){
   try{
     const r=await fetch('records.json?_='+Date.now());
@@ -236,12 +285,18 @@ function applyFilters(){
   const cat=document.getElementById('filter-cat').value;
   const minScr=parseInt(document.getElementById('score-filter').value)||0;
   const addr=document.getElementById('filter-addr').value;
+  const dateFrom=document.getElementById('date-from').value; // "YYYY-MM-DD" or ""
+  const dateTo=document.getElementById('date-to').value;     // "YYYY-MM-DD" or ""
+
   filtered=ALL_RECORDS.filter(r=>{
     if(type&&r.doc_type!==type)return false;
     if(cat&&r.cat!==cat)return false;
     if(r.score<minScr)return false;
     if(addr==='yes'&&!(r.prop_address||r.mail_address))return false;
     if(addr==='no'&&(r.prop_address||r.mail_address))return false;
+    // Date range filter
+    if(dateFrom&&r.filed&&r.filed<dateFrom)return false;
+    if(dateTo&&r.filed&&r.filed>dateTo)return false;
     if(q){const hay=[r.owner,r.grantee,r.doc_num,r.prop_address,r.mail_address,r.legal,r.doc_type].join(' ').toLowerCase();if(!hay.includes(q))return false;}
     return true;
   });
@@ -357,6 +412,8 @@ function exportCSV(){
 function formatDate(iso){try{return new Date(iso).toLocaleString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'});}catch{return iso;}}
 ['search','filter-type','filter-cat','filter-addr'].forEach(id=>document.getElementById(id).addEventListener('input',applyFilters));
 document.getElementById('score-filter').addEventListener('input',function(){document.getElementById('score-val').textContent=this.value;applyFilters();});
+document.getElementById('date-from').addEventListener('input',applyFilters);
+document.getElementById('date-to').addEventListener('input',applyFilters);
 loadData();
 </script>
 </body>
