@@ -51,6 +51,10 @@ jobs:
           git diff --cached --quiet || git commit -m "Update records $(date -u '+%Y-%m-%d %H:%M') UTC"
           git push
 
+      - name: Copy records into dashboard for Pages
+        run: |
+          cp data/records.json dashboard/records.json
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
