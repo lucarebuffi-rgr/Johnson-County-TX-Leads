@@ -363,7 +363,7 @@ async def scrape_all_playwright(date_from: str, date_to: str) -> list:
 
             try:
                 await page.goto(url, timeout=30_000)
-                await asyncio.sleep(8)
+                await asyncio.sleep(15)
 
                 for data in captured_api:
                     hits = (
