@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-04-13T21:46:46.584135Z",
+  "fetched_at": "2026-04-14T10:56:45.678167Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "01/02/2026",
-    "to": "04/13/2026"
+    "from": "01/03/2026",
+    "to": "04/14/2026"
   },
-  "total": 118,
-  "with_address": 118,
+  "total": 109,
+  "with_address": 109,
   "records": [
     {
       "doc_num": "2026-635",
@@ -26,7 +26,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Lis pendens"
       ],
@@ -51,141 +51,11 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760443738",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Lis pendens"
       ],
       "score": 65,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-8896",
-      "doc_type": "AboJn",
-      "filed": "2026-03-30",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "REYNOLDS JOSHUA R",
-      "grantee": "CAPITAL ONE NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "9132 ALABAMA ST",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "9132 ALABAMA ST",
-      "mail_city": "JOSHUA",
-      "mail_state": "TX",
-      "mail_zip": "760580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-9008",
-      "doc_type": "Prt",
-      "filed": "2026-03-30",
-      "cat": "probate",
-      "cat_label": "Probate",
-      "owner": "VAN NOY SANDRA EST",
-      "grantee": "VAN NOY RALPH",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "115 LOST OAK DR",
-      "prop_city": "CLEBURNE",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "115 LOST OAK DR",
-      "mail_city": "CLEBURNE",
-      "mail_state": "TX",
-      "mail_zip": "76031",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Probate / estate",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-8855",
-      "doc_type": "NooLe",
-      "filed": "2026-03-30",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "SHALLOW DANIQUE",
-      "grantee": "LSR HOMEOWNERS ASSOCIATION INC",
-      "amount": null,
-      "legal": "Subdivision - Name: LONE STAR RANCH PH 1 Lot: 9 Block: 3 Reference - 10/483",
-      "prop_address": "1007 COPPERLEAF DR",
-      "prop_city": "MANSFIELD",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1007 COPPERLEAF DR",
-      "mail_city": "MANSFIELD",
-      "mail_state": "TX",
-      "mail_zip": "76063",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-9074",
-      "doc_type": "AboJn",
-      "filed": "2026-03-31",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "CALDERON REGINA",
-      "grantee": "CITIBANK NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "716 PECAN ST",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "716 PECAN ST",
-      "mail_city": "BURLESON",
-      "mail_state": "TX",
-      "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-9119",
-      "doc_type": "AboJn",
-      "filed": "2026-03-31",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "DELARIO C E",
-      "grantee": "WARLICK MELANIE",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "2301 WEATHERFORD HWY",
-      "prop_city": "CLEBURNE",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "313 W CHAMBERS ST",
-      "mail_city": "CLEBURNE",
-      "mail_state": "TX",
-      "mail_zip": "760335438",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
       "_demo": false
     },
     {
@@ -206,7 +76,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate",
         "New this week"
@@ -232,7 +102,7 @@
       "mail_city": "FT WORTH",
       "mail_state": "TX",
       "mail_zip": "761230000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -258,7 +128,7 @@
       "mail_city": "AUSTIN",
       "mail_state": "TX",
       "mail_zip": "787580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -284,7 +154,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate",
         "New this week"
@@ -310,7 +180,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -336,7 +206,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -362,7 +232,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien",
         "New this week"
@@ -388,37 +258,12 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien",
         "New this week"
       ],
       "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-615",
-      "doc_type": "AboJn",
-      "filed": "2026-01-08",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "WHITE PATRICIA",
-      "grantee": "JPMORGAN CHASE BANK NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "613 CREEKVIEW DR",
-      "prop_city": "BURLESON",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "613 CREEKVIEW DR",
-      "mail_city": "BURLESON",
-      "mail_state": "TX",
-      "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
-      ],
-      "score": 45,
       "_demo": false
     },
     {
@@ -439,7 +284,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -464,7 +309,7 @@
       "mail_city": "CROWLEY",
       "mail_state": "TX",
       "mail_zip": "760360000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -489,7 +334,7 @@
       "mail_city": "CROWLEY",
       "mail_state": "TX",
       "mail_zip": "760360000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -514,7 +359,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760310354",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -539,34 +384,9 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-1208",
-      "doc_type": "AboJn",
-      "filed": "2026-01-15",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "WORSHAM ZERRITTA",
-      "grantee": "SYNCHRONY BANK",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "1096 NIGHTHAWK TRL",
-      "prop_city": "ALVARADO",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1096 NIGHTHAWK TRL",
-      "mail_city": "ALVARADO",
-      "mail_state": "TX",
-      "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
       ],
       "score": 45,
       "_demo": false
@@ -589,7 +409,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate"
       ],
@@ -614,7 +434,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate"
       ],
@@ -639,7 +459,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -664,7 +484,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -689,7 +509,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -714,34 +534,9 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-1707",
-      "doc_type": "AboJn",
-      "filed": "2026-01-21",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "FOSTER SURINA L",
-      "grantee": "CITIBANK NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "4001 GARY ST",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "4001 GARY ST",
-      "mail_city": "CLEBURNE",
-      "mail_state": "TX",
-      "mail_zip": "760310000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
       ],
       "score": 45,
       "_demo": false
@@ -764,7 +559,7 @@
       "mail_city": "GRANDVIEW",
       "mail_state": "TX",
       "mail_zip": "760500000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -789,59 +584,9 @@
       "mail_city": "RIO VISTA",
       "mail_state": "TX",
       "mail_zip": "760930000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Hospital lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-1811",
-      "doc_type": "AboJn",
-      "filed": "2026-01-22",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "MARTINEZ JERRY L JR",
-      "grantee": "SYNCHRONY BANK",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "700 BRECKENRIDGE PARK DR",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "700 BRECKENRIDGE PARK DR",
-      "mail_city": "ALVARADO",
-      "mail_state": "TX",
-      "mail_zip": "76009",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-1813",
-      "doc_type": "AboJn",
-      "filed": "2026-01-22",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "DIAZ YAREMI",
-      "grantee": "CAPITAL ONE NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "1805 BIRCH ST",
-      "prop_city": "MANSFIELD",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1805 BIRCH ST",
-      "mail_city": "MANSFIELD",
-      "mail_state": "TX",
-      "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
       ],
       "score": 45,
       "_demo": false
@@ -864,7 +609,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=StTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=StTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -889,7 +634,7 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=StTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=StTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -914,7 +659,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -939,7 +684,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -964,7 +709,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -989,7 +734,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1014,7 +759,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -1039,7 +784,7 @@
       "mail_city": "FT WORTH",
       "mail_state": "TX",
       "mail_zip": "76140",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -1064,7 +809,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "76084",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Hospital lien"
       ],
@@ -1089,7 +834,7 @@
       "mail_city": "KERRVILLE",
       "mail_state": "TX",
       "mail_zip": "780289148",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Lien"
       ],
@@ -1114,7 +859,7 @@
       "mail_city": "UNKNOWN",
       "mail_state": "TX",
       "mail_zip": "00000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Jun&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Jun&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Judgment lien"
       ],
@@ -1139,34 +884,9 @@
       "mail_city": "GRANDVIEW",
       "mail_state": "TX",
       "mail_zip": "760500824",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-3188",
-      "doc_type": "AboJn",
-      "filed": "2026-02-04",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "DAVIS ROY STEPHEN",
-      "grantee": "BMO HARRIS BANK NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "3531 CR 1104B",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "3531 CR 1104B",
-      "mail_city": "CLEBURNE",
-      "mail_state": "TX",
-      "mail_zip": "760310000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
       ],
       "score": 45,
       "_demo": false
@@ -1189,7 +909,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate"
       ],
@@ -1214,7 +934,32 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Tax lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-3399",
+      "doc_type": "FeTLe",
+      "filed": "2026-02-06",
+      "cat": "lien",
+      "cat_label": "Federal Tax Lien",
+      "owner": "LANE PHILLIP",
+      "grantee": "IRS",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "1809 WESTHILL DR",
+      "prop_city": "CLEBURNE",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1809 WESTHILL DR",
+      "mail_city": "CLEBURNE",
+      "mail_state": "TX",
+      "mail_zip": "760330000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -1239,9 +984,34 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "76084",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-3598",
+      "doc_type": "StTLe",
+      "filed": "2026-02-09",
+      "cat": "lien",
+      "cat_label": "State Tax Lien",
+      "owner": "JONES DALLAS",
+      "grantee": "STATE OF TEXAS",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "101 MECHANIC ST",
+      "prop_city": "CLEBURNE",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "101 MECHANIC ST",
+      "mail_city": "CLEBURNE",
+      "mail_state": "TX",
+      "mail_zip": "760310000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=StTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Tax lien"
       ],
       "score": 45,
       "_demo": false
@@ -1264,7 +1034,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate"
       ],
@@ -1289,7 +1059,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "76009",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Hospital lien"
       ],
@@ -1314,7 +1084,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -1339,32 +1109,7 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760443703",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Tax lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-3799",
-      "doc_type": "FeTLe",
-      "filed": "2026-02-10",
-      "cat": "lien",
-      "cat_label": "Federal Tax Lien",
-      "owner": "BLACKBURN JOHN P",
-      "grantee": "IRS",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "1702 CYPRESS GAP TRL",
-      "prop_city": "MANSFIELD",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1702 CYPRESS GAP TRL",
-      "mail_city": "MANSFIELD",
-      "mail_state": "TX",
-      "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -1389,7 +1134,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Jun&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Jun&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Judgment lien"
       ],
@@ -1414,7 +1159,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate"
       ],
@@ -1439,7 +1184,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1464,7 +1209,7 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1489,7 +1234,7 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1514,7 +1259,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -1539,34 +1284,9 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Hospital lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-4264",
-      "doc_type": "AboJn",
-      "filed": "2026-02-13",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "GONZALEZ ROGELIO",
-      "grantee": "MIDLAND CREDIT MANAGEMENT INC",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "1200 PACIFICA TRL",
-      "prop_city": "CLEBURNE",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1200 PACIFICA TRL",
-      "mail_city": "CLEBURNE",
-      "mail_state": "TX",
-      "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
       ],
       "score": 45,
       "_demo": false
@@ -1589,32 +1309,7 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-4144",
-      "doc_type": "NooLe",
-      "filed": "2026-02-13",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "DEAN ANDRE II",
-      "grantee": "STAR RANCH HOMEOWNERS ASSOC INC",
-      "amount": null,
-      "legal": "Subdivision - Name: STAR RNCH PH 3 Lot: 7 Block: M Reference - 2021/131",
-      "prop_address": "1137 COUNTRY GLEN DR",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1137 COUNTRY GLEN DR",
-      "mail_city": "GODLEY",
-      "mail_state": "TX",
-      "mail_zip": "76044",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1639,7 +1334,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1647,24 +1342,24 @@
       "_demo": false
     },
     {
-      "doc_num": "2026-4145",
+      "doc_num": "2026-4144",
       "doc_type": "NooLe",
       "filed": "2026-02-13",
       "cat": "lien",
       "cat_label": "Notice of Lien",
-      "owner": "DAVIS SAMANTHA",
+      "owner": "DEAN ANDRE II",
       "grantee": "STAR RANCH HOMEOWNERS ASSOC INC",
       "amount": null,
-      "legal": "Subdivision - Name: STAR RANCH PH 3 Lot: 7 Block: J Reference - 21/131",
-      "prop_address": "1101 GOLDENROD DR",
+      "legal": "Subdivision - Name: STAR RNCH PH 3 Lot: 7 Block: M Reference - 2021/131",
+      "prop_address": "1137 COUNTRY GLEN DR",
       "prop_city": "Cleburne",
       "prop_state": "TX",
       "prop_zip": "",
-      "mail_address": "1101 GOLDENROD DR",
+      "mail_address": "1137 COUNTRY GLEN DR",
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "76044",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1689,7 +1384,32 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "76044",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-4145",
+      "doc_type": "NooLe",
+      "filed": "2026-02-13",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "DAVIS SAMANTHA",
+      "grantee": "STAR RANCH HOMEOWNERS ASSOC INC",
+      "amount": null,
+      "legal": "Subdivision - Name: STAR RANCH PH 3 Lot: 7 Block: J Reference - 21/131",
+      "prop_address": "1101 GOLDENROD DR",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1101 GOLDENROD DR",
+      "mail_city": "GODLEY",
+      "mail_state": "TX",
+      "mail_zip": "76044",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1714,7 +1434,7 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1739,7 +1459,7 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1764,7 +1484,7 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1789,7 +1509,7 @@
       "mail_city": "FT WORTH",
       "mail_state": "TX",
       "mail_zip": "76116",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -1814,7 +1534,7 @@
       "mail_city": "ARLINGTON",
       "mail_state": "TX",
       "mail_zip": "76016",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -1839,7 +1559,7 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "76044",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1864,7 +1584,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -1889,7 +1609,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -1914,9 +1634,84 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-4795",
+      "doc_type": "ChSLe",
+      "filed": "2026-02-19",
+      "cat": "lien",
+      "cat_label": "Child Support Lien",
+      "owner": "ESTES GARY LYHN III",
+      "grantee": "ATTY/GEN",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "1227 CRESTWOOD DR",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1227 CRESTWOOD DR",
+      "mail_city": "CLEBURNE",
+      "mail_state": "TX",
+      "mail_zip": "76033",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ChSLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Child support lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-4796",
+      "doc_type": "ChSLe",
+      "filed": "2026-02-19",
+      "cat": "lien",
+      "cat_label": "Child Support Lien",
+      "owner": "ESTRADA MIGUEL ANGEL",
+      "grantee": "ATTY/GEN",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "501 RUBY LN",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "621 RUBY LN",
+      "mail_city": "CLEBURNE",
+      "mail_state": "TX",
+      "mail_zip": "760310000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ChSLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Child support lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-4798",
+      "doc_type": "ChSLe",
+      "filed": "2026-02-19",
+      "cat": "lien",
+      "cat_label": "Child Support Lien",
+      "owner": "EVANS CHARLES EUGENE JR",
+      "grantee": "ATTY/GEN",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "1817 CREEKWOOD DR",
+      "prop_city": "CLEBURNE",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1817 CREEKWOOD DR",
+      "mail_city": "CLEBURNE",
+      "mail_state": "TX",
+      "mail_zip": "760330000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ChSLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Child support lien"
       ],
       "score": 45,
       "_demo": false
@@ -1939,7 +1734,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -1964,7 +1759,32 @@
       "mail_city": "VAN NUYS",
       "mail_state": "CA",
       "mail_zip": "91406",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Tax lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-5464",
+      "doc_type": "FeTLe",
+      "filed": "2026-02-25",
+      "cat": "lien",
+      "cat_label": "Federal Tax Lien",
+      "owner": "DEAN DUSTIN",
+      "grantee": "IRS",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "5755 CR 316",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "5649 CR 316",
+      "mail_city": "ALVARADO",
+      "mail_state": "TX",
+      "mail_zip": "760090000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -1989,59 +1809,9 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760286896",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-5649",
-      "doc_type": "AboJn",
-      "filed": "2026-02-27",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "REYES ASHLEY NICOLE",
-      "grantee": "RENTAL ACCESS",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "9001 LAKESIDE DR",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "9001 LAKESIDE DR",
-      "mail_city": "RIO VISTA",
-      "mail_state": "TX",
-      "mail_zip": "761790000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-5665",
-      "doc_type": "AboJn",
-      "filed": "2026-02-27",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "HENDERSON CAMPBELL H",
-      "grantee": "SYNCHRONY BANK",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "1003 RIDGEWAY DR",
-      "prop_city": "CLEBURNE",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1003 S RIDGEWAY DR",
-      "mail_city": "CLEBURNE",
-      "mail_state": "TX",
-      "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
       ],
       "score": 45,
       "_demo": false
@@ -2064,7 +1834,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "76063",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -2089,7 +1859,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "76063",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -2114,7 +1884,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -2139,9 +1909,34 @@
       "mail_city": "GRANDVIEW",
       "mail_state": "TX",
       "mail_zip": "760500000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-5911",
+      "doc_type": "ChSLe",
+      "filed": "2026-03-02",
+      "cat": "lien",
+      "cat_label": "Child Support Lien",
+      "owner": "EVERETT CLAY ALLEN",
+      "grantee": "ATTY GEN",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "724 WATERFORD WAY",
+      "prop_city": "JOSHUA",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "724 WATERFORD WAY",
+      "mail_city": "JOSHUA",
+      "mail_state": "TX",
+      "mail_zip": "760580000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ChSLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Child support lien"
       ],
       "score": 45,
       "_demo": false
@@ -2164,7 +1959,7 @@
       "mail_city": "MIDLOTHIAN",
       "mail_state": "TX",
       "mail_zip": "760650000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -2189,7 +1984,7 @@
       "mail_city": "JOSHUA",
       "mail_state": "TX",
       "mail_zip": "76058",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Lien"
       ],
@@ -2214,9 +2009,34 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-6267",
+      "doc_type": "ChSLe",
+      "filed": "2026-03-04",
+      "cat": "lien",
+      "cat_label": "Child Support Lien",
+      "owner": "MOORE JOSEPH RANDALL",
+      "grantee": "BOX ADRIENNE LEIGH",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "936 MISTY OAK TRL",
+      "prop_city": "BURLESON",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "936 MISTY OAK TRL",
+      "mail_city": "BURLESON",
+      "mail_state": "TX",
+      "mail_zip": "760280000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ChSLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Child support lien"
       ],
       "score": 45,
       "_demo": false
@@ -2239,7 +2059,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=StTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=StTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -2264,7 +2084,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate"
       ],
@@ -2289,7 +2109,7 @@
       "mail_city": "ARLINGTON",
       "mail_state": "TX",
       "mail_zip": "760015508",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate"
       ],
@@ -2314,34 +2134,9 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "76063",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-6720",
-      "doc_type": "AboJn",
-      "filed": "2026-03-09",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "ESQUIVEL SANDRA",
-      "grantee": "CITIBANK NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "203 MOODY ST",
-      "prop_city": "BURLESON",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "203 SW MOODY ST",
-      "mail_city": "BURLESON",
-      "mail_state": "TX",
-      "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
       ],
       "score": 45,
       "_demo": false
@@ -2364,7 +2159,7 @@
       "mail_city": "FORT WORTH",
       "mail_state": "TX",
       "mail_zip": "761620000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Lien"
       ],
@@ -2389,7 +2184,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "76031",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -2414,7 +2209,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -2439,7 +2234,7 @@
       "mail_city": "JOSHUA",
       "mail_state": "TX",
       "mail_zip": "760580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate"
       ],
@@ -2464,7 +2259,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -2489,7 +2284,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -2514,7 +2309,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -2539,34 +2334,9 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-7296",
-      "doc_type": "AboJn",
-      "filed": "2026-03-13",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "WILLIAMS ANTHONY",
-      "grantee": "MIDLAND CREDIT MANAGEMENT INC",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "1124 RUSHMORE DR",
-      "prop_city": "BURLESON",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1124 RUSHMORE DR",
-      "mail_city": "BURLESON",
-      "mail_state": "TX",
-      "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
       ],
       "score": 45,
       "_demo": false
@@ -2589,7 +2359,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Tax lien"
       ],
@@ -2614,7 +2384,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -2639,34 +2409,9 @@
       "mail_city": "MIDLAND",
       "mail_state": "TX",
       "mail_zip": "797050000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-7999",
-      "doc_type": "AboJn",
-      "filed": "2026-03-20",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "KENNEMUR GARRY",
-      "grantee": "MIDLAND CREDIT MANAGEMENT INC",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "8505 CR 1016B",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "8505 CR 1016B",
-      "mail_city": "BURLESON",
-      "mail_state": "TX",
-      "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
       ],
       "score": 45,
       "_demo": false
@@ -2689,7 +2434,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "76063",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -2714,7 +2459,7 @@
       "mail_city": "JOSHUA",
       "mail_state": "TX",
       "mail_zip": "760580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -2739,59 +2484,9 @@
       "mail_city": "JOSHUA",
       "mail_state": "TX",
       "mail_zip": "760580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-8123",
-      "doc_type": "AboJn",
-      "filed": "2026-03-23",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "GALVAN JOSE",
-      "grantee": "INTEGRAS CAPITAL RECOVERY LLC",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "207 VISTA RIDGE DR",
-      "prop_city": "VENUS",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "207 VISTA RIDGE DR",
-      "mail_city": "VENUS",
-      "mail_state": "TX",
-      "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-8121",
-      "doc_type": "AboJn",
-      "filed": "2026-03-23",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "MAYS ERIC",
-      "grantee": "VELOCITY INVESTMENTS LLC",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "2614 TINSLEY DR",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "2614 TINSLEY DR",
-      "mail_city": "MANSFIELD",
-      "mail_state": "TX",
-      "mail_zip": "76084",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
       ],
       "score": 45,
       "_demo": false
@@ -2814,7 +2509,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Probate / estate"
       ],
@@ -2839,34 +2534,9 @@
       "mail_city": "ARLINGTON",
       "mail_state": "TX",
       "mail_zip": "760160000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
-      ],
-      "score": 45,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-8289",
-      "doc_type": "AboJn",
-      "filed": "2026-03-24",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "GREEN DOROTHY E",
-      "grantee": "CITIBANK NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "829 GODLEY RANCH",
-      "prop_city": "GODLEY",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "829 GODLEY RANCH",
-      "mail_city": "GODLEY",
-      "mail_state": "TX",
-      "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260102,20260413&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien"
       ],
       "score": 45,
       "_demo": false
@@ -2889,7 +2559,7 @@
       "mail_city": "JOSHUA",
       "mail_state": "TX",
       "mail_zip": "76058",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Notice of lien"
       ],
@@ -2914,7 +2584,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -2939,7 +2609,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "76009",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
       ],
@@ -2964,9 +2634,109 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260102,20260413&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260103,20260414&searchType=advancedSearch",
       "flags": [
         "Mechanic lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-9008",
+      "doc_type": "Prt",
+      "filed": "2026-03-30",
+      "cat": "probate",
+      "cat_label": "Probate",
+      "owner": "VAN NOY SANDRA EST",
+      "grantee": "VAN NOY RALPH",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "115 LOST OAK DR",
+      "prop_city": "CLEBURNE",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "115 LOST OAK DR",
+      "mail_city": "CLEBURNE",
+      "mail_state": "TX",
+      "mail_zip": "76031",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Probate / estate"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-8855",
+      "doc_type": "NooLe",
+      "filed": "2026-03-30",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "SHALLOW DANIQUE",
+      "grantee": "LSR HOMEOWNERS ASSOCIATION INC",
+      "amount": null,
+      "legal": "Subdivision - Name: LONE STAR RANCH PH 1 Lot: 9 Block: 3 Reference - 10/483",
+      "prop_address": "1007 COPPERLEAF DR",
+      "prop_city": "MANSFIELD",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1007 COPPERLEAF DR",
+      "mail_city": "MANSFIELD",
+      "mail_state": "TX",
+      "mail_zip": "76063",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-8976",
+      "doc_type": "ChSLe",
+      "filed": "2026-03-30",
+      "cat": "lien",
+      "cat_label": "Child Support Lien",
+      "owner": "FREEMAN LONNIE",
+      "grantee": "ATTY GEN",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "604 DANIEL DR",
+      "prop_city": "BURLESON",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "604 DANIEL DR",
+      "mail_city": "BURLESON",
+      "mail_state": "TX",
+      "mail_zip": "760280000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ChSLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Child support lien"
+      ],
+      "score": 45,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-8980",
+      "doc_type": "ChSLe",
+      "filed": "2026-03-30",
+      "cat": "lien",
+      "cat_label": "Child Support Lien",
+      "owner": "FOWLER JOSEPH MICHAEL A",
+      "grantee": "ATTY GEN",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "3732 CR 423",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "3732 CR 423",
+      "mail_city": "CLEBURNE",
+      "mail_state": "TX",
+      "mail_zip": "760310000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ChSLe&recordedDateRange=20260103,20260414&searchType=advancedSearch",
+      "flags": [
+        "Child support lien"
       ],
       "score": 45,
       "_demo": false
