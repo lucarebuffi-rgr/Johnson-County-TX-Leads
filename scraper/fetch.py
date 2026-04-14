@@ -58,7 +58,7 @@ DOC_TYPES = {
 # For these types the GRANTEE is the property owner
 GRANTEE_IS_OWNER = {"NooLe", "Lie", "HoLe", "ChSLe", "FeTLe", "StTLe", "Jun", "AboJn", "LiPn", "ReoLPn"}
 
-LOOKBACK_DAYS   = 101
+LOOKBACK_DAYS   = 14
 REQUEST_TIMEOUT = 60
 
 # Suffixes to strip before name comparison
