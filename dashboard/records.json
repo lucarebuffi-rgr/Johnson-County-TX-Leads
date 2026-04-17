@@ -1,65 +1,13 @@
 {
-  "fetched_at": "2026-04-16T10:54:03.259467Z",
+  "fetched_at": "2026-04-17T10:45:05.320644Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "04/02/2026",
-    "to": "04/16/2026"
+    "from": "04/03/2026",
+    "to": "04/17/2026"
   },
-  "total": 10,
-  "with_address": 10,
+  "total": 11,
+  "with_address": 11,
   "records": [
-    {
-      "doc_num": "2026-9522",
-      "doc_type": "Prt",
-      "filed": "2026-04-02",
-      "cat": "probate",
-      "cat_label": "Probate",
-      "owner": "HUCKLEBERRY GLEN DALE EST",
-      "grantee": "COOPER MICHELLE EX",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "9321 SALLYS WAY",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "9321 SALLYS WAY",
-      "mail_city": "ALVARADO",
-      "mail_state": "TX",
-      "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260402,20260416&searchType=advancedSearch",
-      "flags": [
-        "Probate / estate",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-9511",
-      "doc_type": "MeLCc",
-      "filed": "2026-04-02",
-      "cat": "lien",
-      "cat_label": "Mechanics Lien Contract",
-      "owner": "DIAZ CARLOS MANUEL",
-      "grantee": "JENKINS CALVIN",
-      "amount": null,
-      "legal": "Subdivision - Name: THE HOMESTEADS PH V Lot: 35 Block: B Reference - 6/176",
-      "prop_address": "406 HARVEST HILL LN",
-      "prop_city": "VENUS",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "406 HARVEST HILL LN",
-      "mail_city": "VENUS",
-      "mail_state": "TX",
-      "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260402,20260416&searchType=advancedSearch",
-      "flags": [
-        "Mechanic lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
     {
       "doc_num": "2026-9787",
       "doc_type": "FeTLe",
@@ -78,7 +26,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260402,20260416&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260403,20260417&searchType=advancedSearch",
       "flags": [
         "Tax lien",
         "New this week"
@@ -104,7 +52,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260402,20260416&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260403,20260417&searchType=advancedSearch",
       "flags": [
         "Tax lien",
         "New this week"
@@ -130,7 +78,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260402,20260416&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260403,20260417&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -156,7 +104,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260402,20260416&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260403,20260417&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -182,7 +130,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260402,20260416&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260403,20260417&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -208,7 +156,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760331523",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260402,20260416&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260403,20260417&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -234,7 +182,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760339006",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260402,20260416&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260403,20260417&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -260,7 +208,85 @@
       "mail_city": "GRANDVIEW",
       "mail_state": "TX",
       "mail_zip": "76050",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260402,20260416&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260403,20260417&searchType=advancedSearch",
+      "flags": [
+        "Mechanic lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-10255",
+      "doc_type": "AboJn",
+      "filed": "2026-04-09",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "CURYLLO ARTUR",
+      "grantee": "KROLAK TOMASZ",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "12300 CR 101",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "12300 CR 101",
+      "mail_city": "GRANDVIEW",
+      "mail_state": "TX",
+      "mail_zip": "760500000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260403,20260417&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-10238",
+      "doc_type": "NooLe",
+      "filed": "2026-04-09",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "PHILLIPS KIMBERLY D",
+      "grantee": "HOA OF PLANTATION",
+      "amount": null,
+      "legal": "Subdivision - Name: PLANTATION PH II Lot: 9 Block: 10 Reference - 9/944",
+      "prop_address": "1176 LITCHFIELD LN",
+      "prop_city": "BURLESON",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1176 LITCHFIELD LN",
+      "mail_city": "BURLESON",
+      "mail_state": "TX",
+      "mail_zip": "760280000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260403,20260417&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-10249",
+      "doc_type": "MeLCc",
+      "filed": "2026-04-09",
+      "cat": "lien",
+      "cat_label": "Mechanics Lien Contract",
+      "owner": "CARROLL SHANNON DEAN",
+      "grantee": "LANGFORD CONSTRUCTION INC",
+      "amount": null,
+      "legal": "Subdivision - Name: THE RANCHES AT EAGLE RIDGE Lot: 10 Reference - 11/660",
+      "prop_address": "1020 JULIA CT",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1104 LINDA DR",
+      "mail_city": "JOSHUA",
+      "mail_state": "TX",
+      "mail_zip": "760584766",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260403,20260417&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
