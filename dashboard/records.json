@@ -1,91 +1,13 @@
 {
-  "fetched_at": "2026-04-19T09:39:23.434055Z",
+  "fetched_at": "2026-04-20T11:58:44.698957Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "04/09/2026",
-    "to": "04/19/2026"
+    "from": "04/10/2026",
+    "to": "04/20/2026"
   },
-  "total": 7,
-  "with_address": 7,
+  "total": 4,
+  "with_address": 4,
   "records": [
-    {
-      "doc_num": "2026-10255",
-      "doc_type": "AboJn",
-      "filed": "2026-04-09",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "CURYLLO ARTUR",
-      "grantee": "KROLAK TOMASZ",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "12300 CR 101",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "12300 CR 101",
-      "mail_city": "GRANDVIEW",
-      "mail_state": "TX",
-      "mail_zip": "760500000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260409,20260419&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-10238",
-      "doc_type": "NooLe",
-      "filed": "2026-04-09",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "PHILLIPS KIMBERLY D",
-      "grantee": "HOA OF PLANTATION",
-      "amount": null,
-      "legal": "Subdivision - Name: PLANTATION PH II Lot: 9 Block: 10 Reference - 9/944",
-      "prop_address": "1176 LITCHFIELD LN",
-      "prop_city": "BURLESON",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1176 LITCHFIELD LN",
-      "mail_city": "BURLESON",
-      "mail_state": "TX",
-      "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260409,20260419&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-10249",
-      "doc_type": "MeLCc",
-      "filed": "2026-04-09",
-      "cat": "lien",
-      "cat_label": "Mechanics Lien Contract",
-      "owner": "CARROLL SHANNON DEAN",
-      "grantee": "LANGFORD CONSTRUCTION INC",
-      "amount": null,
-      "legal": "Subdivision - Name: THE RANCHES AT EAGLE RIDGE Lot: 10 Reference - 11/660",
-      "prop_address": "1020 JULIA CT",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1104 LINDA DR",
-      "mail_city": "JOSHUA",
-      "mail_state": "TX",
-      "mail_zip": "760584766",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260409,20260419&searchType=advancedSearch",
-      "flags": [
-        "Mechanic lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
     {
       "doc_num": "2026-10343",
       "doc_type": "AboJn",
@@ -104,7 +26,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260409,20260419&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260410,20260420&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -130,7 +52,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760310194",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260409,20260419&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260410,20260420&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -148,15 +70,15 @@
       "grantee": "CAPITAL ONE NA",
       "amount": null,
       "legal": "N/A",
-      "prop_address": "228 HEARD ST",
-      "prop_city": "CLEBURNE",
+      "prop_address": "900 BENJAMIN DR",
+      "prop_city": "BURLESON",
       "prop_state": "TX",
       "prop_zip": "",
-      "mail_address": "228 W HEARD ST",
-      "mail_city": "CLEBURNE",
+      "mail_address": "900 BENJAMIN DR",
+      "mail_city": "BURLESON",
       "mail_state": "TX",
-      "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260409,20260419&searchType=advancedSearch",
+      "mail_zip": "760288139",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260410,20260420&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -182,7 +104,7 @@
       "mail_city": "JOSHUA",
       "mail_state": "TX",
       "mail_zip": "760580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260409,20260419&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260410,20260420&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
