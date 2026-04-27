@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-04-26T10:11:26.270587Z",
+  "fetched_at": "2026-04-27T12:16:16.151035Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "04/12/2026",
-    "to": "04/26/2026"
+    "from": "04/13/2026",
+    "to": "04/27/2026"
   },
   "total": 19,
   "with_address": 19,
@@ -26,7 +26,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Tax lien",
         "New this week"
@@ -52,7 +52,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760096150",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -78,7 +78,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -104,7 +104,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -130,7 +130,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -156,7 +156,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -182,7 +182,7 @@
       "mail_city": "DALLAS",
       "mail_state": "TX",
       "mail_zip": "752540000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -208,7 +208,7 @@
       "mail_city": "JOSHUA",
       "mail_state": "TX",
       "mail_zip": "760580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Hospital lien",
         "New this week"
@@ -234,7 +234,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Hospital lien",
         "New this week"
@@ -260,7 +260,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -286,7 +286,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760336611",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -312,7 +312,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Probate / estate",
         "New this week"
@@ -338,7 +338,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -364,7 +364,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -390,7 +390,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -416,7 +416,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -442,7 +442,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -468,7 +468,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760843716",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -494,7 +494,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260412,20260426&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260413,20260427&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
