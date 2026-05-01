@@ -1,65 +1,13 @@
 {
-  "fetched_at": "2026-04-30T12:09:28.476217Z",
+  "fetched_at": "2026-05-01T11:02:33.335185Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "04/16/2026",
-    "to": "04/30/2026"
+    "from": "04/17/2026",
+    "to": "05/01/2026"
   },
-  "total": 8,
-  "with_address": 8,
+  "total": 5,
+  "with_address": 5,
   "records": [
-    {
-      "doc_num": "2026-11327",
-      "doc_type": "MeLCc",
-      "filed": "2026-04-17",
-      "cat": "lien",
-      "cat_label": "Mechanics Lien Contract",
-      "owner": "PETERSON LAUREN",
-      "grantee": "ENCHANTED CUSTOM HOMES LLP",
-      "amount": null,
-      "legal": "Subdivision - Name: THE RETREAT PH 4 Lot: 10 Block: 39 Reference - 9/262",
-      "prop_address": "1733 SHAWNEE DR",
-      "prop_city": "CLEBURNE",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1733 SHAWNEE DR",
-      "mail_city": "CLEBURNE",
-      "mail_state": "TX",
-      "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260416,20260430&searchType=advancedSearch",
-      "flags": [
-        "Mechanic lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-11435",
-      "doc_type": "MeLCc",
-      "filed": "2026-04-20",
-      "cat": "lien",
-      "cat_label": "Mechanics Lien Contract",
-      "owner": "MACBRIAR DIXIE",
-      "grantee": "HEDGEFIELD LLC",
-      "amount": null,
-      "legal": "Survey - Name: IRA GLAZE SRVY Survey: 313 Acres: 2.001",
-      "prop_address": "6628 CR 319",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "12310 LIMERICK AVE",
-      "mail_city": "AUSTIN",
-      "mail_state": "TX",
-      "mail_zip": "787580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260416,20260430&searchType=advancedSearch",
-      "flags": [
-        "Mechanic lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
     {
       "doc_num": "2026-11581",
       "doc_type": "AboJn",
@@ -78,7 +26,7 @@
       "mail_city": "LILLIAN",
       "mail_state": "TX",
       "mail_zip": "760610000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260416,20260430&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260417,20260501&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -104,7 +52,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260416,20260430&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260417,20260501&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -130,7 +78,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "76031",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260416,20260430&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260417,20260501&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -156,7 +104,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260416,20260430&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260417,20260501&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -165,52 +113,26 @@
       "_demo": false
     },
     {
-      "doc_num": "2026-11688",
-      "doc_type": "MeLCc",
-      "filed": "2026-04-21",
-      "cat": "lien",
-      "cat_label": "Mechanics Lien Contract",
-      "owner": "PHILLIPS JAMES HOOPER",
-      "grantee": "KIRKPATRICK MICHAEL TREY",
-      "amount": null,
-      "legal": "Subdivision - Name: KATIE COURT ADDT Lot: 2 Block: 1 Reference - 9/974",
-      "prop_address": "4001 PHEASANT RUN",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "4001 PHEASANT RUN",
-      "mail_city": "JOSHUA",
-      "mail_state": "TX",
-      "mail_zip": "76058",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260416,20260430&searchType=advancedSearch",
-      "flags": [
-        "Mechanic lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-11645",
-      "doc_type": "HoLe",
-      "filed": "2026-04-21",
-      "cat": "lien",
-      "cat_label": "Hospital Lien",
-      "owner": "JIMENEZ JUAN",
-      "grantee": "TEXAS HEALTH CLEBURNE HOSPITAL",
+      "doc_num": "2026-11705",
+      "doc_type": "Prt",
+      "filed": "2026-04-22",
+      "cat": "probate",
+      "cat_label": "Probate",
+      "owner": "WATSON MARK ALAN EST",
+      "grantee": "ADDISON TAYLOR YOUNG",
       "amount": null,
       "legal": "N/A",
-      "prop_address": "12613 EAGLES BLUFF",
-      "prop_city": "GODLEY",
+      "prop_address": "408 WILLOW ST",
+      "prop_city": "GRANDVIEW",
       "prop_state": "TX",
       "prop_zip": "",
-      "mail_address": "12613 EAGLES BLUFF",
-      "mail_city": "GODLEY",
+      "mail_address": "408 E WILLOW ST",
+      "mail_city": "GRANDVIEW",
       "mail_state": "TX",
-      "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260416,20260430&searchType=advancedSearch",
+      "mail_zip": "760500000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260417,20260501&searchType=advancedSearch",
       "flags": [
-        "Hospital lien",
+        "Probate / estate",
         "New this week"
       ],
       "score": 60,
