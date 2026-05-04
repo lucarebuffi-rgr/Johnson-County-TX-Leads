@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-05-03T10:38:02.209582Z",
+  "fetched_at": "2026-05-04T12:19:28.773117Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "04/19/2026",
-    "to": "05/03/2026"
+    "from": "04/20/2026",
+    "to": "05/04/2026"
   },
-  "total": 8,
-  "with_address": 8,
+  "total": 9,
+  "with_address": 9,
   "records": [
     {
       "doc_num": "2026-11435",
@@ -26,7 +26,7 @@
       "mail_city": "AUSTIN",
       "mail_state": "TX",
       "mail_zip": "787580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260419,20260503&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260420,20260504&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -52,7 +52,7 @@
       "mail_city": "LILLIAN",
       "mail_state": "TX",
       "mail_zip": "760610000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260419,20260503&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260420,20260504&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -78,7 +78,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260419,20260503&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260420,20260504&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -104,7 +104,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "76031",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260419,20260503&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260420,20260504&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -130,7 +130,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260419,20260503&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260420,20260504&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -156,9 +156,35 @@
       "mail_city": "JOSHUA",
       "mail_state": "TX",
       "mail_zip": "76058",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260419,20260503&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260420,20260504&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-11645",
+      "doc_type": "HoLe",
+      "filed": "2026-04-21",
+      "cat": "lien",
+      "cat_label": "Hospital Lien",
+      "owner": "JIMENEZ JUAN",
+      "grantee": "TEXAS HEALTH CLEBURNE HOSPITAL",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "12613 EAGLES BLUFF",
+      "prop_city": "GODLEY",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "12613 EAGLES BLUFF",
+      "mail_city": "GODLEY",
+      "mail_state": "TX",
+      "mail_zip": "760440000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260420,20260504&searchType=advancedSearch",
+      "flags": [
+        "Hospital lien",
         "New this week"
       ],
       "score": 60,
@@ -182,7 +208,7 @@
       "mail_city": "GRANDVIEW",
       "mail_state": "TX",
       "mail_zip": "760500000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260419,20260503&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260420,20260504&searchType=advancedSearch",
       "flags": [
         "Probate / estate",
         "New this week"
@@ -208,7 +234,7 @@
       "mail_city": "ARLINGTON",
       "mail_state": "TX",
       "mail_zip": "760170000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260419,20260503&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260420,20260504&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
