@@ -1,39 +1,13 @@
 {
-  "fetched_at": "2026-05-14T09:36:06.317977Z",
+  "fetched_at": "2026-05-15T09:49:35.525023Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "04/30/2026",
-    "to": "05/14/2026"
+    "from": "05/01/2026",
+    "to": "05/15/2026"
   },
-  "total": 25,
-  "with_address": 25,
+  "total": 21,
+  "with_address": 21,
   "records": [
-    {
-      "doc_num": "2026-12958",
-      "doc_type": "LiPn",
-      "filed": "2026-04-30",
-      "cat": "pre_foreclosure",
-      "cat_label": "Lis Pendens",
-      "owner": "RAMIREZ JUAN MARTIN",
-      "grantee": "SANTANA CECILIO PORTILLO",
-      "amount": null,
-      "legal": "Subdivision - Name: CRADDOCKS ADDT Lot: 1 Block: B Reference - 49/639",
-      "prop_address": "529 WILSON ST",
-      "prop_city": "CLEBURNE",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "605 IOWA ST",
-      "mail_city": "KEENE",
-      "mail_state": "TX",
-      "mail_zip": "760591312",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
-      "flags": [
-        "Lis pendens",
-        "New this week"
-      ],
-      "score": 80,
-      "_demo": false
-    },
     {
       "doc_num": "2026-13268",
       "doc_type": "LiPn",
@@ -52,7 +26,7 @@
       "mail_city": "GARLAND",
       "mail_state": "TX",
       "mail_zip": "750400000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Lis pendens",
         "New this week"
@@ -78,7 +52,7 @@
       "mail_city": "KELLER",
       "mail_state": "TX",
       "mail_zip": "76248",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Lis pendens",
         "New this week"
@@ -104,7 +78,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Lis pendens",
         "New this week"
@@ -130,7 +104,7 @@
       "mail_city": "DALLAS",
       "mail_state": "TX",
       "mail_zip": "752870000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Lis pendens",
         "New this week"
@@ -156,116 +130,12 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "76033",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Lis pendens",
         "New this week"
       ],
       "score": 80,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-12998",
-      "doc_type": "AboJn",
-      "filed": "2026-04-30",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "OLUKOTUN MARIA",
-      "grantee": "CAPITAL ONE NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "1313 TWITTY TRL",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1313 TWITTY TRL",
-      "mail_city": "BURLESON",
-      "mail_state": "TX",
-      "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-12982",
-      "doc_type": "AboJn",
-      "filed": "2026-04-30",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "MILLER CALVIN R",
-      "grantee": "CAPITAL ONE NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "2904 WOODLEIGH DR",
-      "prop_city": "MANSFIELD",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "2904 WOODLEIGH DR",
-      "mail_city": "MANSFIELD",
-      "mail_state": "TX",
-      "mail_zip": "76084",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-12997",
-      "doc_type": "AboJn",
-      "filed": "2026-04-30",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "MAXWELL ROBERT R",
-      "grantee": "CAPITAL ONE NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "9100 MONTERREY DR",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "9100 N MONTERREY DR",
-      "mail_city": "ALVARADO",
-      "mail_state": "TX",
-      "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-12940",
-      "doc_type": "MeLCc",
-      "filed": "2026-04-30",
-      "cat": "lien",
-      "cat_label": "Mechanics Lien Contract",
-      "owner": "ENGLISH JAMES EDWARD",
-      "grantee": "STANFIELD DON",
-      "amount": null,
-      "legal": "Subdivision - Name: CACTUS RIDGE Lot: 16 Block: 1 Reference - 2022/77",
-      "prop_address": "4601 DESERT ROSE CT",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "4601 DESERT ROSE CT",
-      "mail_city": "JOSHUA",
-      "mail_state": "TX",
-      "mail_zip": "76058",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260430,20260514&searchType=advancedSearch",
-      "flags": [
-        "Mechanic lien",
-        "New this week"
-      ],
-      "score": 60,
       "_demo": false
     },
     {
@@ -286,7 +156,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -312,35 +182,9 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Hospital lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-13420",
-      "doc_type": "FeTLe",
-      "filed": "2026-05-04",
-      "cat": "lien",
-      "cat_label": "Federal Tax Lien",
-      "owner": "GALINDO OSCAR O",
-      "grantee": "U S A INTERNAL REVENUE SERVICE",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "1437 ERIN DR",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1437 ERIN DR",
-      "mail_city": "BURLESON",
-      "mail_state": "TX",
-      "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260430,20260514&searchType=advancedSearch",
-      "flags": [
-        "Tax lien",
         "New this week"
       ],
       "score": 60,
@@ -364,7 +208,33 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260501,20260515&searchType=advancedSearch",
+      "flags": [
+        "Tax lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-13420",
+      "doc_type": "FeTLe",
+      "filed": "2026-05-04",
+      "cat": "lien",
+      "cat_label": "Federal Tax Lien",
+      "owner": "GALINDO OSCAR O",
+      "grantee": "U S A INTERNAL REVENUE SERVICE",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "1437 ERIN DR",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1437 ERIN DR",
+      "mail_city": "BURLESON",
+      "mail_state": "TX",
+      "mail_zip": "760280000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Tax lien",
         "New this week"
@@ -390,7 +260,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Probate / estate",
         "New this week"
@@ -416,7 +286,7 @@
       "mail_city": "GRAPEVINE",
       "mail_state": "TX",
       "mail_zip": "76051",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -442,7 +312,7 @@
       "mail_city": "WAXAHACHIE",
       "mail_state": "TX",
       "mail_zip": "751678288",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -468,7 +338,7 @@
       "mail_city": "DUNCANVILLE",
       "mail_state": "TX",
       "mail_zip": "751160000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -494,59 +364,7 @@
       "mail_city": "BRONX",
       "mail_state": "NY",
       "mail_zip": "10462",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-13694",
-      "doc_type": "AboJn",
-      "filed": "2026-05-05",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "BHUYAN MOHAMMAD",
-      "grantee": "THE RETREAT PROPERTY OWNERS ASSOC INC",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "6240 MONTICELLO DR",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "2132 ELLIS AVE FL 2",
-      "mail_city": "BRONX",
-      "mail_state": "NY",
-      "mail_zip": "10462",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-13664",
-      "doc_type": "AboJn",
-      "filed": "2026-05-05",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "HURIC ARZEMINA",
-      "grantee": "THE RETREAT PROPERTY OWNERS ASSOC INC",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "6209 ANNANHILL CIR",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "134 SULLIVAN WAY",
-      "mail_city": "WAXAHACHIE",
-      "mail_state": "TX",
-      "mail_zip": "751678288",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -572,7 +390,59 @@
       "mail_city": "BENNINGTON",
       "mail_state": "NE",
       "mail_zip": "68007",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260501,20260515&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-13694",
+      "doc_type": "AboJn",
+      "filed": "2026-05-05",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "BHUYAN MOHAMMAD",
+      "grantee": "THE RETREAT PROPERTY OWNERS ASSOC INC",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "6240 MONTICELLO DR",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "2132 ELLIS AVE FL 2",
+      "mail_city": "BRONX",
+      "mail_state": "NY",
+      "mail_zip": "10462",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260501,20260515&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-13664",
+      "doc_type": "AboJn",
+      "filed": "2026-05-05",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "HURIC ARZEMINA",
+      "grantee": "THE RETREAT PROPERTY OWNERS ASSOC INC",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "6209 ANNANHILL CIR",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "134 SULLIVAN WAY",
+      "mail_city": "WAXAHACHIE",
+      "mail_state": "TX",
+      "mail_zip": "751678288",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -598,35 +468,9 @@
       "mail_city": "BENNINGTON",
       "mail_state": "NE",
       "mail_zip": "68007",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-13552",
-      "doc_type": "MeLCc",
-      "filed": "2026-05-05",
-      "cat": "lien",
-      "cat_label": "Mechanics Lien Contract",
-      "owner": "MIMS CHARLES",
-      "grantee": "DOUBLE DIAMOND CONSTRUCTION MANAGEMENT LLC",
-      "amount": null,
-      "legal": "Subdivision - Name: THE RANCHES AT EAGLE RIDGE Lot: 56 Reference - 11/660",
-      "prop_address": "1010 EAGLE RIDGE DR",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "PO BOX 875",
-      "mail_city": "THROCKMORTON",
-      "mail_state": "TX",
-      "mail_zip": "76483",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260430,20260514&searchType=advancedSearch",
-      "flags": [
-        "Mechanic lien",
         "New this week"
       ],
       "score": 60,
@@ -650,9 +494,61 @@
       "mail_city": "KEENE",
       "mail_state": "TX",
       "mail_zip": "760590000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260430,20260514&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260501,20260515&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-13552",
+      "doc_type": "MeLCc",
+      "filed": "2026-05-05",
+      "cat": "lien",
+      "cat_label": "Mechanics Lien Contract",
+      "owner": "MIMS CHARLES",
+      "grantee": "DOUBLE DIAMOND CONSTRUCTION MANAGEMENT LLC",
+      "amount": null,
+      "legal": "Subdivision - Name: THE RANCHES AT EAGLE RIDGE Lot: 56 Reference - 11/660",
+      "prop_address": "1010 EAGLE RIDGE DR",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "PO BOX 875",
+      "mail_city": "THROCKMORTON",
+      "mail_state": "TX",
+      "mail_zip": "76483",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260501,20260515&searchType=advancedSearch",
+      "flags": [
+        "Mechanic lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-13725",
+      "doc_type": "NooLe",
+      "filed": "2026-05-06",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "WOOD RONALD THOMAS",
+      "grantee": "REMINGTON RANCH HOMEOWNERS ASSOC",
+      "amount": null,
+      "legal": "Subdivision - Name: REMINGTON RANCH PH 1 Lot: 10 Block: 3 Reference - 9/2",
+      "prop_address": "1404 COWTOWN DR",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1404 COWTOWN DR",
+      "mail_city": "MANSFIELD",
+      "mail_state": "TX",
+      "mail_zip": "76063",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260501,20260515&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
         "New this week"
       ],
       "score": 60,
