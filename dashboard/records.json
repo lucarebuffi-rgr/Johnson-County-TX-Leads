@@ -1,169 +1,13 @@
 {
-  "fetched_at": "2026-05-29T10:47:13.714423Z",
+  "fetched_at": "2026-05-30T09:17:00.111779Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "05/15/2026",
-    "to": "05/29/2026"
+    "from": "05/16/2026",
+    "to": "05/30/2026"
   },
-  "total": 15,
-  "with_address": 15,
+  "total": 10,
+  "with_address": 10,
   "records": [
-    {
-      "doc_num": "2026-14819",
-      "doc_type": "AboJn",
-      "filed": "2026-05-15",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "GIBSON BUDDY",
-      "grantee": "PALLIDA LLC",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "1908 JOSLIN ST",
-      "prop_city": "CLEBURNE",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1908 JOSLIN",
-      "mail_city": "CLEBURNE",
-      "mail_state": "TX",
-      "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260515,20260529&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-14749",
-      "doc_type": "NooLe",
-      "filed": "2026-05-15",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "JUMP CHELSEA",
-      "grantee": "OWNERS ASSOCIATION OF PATRIOT ESTATES",
-      "amount": null,
-      "legal": "Subdivision - Name: PATRIOT ESTATES PH 8 Lot: 14 Block: 33 Reference - 2021/248",
-      "prop_address": "509 A.D. CRAIN ST",
-      "prop_city": "VENUS",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "509 A.D. CRAIN ST",
-      "mail_city": "VENUS",
-      "mail_state": "TX",
-      "mail_zip": "76084",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260515,20260529&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-14755",
-      "doc_type": "NooLe",
-      "filed": "2026-05-15",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "MITCHELL TERRY",
-      "grantee": "OWNERS ASSOCIATION OF PATRIOT ESTATES",
-      "amount": null,
-      "legal": "Subdivision - Name: PATRIOT ESTATES PH 4 Lot: 22 Block: 13 Reference - 9/557",
-      "prop_address": "104 HANCOCK ST",
-      "prop_city": "VENUS",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "104 HANCOCK ST",
-      "mail_city": "VENUS",
-      "mail_state": "TX",
-      "mail_zip": "760843725",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260515,20260529&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-14840",
-      "doc_type": "MeLCc",
-      "filed": "2026-05-15",
-      "cat": "lien",
-      "cat_label": "Mechanics Lien Contract",
-      "owner": "BRYANT LEANN NICOLE",
-      "grantee": "SEMLER MICHAEL",
-      "amount": null,
-      "legal": "Subdivision - Name: 301 PLACE Lot: 3 Block: 1 Reference - 9/253",
-      "prop_address": "401 3RD ST",
-      "prop_city": "GRANDVIEW",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "401 S THIRD ST",
-      "mail_city": "GRANDVIEW",
-      "mail_state": "TX",
-      "mail_zip": "760500000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260515,20260529&searchType=advancedSearch",
-      "flags": [
-        "Mechanic lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-14813",
-      "doc_type": "ChSLe",
-      "filed": "2026-05-15",
-      "cat": "lien",
-      "cat_label": "Child Support Lien",
-      "owner": "GALLEGOS ROBERTO",
-      "grantee": "ATTY GEN",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "2848 FM 916",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "2848 E FM 916",
-      "mail_city": "CLEBURNE",
-      "mail_state": "TX",
-      "mail_zip": "760310000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ChSLe&recordedDateRange=20260515,20260529&searchType=advancedSearch",
-      "flags": [
-        "Child support lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-14815",
-      "doc_type": "ChSLe",
-      "filed": "2026-05-15",
-      "cat": "lien",
-      "cat_label": "Child Support Lien",
-      "owner": "GARCIA JOSE LUIS",
-      "grantee": "ATTY GEN",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "128 TRAIL DUST DR",
-      "prop_city": "GODLEY",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "128 TRAIL DUST DR",
-      "mail_city": "GODLEY",
-      "mail_state": "TX",
-      "mail_zip": "76044",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ChSLe&recordedDateRange=20260515,20260529&searchType=advancedSearch",
-      "flags": [
-        "Child support lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
     {
       "doc_num": "2026-14958",
       "doc_type": "AboJn",
@@ -182,7 +26,7 @@
       "mail_city": "RIO VISTA",
       "mail_state": "TX",
       "mail_zip": "76093",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260515,20260529&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260516,20260530&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -208,35 +52,9 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260515,20260529&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260516,20260530&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-15090",
-      "doc_type": "AboJn",
-      "filed": "2026-05-19",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "METCALF MONIQUE",
-      "grantee": "WELLS FARGO BANK NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "210 DAVIS RANCH RD",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "210 DAVIS RANCH RD",
-      "mail_city": "ALVARADO",
-      "mail_state": "TX",
-      "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260515,20260529&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
         "New this week"
       ],
       "score": 60,
@@ -260,7 +78,33 @@
       "mail_city": "ALVERADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260515,20260529&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260516,20260530&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-15090",
+      "doc_type": "AboJn",
+      "filed": "2026-05-19",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "METCALF MONIQUE",
+      "grantee": "WELLS FARGO BANK NA",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "210 DAVIS RANCH RD",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "210 DAVIS RANCH RD",
+      "mail_city": "ALVARADO",
+      "mail_state": "TX",
+      "mail_zip": "760090000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260516,20260530&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -286,7 +130,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260515,20260529&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260516,20260530&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -312,7 +156,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260515,20260529&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260516,20260530&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -338,7 +182,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260515,20260529&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260516,20260530&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -364,7 +208,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "76084",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260515,20260529&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260516,20260530&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -390,9 +234,35 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260515,20260529&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260516,20260530&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-15561",
+      "doc_type": "MeLCc",
+      "filed": "2026-05-21",
+      "cat": "lien",
+      "cat_label": "Mechanics Lien Contract",
+      "owner": "MOONEY DAVID",
+      "grantee": "TILSON HOME CORP",
+      "amount": null,
+      "legal": "Survey - Name: JOHN O MCKINNEY SRVY Survey: 564 Acres: 16.02",
+      "prop_address": "10629 CR 103",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "10629 CR 103",
+      "mail_city": "GRANDVIEW",
+      "mail_state": "TX",
+      "mail_zip": "760504231",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260516,20260530&searchType=advancedSearch",
+      "flags": [
+        "Mechanic lien",
         "New this week"
       ],
       "score": 60,
