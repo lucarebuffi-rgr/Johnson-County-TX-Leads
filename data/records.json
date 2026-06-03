@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-06-02T11:19:30.377336Z",
+  "fetched_at": "2026-06-03T11:58:33.117389Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "05/19/2026",
-    "to": "06/02/2026"
+    "from": "05/20/2026",
+    "to": "06/03/2026"
   },
-  "total": 9,
-  "with_address": 9,
+  "total": 10,
+  "with_address": 10,
   "records": [
     {
       "doc_num": "2026-15577",
@@ -26,64 +26,12 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ReoLPn&recordedDateRange=20260519,20260602&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ReoLPn&recordedDateRange=20260520,20260603&searchType=advancedSearch",
       "flags": [
         "Lis pendens",
         "New this week"
       ],
       "score": 80,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-15180",
-      "doc_type": "AboJn",
-      "filed": "2026-05-19",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "HYNSON ELTON EDWARD III",
-      "grantee": "PBR RENTALS LLC",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "9200 MARIANNA WAY",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "9200 MARIANNA WAY",
-      "mail_city": "ALVERADO",
-      "mail_state": "TX",
-      "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260519,20260602&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-15090",
-      "doc_type": "AboJn",
-      "filed": "2026-05-19",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "METCALF MONIQUE",
-      "grantee": "WELLS FARGO BANK NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "210 DAVIS RANCH RD",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "210 DAVIS RANCH RD",
-      "mail_city": "ALVARADO",
-      "mail_state": "TX",
-      "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260519,20260602&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
       "_demo": false
     },
     {
@@ -104,7 +52,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260519,20260602&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260520,20260603&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -130,33 +78,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260519,20260602&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-15269",
-      "doc_type": "NooLe",
-      "filed": "2026-05-20",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "MORALES TRINITY",
-      "grantee": "OWNERS ASSOCIATION OF PATRIOT ESTATES",
-      "amount": null,
-      "legal": "Subdivision - Name: PATRIOT ESTATES PH 6B Lot: 42 Block: 6 Reference - 11/459",
-      "prop_address": "158 PRESIDENTS WAY",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "158 PRESIDENTS WAY",
-      "mail_city": "VENUS",
-      "mail_state": "TX",
-      "mail_zip": "76084",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260519,20260602&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260520,20260603&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -182,7 +104,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260519,20260602&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260520,20260603&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -208,7 +130,33 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260519,20260602&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260520,20260603&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-15269",
+      "doc_type": "NooLe",
+      "filed": "2026-05-20",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "MORALES TRINITY",
+      "grantee": "OWNERS ASSOCIATION OF PATRIOT ESTATES",
+      "amount": null,
+      "legal": "Subdivision - Name: PATRIOT ESTATES PH 6B Lot: 42 Block: 6 Reference - 11/459",
+      "prop_address": "158 PRESIDENTS WAY",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "158 PRESIDENTS WAY",
+      "mail_city": "VENUS",
+      "mail_state": "TX",
+      "mail_zip": "76084",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260520,20260603&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -234,9 +182,87 @@
       "mail_city": "GRANDVIEW",
       "mail_state": "TX",
       "mail_zip": "760504231",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260519,20260602&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260520,20260603&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-15870",
+      "doc_type": "NooLe",
+      "filed": "2026-05-26",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "MURRAY KELVIN",
+      "grantee": "EAGLE GLEN HOMEOWNERS ASSOCIATION INC",
+      "amount": null,
+      "legal": "Subdivision - Name: EAGLE GLEN PH 2 Lot: 18 Block: M Reference - 2023/42",
+      "prop_address": "1025 NIGHTHAWK TRL",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1025 NIGHTHAWK TRAIL",
+      "mail_city": "ALVARADO",
+      "mail_state": "TX",
+      "mail_zip": "76009",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260520,20260603&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-15871",
+      "doc_type": "NooLe",
+      "filed": "2026-05-26",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "BERMUDA VILMARIS MONTALVO",
+      "grantee": "EAGLE GLEN HOMEOWNERS ASSOCIATION INC",
+      "amount": null,
+      "legal": "Subdivision - Name: EAGLE GLEN PH 2 Lot: 10 Block: H Reference - 2023/42",
+      "prop_address": "980 KINGBIRD LN",
+      "prop_city": "ALVARADO",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "980 KINGBIRD LN",
+      "mail_city": "ALVARADO",
+      "mail_state": "TX",
+      "mail_zip": "76009",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260520,20260603&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-15874",
+      "doc_type": "NooLe",
+      "filed": "2026-05-26",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "HALLMARK NATHAN EARL",
+      "grantee": "JOSHUA MEADOWS HOMEOWNERS ASSOCIATION",
+      "amount": null,
+      "legal": "Subdivision - Name: JOSHUA MEADOWS PH 3A Lot: 14 Block: 2 Reference - 11/370",
+      "prop_address": "2017 GLEN HOLLOW CT",
+      "prop_city": "JOSHUA",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "2017 GLEN HOLLOW CT",
+      "mail_city": "JOSHUA",
+      "mail_state": "TX",
+      "mail_zip": "760580000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260520,20260603&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
         "New this week"
       ],
       "score": 60,
