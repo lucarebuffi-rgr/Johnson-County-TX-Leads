@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-06-13T09:59:00.557744Z",
+  "fetched_at": "2026-06-14T10:26:44.833315Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "05/30/2026",
-    "to": "06/13/2026"
+    "from": "05/31/2026",
+    "to": "06/14/2026"
   },
-  "total": 14,
-  "with_address": 14,
+  "total": 17,
+  "with_address": 17,
   "records": [
     {
       "doc_num": "2026-16514",
@@ -26,7 +26,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -52,7 +52,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760096410",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -78,9 +78,61 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Probate / estate",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-16451",
+      "doc_type": "NooLe",
+      "filed": "2026-06-01",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "LE QUYNH ANH THI",
+      "grantee": "SOUTH POINTE MASTER HOMEOWNERS ASSOC INC",
+      "amount": null,
+      "legal": "Subdivision - Name: SOUTHPOINTE PH 5 Lot: 2 Block: 3 Reference - 2020/226",
+      "prop_address": "1909 CEDAR BLUFF PKWY",
+      "prop_city": "MANSFIELD",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1909 CEDAR BLUFF PKWY",
+      "mail_city": "MANSFIELD",
+      "mail_state": "TX",
+      "mail_zip": "760630000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260531,20260614&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-16452",
+      "doc_type": "NooLe",
+      "filed": "2026-06-01",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "BHUIYAN MOHAMMAD NASIF",
+      "grantee": "SOUTH POINTE MASTER HOMEOWNERS ASSOC INC",
+      "amount": null,
+      "legal": "Subdivision - Name: SOUTHPOINTE PH 8A Lot: 2 Block: 3 Reference - 2021/42",
+      "prop_address": "6401 ANNANHILL ST",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "3821 CARVER RD",
+      "mail_city": "MODESTO",
+      "mail_state": "CA",
+      "mail_zip": "95356",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260531,20260614&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
         "New this week"
       ],
       "score": 60,
@@ -104,7 +156,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -130,7 +182,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Tax lien",
         "New this week"
@@ -156,7 +208,7 @@
       "mail_city": "JOSHUA",
       "mail_state": "TX",
       "mail_zip": "760580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Tax lien",
         "New this week"
@@ -182,7 +234,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -208,7 +260,7 @@
       "mail_city": "FORT WORTH",
       "mail_state": "TX",
       "mail_zip": "761620000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Lien",
         "New this week"
@@ -234,7 +286,7 @@
       "mail_city": "JOSHUA",
       "mail_state": "TX",
       "mail_zip": "760580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -260,7 +312,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -286,9 +338,35 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ChSLe&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ChSLe&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Child support lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-17032",
+      "doc_type": "AboJn",
+      "filed": "2026-06-04",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "CLEMENTS MICHEL",
+      "grantee": "SYNCHRONY BANK",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "4409 CHAPARRAL CT",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "4409 CHAPARRAL CT",
+      "mail_city": "ALVARADO",
+      "mail_state": "TX",
+      "mail_zip": "760090000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260531,20260614&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien",
         "New this week"
       ],
       "score": 60,
@@ -312,7 +390,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760095996",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -338,7 +416,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -347,26 +425,26 @@
       "_demo": false
     },
     {
-      "doc_num": "2026-17032",
-      "doc_type": "AboJn",
+      "doc_num": "2026-17126",
+      "doc_type": "NooLe",
       "filed": "2026-06-04",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "CLEMENTS MICHEL",
-      "grantee": "SYNCHRONY BANK",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "HUTTO MICHAEL SHAUN",
+      "grantee": "CANYON RIDGE GODLEY PROPERTY OWNERS ASSOC INC",
       "amount": null,
-      "legal": "N/A",
-      "prop_address": "4409 CHAPARRAL CT",
+      "legal": "Subdivision - Name: CANYON RIDGE ADDT PH 2 Lot: 5 Block: 4 Reference - 11/391",
+      "prop_address": "8912 WINDING WAY",
       "prop_city": "Cleburne",
       "prop_state": "TX",
       "prop_zip": "",
-      "mail_address": "4409 CHAPARRAL CT",
-      "mail_city": "ALVARADO",
+      "mail_address": "8912 WINDING WAY",
+      "mail_city": "GODLEY",
       "mail_state": "TX",
-      "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260530,20260613&searchType=advancedSearch",
+      "mail_zip": "760440000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260531,20260614&searchType=advancedSearch",
       "flags": [
-        "Judgment lien",
+        "Notice of lien",
         "New this week"
       ],
       "score": 60,
