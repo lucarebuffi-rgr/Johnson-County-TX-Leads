@@ -1,221 +1,13 @@
 {
-  "fetched_at": "2026-07-13T10:26:19.132363Z",
+  "fetched_at": "2026-07-14T09:06:12.685483Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "06/29/2026",
-    "to": "07/13/2026"
+    "from": "06/30/2026",
+    "to": "07/14/2026"
   },
-  "total": 26,
-  "with_address": 26,
+  "total": 23,
+  "with_address": 23,
   "records": [
-    {
-      "doc_num": "2026-19754",
-      "doc_type": "AboJn",
-      "filed": "2026-06-29",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "CREWS KRISTINE",
-      "grantee": "CAPITAL ONE NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "508 MESQUITE DR",
-      "prop_city": "RIO VISTA",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "508 MESQUITE DR",
-      "mail_city": "RIO VISTA",
-      "mail_state": "TX",
-      "mail_zip": "760930000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-19663",
-      "doc_type": "NooLe",
-      "filed": "2026-06-29",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "STINNETT JERRY DON",
-      "grantee": "REMINGTON RANCH HOMEOWNERS ASSOC",
-      "amount": null,
-      "legal": "Subdivision - Name: REMINGTON RANCH PH 2 Lot: 36 Block: 9 Reference - 9/189",
-      "prop_address": "1501 COWTOWN DR",
-      "prop_city": "MANSFIELD",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "2856 MEADOW PARK AVE",
-      "mail_city": "HENDERSON",
-      "mail_state": "NV",
-      "mail_zip": "89052",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260629,20260713&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-19656",
-      "doc_type": "NooLe",
-      "filed": "2026-06-29",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "MANNING JASMINE RENE",
-      "grantee": "REMINGTON RANCH HOMEOWNERS ASSOC",
-      "amount": null,
-      "legal": "Subdivision - Name: REMINGTON RANCH PH 2 Lot: 5 Block: 10 Reference - 9/189",
-      "prop_address": "1508 COWTOWN DR",
-      "prop_city": "MANSFIELD",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1508 COWTOWN DR",
-      "mail_city": "MANSFIELD",
-      "mail_state": "TX",
-      "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260629,20260713&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-19659",
-      "doc_type": "NooLe",
-      "filed": "2026-06-29",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "ZAMBRANO ADRIANA",
-      "grantee": "REMINGTON RANCH HOMEOWNERS ASSOC",
-      "amount": null,
-      "legal": "Subdivision - Name: REMINGTON RANCH PH 2 Lot: 3 Block: 9 Reference - 9/189",
-      "prop_address": "931 REMINGTON RANCH RD",
-      "prop_city": "MANSFIELD",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "931 REMINGTON RANCH RD",
-      "mail_city": "MANSFIELD",
-      "mail_state": "TX",
-      "mail_zip": "76063",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260629,20260713&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-19664",
-      "doc_type": "NooLe",
-      "filed": "2026-06-29",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "CAMPOS ALBERTO SANCHEZ",
-      "grantee": "REMINGTON RANCH HOMEOWNERS ASSOC",
-      "amount": null,
-      "legal": "Subdivision - Name: REMINGTON RANCH PH 1 Lot: 17 Block: 1 Reference - 9/2",
-      "prop_address": "1018 CUTTING HORSE DR",
-      "prop_city": "MANSFIELD",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1018 CUTTING HORSE DR",
-      "mail_city": "MANSFIELD",
-      "mail_state": "TX",
-      "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260629,20260713&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-19665",
-      "doc_type": "NooLe",
-      "filed": "2026-06-29",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "BELL DAKEISHA LANETTE",
-      "grantee": "REMINGTON RANCH HOMEOWNERS ASSOC",
-      "amount": null,
-      "legal": "Subdivision - Name: REMINGTON RANCH PH 2 Lot: 10 Block: 9 Reference - 9/189",
-      "prop_address": "917 REMINGTON RANCH RD",
-      "prop_city": "MANSFIELD",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "917 REMINGTON RANCH RD",
-      "mail_city": "MANSFIELD",
-      "mail_state": "TX",
-      "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260629,20260713&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-19694",
-      "doc_type": "MeLCc",
-      "filed": "2026-06-29",
-      "cat": "lien",
-      "cat_label": "Mechanics Lien Contract",
-      "owner": "STROBEL BREANNE M",
-      "grantee": "STONEGATE VENTURES LLC",
-      "amount": null,
-      "legal": "Subdivision - Name: TAYLOR BRIDGE NORTH Lot: 3 Reference - 2022/116",
-      "prop_address": "1709 PRIVATE ACCESS 60200",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1425 LILAC LN",
-      "mail_city": "PLANO",
-      "mail_state": "TX",
-      "mail_zip": "750740000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260629,20260713&searchType=advancedSearch",
-      "flags": [
-        "Mechanic lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-19797",
-      "doc_type": "MeLCc",
-      "filed": "2026-06-29",
-      "cat": "lien",
-      "cat_label": "Mechanics Lien Contract",
-      "owner": "FARMER DANIEL",
-      "grantee": "PMP SERVICES LLC",
-      "amount": null,
-      "legal": "Survey - Name: SETH MORRIS SRVY Survey: 536 Acres: 0.964",
-      "prop_address": "5805 CR 319",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "5805 CR 319",
-      "mail_city": "ALVARADO",
-      "mail_state": "TX",
-      "mail_zip": "760098484",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260629,20260713&searchType=advancedSearch",
-      "flags": [
-        "Mechanic lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
     {
       "doc_num": "2026-20041",
       "doc_type": "AboJn",
@@ -234,7 +26,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -260,7 +52,7 @@
       "mail_city": "JOSHUA",
       "mail_state": "TX",
       "mail_zip": "760580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -286,7 +78,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760843713",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -312,7 +104,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "76031",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -338,7 +130,7 @@
       "mail_city": "CROWLEY",
       "mail_state": "TX",
       "mail_zip": "760360000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -364,7 +156,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760310000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -390,7 +182,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -416,7 +208,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -442,7 +234,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -468,7 +260,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760330000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -494,7 +286,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -520,59 +312,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260629,20260713&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-20420",
-      "doc_type": "NooLe",
-      "filed": "2026-07-02",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "MITCHELL BRANDON SR",
-      "grantee": "EAGLE GLEN HOMEOWNERS ASSOCIATION INC",
-      "amount": null,
-      "legal": "Subdivision - Name: EAGLE GLEN PH 1 Lot: 21 Block: I Reference - 11/780",
-      "prop_address": "1129 SNOWY OWL DR",
-      "prop_city": "ALVARADO",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1129 SNOWY OWL DR",
-      "mail_city": "ALVARADO",
-      "mail_state": "TX",
-      "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260629,20260713&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-20383",
-      "doc_type": "NooLe",
-      "filed": "2026-07-02",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "DEATON JESSICA",
-      "grantee": "EAGLE GLEN HOMEOWNERS ASSOCIATION INC",
-      "amount": null,
-      "legal": "Subdivision - Name: AMENDED PLAT EAGLE GLEN PH 2 Lot: 11 Block: J Reference - 2023/42",
-      "prop_address": "1044 NIGHTHAWK TRL",
-      "prop_city": "Cleburne",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1044 NIGHTHAWK TRAIL",
-      "mail_city": "ALVARADO",
-      "mail_state": "TX",
-      "mail_zip": "76009",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -598,7 +338,59 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260630,20260714&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-20383",
+      "doc_type": "NooLe",
+      "filed": "2026-07-02",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "DEATON JESSICA",
+      "grantee": "EAGLE GLEN HOMEOWNERS ASSOCIATION INC",
+      "amount": null,
+      "legal": "Subdivision - Name: AMENDED PLAT EAGLE GLEN PH 2 Lot: 11 Block: J Reference - 2023/42",
+      "prop_address": "1044 NIGHTHAWK TRL",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1044 NIGHTHAWK TRAIL",
+      "mail_city": "ALVARADO",
+      "mail_state": "TX",
+      "mail_zip": "76009",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260630,20260714&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-20420",
+      "doc_type": "NooLe",
+      "filed": "2026-07-02",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "MITCHELL BRANDON SR",
+      "grantee": "EAGLE GLEN HOMEOWNERS ASSOCIATION INC",
+      "amount": null,
+      "legal": "Subdivision - Name: EAGLE GLEN PH 1 Lot: 21 Block: I Reference - 11/780",
+      "prop_address": "1129 SNOWY OWL DR",
+      "prop_city": "ALVARADO",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1129 SNOWY OWL DR",
+      "mail_city": "ALVARADO",
+      "mail_state": "TX",
+      "mail_zip": "760090000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -624,7 +416,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -650,7 +442,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -676,9 +468,139 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760282481",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260629,20260713&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260630,20260714&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-20870",
+      "doc_type": "AboJn",
+      "filed": "2026-07-08",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "DIXON LANE L",
+      "grantee": "CITIBANK NA",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "511 CR 807",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "511 CR 807",
+      "mail_city": "ALVARADO",
+      "mail_state": "TX",
+      "mail_zip": "760090000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260630,20260714&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-20924",
+      "doc_type": "Lie",
+      "filed": "2026-07-08",
+      "cat": "lien",
+      "cat_label": "Lien",
+      "owner": "MONTOYA JOSE",
+      "grantee": "CITY OF BURLESON",
+      "amount": null,
+      "legal": "Subdivision - Name: SALEM PARK Lot: 2R Block: 1",
+      "prop_address": "7105 STARLING DR",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "PO BOX 33995",
+      "mail_city": "FORT WORTH",
+      "mail_state": "TX",
+      "mail_zip": "761620000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260630,20260714&searchType=advancedSearch",
+      "flags": [
+        "Lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-20923",
+      "doc_type": "Lie",
+      "filed": "2026-07-08",
+      "cat": "lien",
+      "cat_label": "Lien",
+      "owner": "SAUCEDO ALEXANDER",
+      "grantee": "CITY OF BURLESON",
+      "amount": null,
+      "legal": "Subdivision - Name: SUMMERCREST ADDT Lot: 15 Block: 7",
+      "prop_address": "308 SUNDOWN CT",
+      "prop_city": "BURLESON",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "308 SUNDOWN CT",
+      "mail_city": "BURLESON",
+      "mail_state": "TX",
+      "mail_zip": "76028",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260630,20260714&searchType=advancedSearch",
+      "flags": [
+        "Lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-20899",
+      "doc_type": "NooLe",
+      "filed": "2026-07-08",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "BURBAGE ANTWAINE D",
+      "grantee": "HOA OF PLANTATION",
+      "amount": null,
+      "legal": "Subdivision - Name: PLANTATION PH 3A Lot: 22 Block: 11 Reference - 10/566",
+      "prop_address": "1217 BARBERRY DR",
+      "prop_city": "BURLESON",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1217 BARBERRY DR",
+      "mail_city": "BURLESON",
+      "mail_state": "TX",
+      "mail_zip": "760280000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260630,20260714&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-20901",
+      "doc_type": "NooLe",
+      "filed": "2026-07-08",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "KALUBA RAYMOND",
+      "grantee": "HOA OF PLANTATION",
+      "amount": null,
+      "legal": "Subdivision - Name: PLANTATION PH 3B Lot: 10 Block: 18 Reference - 10/828",
+      "prop_address": "1028 TARRAGON DR",
+      "prop_city": "BURLESON",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1028 TARRAGON DR",
+      "mail_city": "BURLESON",
+      "mail_state": "TX",
+      "mail_zip": "760280000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260630,20260714&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
         "New this week"
       ],
       "score": 60,
