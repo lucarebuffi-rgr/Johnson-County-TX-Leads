@@ -1,13 +1,39 @@
 {
-  "fetched_at": "2026-07-17T09:10:17.083188Z",
+  "fetched_at": "2026-07-18T08:50:42.917671Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "07/03/2026",
-    "to": "07/17/2026"
+    "from": "07/04/2026",
+    "to": "07/18/2026"
   },
-  "total": 33,
-  "with_address": 33,
+  "total": 44,
+  "with_address": 44,
   "records": [
+    {
+      "doc_num": "2026-21857",
+      "doc_type": "LiPn",
+      "filed": "2026-07-15",
+      "cat": "pre_foreclosure",
+      "cat_label": "Lis Pendens",
+      "owner": "ALMANZA PHILLIP III",
+      "grantee": "ALMANZA PHYLLIS",
+      "amount": null,
+      "legal": "Subdivision - Name: REMUDA ACRES ADDT Lot: 9 Block: 2 Reference - 4/87",
+      "prop_address": "3113 CLYDESDALE LN",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "3113 CLYDESDALE ST",
+      "mail_city": "ALVARADO",
+      "mail_state": "TX",
+      "mail_zip": "760090000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Lis pendens",
+        "New this week"
+      ],
+      "score": 80,
+      "_demo": false
+    },
     {
       "doc_num": "2026-20477",
       "doc_type": "AboJn",
@@ -26,7 +52,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -52,7 +78,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -78,7 +104,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760282481",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -104,7 +130,7 @@
       "mail_city": "ALVARADO",
       "mail_state": "TX",
       "mail_zip": "760090000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -130,7 +156,7 @@
       "mail_city": "FORT WORTH",
       "mail_state": "TX",
       "mail_zip": "761620000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Lien",
         "New this week"
@@ -156,7 +182,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Lien",
         "New this week"
@@ -182,7 +208,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -208,7 +234,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -234,7 +260,7 @@
       "mail_city": "GRANDVIEW",
       "mail_state": "TX",
       "mail_zip": "76050",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -260,33 +286,7 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "76044",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-21484",
-      "doc_type": "AboJn",
-      "filed": "2026-07-13",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "SMITH JOSEPH J",
-      "grantee": "CAPITAL ONE NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "3428 HWY 67",
-      "prop_city": "KEENE",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "6156 CR 406",
-      "mail_city": "GRANDVIEW",
-      "mail_state": "TX",
-      "mail_zip": "760500000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -312,7 +312,33 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-21484",
+      "doc_type": "AboJn",
+      "filed": "2026-07-13",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "SMITH JOSEPH J",
+      "grantee": "CAPITAL ONE NA",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "3428 HWY 67",
+      "prop_city": "KEENE",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "6156 CR 406",
+      "mail_city": "GRANDVIEW",
+      "mail_state": "TX",
+      "mail_zip": "760500000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -338,35 +364,9 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-21553",
-      "doc_type": "NooLe",
-      "filed": "2026-07-13",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "PAK EUGENE",
-      "grantee": "BRISTOL OAKS POA INC",
-      "amount": null,
-      "legal": "Subdivision - Name: BRISTOL OAKS ADDT Lot: 25 Block: 1",
-      "prop_address": "537 TALL MEADOWS DR",
-      "prop_city": "CLEBURNE",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1080 SUNSET HILLS LN",
-      "mail_city": "REDLANDS",
-      "mail_state": "CA",
-      "mail_zip": "923730000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
         "New this week"
       ],
       "score": 60,
@@ -390,7 +390,33 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-21553",
+      "doc_type": "NooLe",
+      "filed": "2026-07-13",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "PAK EUGENE",
+      "grantee": "BRISTOL OAKS POA INC",
+      "amount": null,
+      "legal": "Subdivision - Name: BRISTOL OAKS ADDT Lot: 25 Block: 1",
+      "prop_address": "537 TALL MEADOWS DR",
+      "prop_city": "CLEBURNE",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1080 SUNSET HILLS LN",
+      "mail_city": "REDLANDS",
+      "mail_state": "CA",
+      "mail_zip": "923730000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -416,7 +442,7 @@
       "mail_city": "REDLANDS",
       "mail_state": "CA",
       "mail_zip": "923730000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -442,7 +468,7 @@
       "mail_city": "KEENE",
       "mail_state": "TX",
       "mail_zip": "760590000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -468,7 +494,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760286377",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -494,7 +520,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -520,33 +546,7 @@
       "mail_city": "GRANDVIEW",
       "mail_state": "TX",
       "mail_zip": "76050",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
-      "flags": [
-        "Notice of lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-21555",
-      "doc_type": "NooLe",
-      "filed": "2026-07-13",
-      "cat": "lien",
-      "cat_label": "Notice of Lien",
-      "owner": "NELSON SEAN",
-      "grantee": "VISTA POINT HOA INC",
-      "amount": null,
-      "legal": "Subdivision - Name: VISTA POINT PH 1 Lot: 4 Block: J",
-      "prop_address": "616 CRINER ST",
-      "prop_city": "GRANDVIEW",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "616 W CRINER ST",
-      "mail_city": "GRANDVIEW",
-      "mail_state": "TX",
-      "mail_zip": "760501825",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -572,7 +572,7 @@
       "mail_city": "REDLANDS",
       "mail_state": "CA",
       "mail_zip": "923730000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -598,7 +598,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -624,7 +624,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -633,24 +633,24 @@
       "_demo": false
     },
     {
-      "doc_num": "2026-21560",
+      "doc_num": "2026-21555",
       "doc_type": "NooLe",
       "filed": "2026-07-13",
       "cat": "lien",
       "cat_label": "Notice of Lien",
-      "owner": "LAMBERT LINDA",
+      "owner": "NELSON SEAN",
       "grantee": "VISTA POINT HOA INC",
       "amount": null,
-      "legal": "Subdivision - Name: VISTA POINT PH 1 Lot: 30 Block: C",
-      "prop_address": "156 TRINITY ST",
+      "legal": "Subdivision - Name: VISTA POINT PH 1 Lot: 4 Block: J",
+      "prop_address": "616 CRINER ST",
       "prop_city": "GRANDVIEW",
       "prop_state": "TX",
       "prop_zip": "",
-      "mail_address": "156 TRINITY ST",
+      "mail_address": "616 W CRINER ST",
       "mail_city": "GRANDVIEW",
       "mail_state": "TX",
-      "mail_zip": "760500000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "mail_zip": "760501825",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -676,7 +676,7 @@
       "mail_city": "GRANDVIEW",
       "mail_state": "TX",
       "mail_zip": "760500000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -685,24 +685,24 @@
       "_demo": false
     },
     {
-      "doc_num": "2026-21565",
+      "doc_num": "2026-21560",
       "doc_type": "NooLe",
       "filed": "2026-07-13",
       "cat": "lien",
       "cat_label": "Notice of Lien",
-      "owner": "DYER MITCHAEL",
-      "grantee": "MVCC ESTATES OWNERS ASSOCIATION INC",
+      "owner": "LAMBERT LINDA",
+      "grantee": "VISTA POINT HOA INC",
       "amount": null,
-      "legal": "Subdivision - Name: MOUNTAIN VALLEY LAKE TR D PH 2 Lot: 19 Block: 35",
-      "prop_address": "2621 STREAMSIDE DR",
-      "prop_city": "BURLESON",
+      "legal": "Subdivision - Name: VISTA POINT PH 1 Lot: 30 Block: C",
+      "prop_address": "156 TRINITY ST",
+      "prop_city": "GRANDVIEW",
       "prop_state": "TX",
       "prop_zip": "",
-      "mail_address": "2621 STREAMSIDE DR",
-      "mail_city": "BURLESON",
+      "mail_address": "156 TRINITY ST",
+      "mail_city": "GRANDVIEW",
       "mail_state": "TX",
-      "mail_zip": "76028",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "mail_zip": "760500000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -728,7 +728,33 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-21565",
+      "doc_type": "NooLe",
+      "filed": "2026-07-13",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "DYER MITCHAEL",
+      "grantee": "MVCC ESTATES OWNERS ASSOCIATION INC",
+      "amount": null,
+      "legal": "Subdivision - Name: MOUNTAIN VALLEY LAKE TR D PH 2 Lot: 19 Block: 35",
+      "prop_address": "2621 STREAMSIDE DR",
+      "prop_city": "BURLESON",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "2621 STREAMSIDE DR",
+      "mail_city": "BURLESON",
+      "mail_state": "TX",
+      "mail_zip": "76028",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -754,7 +780,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -780,7 +806,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "76084",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -806,7 +832,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -832,7 +858,7 @@
       "mail_city": "CROWLEY",
       "mail_state": "TX",
       "mail_zip": "76036",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -858,9 +884,269 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260703,20260717&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-21920",
+      "doc_type": "AboJn",
+      "filed": "2026-07-15",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "TOLLETT HARRISON WILLIAM",
+      "grantee": "ITRIA VENTURES LLC",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "325 MERCED ST",
+      "prop_city": "BURLESON",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "325 MERCED ST",
+      "mail_city": "BURLESON",
+      "mail_state": "TX",
+      "mail_zip": "760280000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-21830",
+      "doc_type": "Prt",
+      "filed": "2026-07-15",
+      "cat": "probate",
+      "cat_label": "Probate",
+      "owner": "SMITH LYNN L EST",
+      "grantee": "SMITH LAURA J",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "6925 BIG TREE ST",
+      "prop_city": "ALVARADO",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "5777 FOREST HIGHLANDS DR",
+      "mail_city": "FORT WORTH",
+      "mail_state": "TX",
+      "mail_zip": "76132",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Probate / estate",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-21815",
+      "doc_type": "NooLe",
+      "filed": "2026-07-15",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "HENABY SEAN CHRISTOPHER",
+      "grantee": "STAR RANCH HOMEOWNERS ASSOC INC",
+      "amount": null,
+      "legal": "Subdivision - Name: STAR RANCH PH 4 Lot: 6 Block: U Reference - 2023/53",
+      "prop_address": "1024 HICKORY CHASE DR",
+      "prop_city": "GODLEY",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1024 HICKORY CHASE DR",
+      "mail_city": "GODLEY",
+      "mail_state": "TX",
+      "mail_zip": "760440000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-21964",
+      "doc_type": "NooLe",
+      "filed": "2026-07-15",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "RHODES DUSTIN",
+      "grantee": "STAR RANCH HOMEOWNERS ASSOC INC",
+      "amount": null,
+      "legal": "Subdivision - Name: STAR RANCH PH 1 Lot: 12 Block: C Reference - 11/611",
+      "prop_address": "1025 KINGSTON DR",
+      "prop_city": "GODLEY",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1025 KINGSTON DR",
+      "mail_city": "GODLEY",
+      "mail_state": "TX",
+      "mail_zip": "760440000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-21892",
+      "doc_type": "MeLCc",
+      "filed": "2026-07-15",
+      "cat": "lien",
+      "cat_label": "Mechanics Lien Contract",
+      "owner": "AARON DAMAN",
+      "grantee": "BRANSOM HOMES LLC",
+      "amount": null,
+      "legal": "Subdivision - Name: CHISHOLM OAKS Lot: 15 Block: 1 Reference - 2025/145",
+      "prop_address": "7021 TWIN HILLS",
+      "prop_city": "JOSHUA",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "7021 TWIN HILLS RD",
+      "mail_city": "JOSHUA",
+      "mail_state": "TX",
+      "mail_zip": "760580000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Mechanic lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-22079",
+      "doc_type": "FeTLe",
+      "filed": "2026-07-16",
+      "cat": "lien",
+      "cat_label": "Federal Tax Lien",
+      "owner": "CALONGE JASON S",
+      "grantee": "U S A INTERNAL REVENUE SERVICE",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "1015 GREENBRIAR DR",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1015 GREENBRIAR DR",
+      "mail_city": "JOSHUA",
+      "mail_state": "TX",
+      "mail_zip": "76058",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Tax lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-22078",
+      "doc_type": "FeTLe",
+      "filed": "2026-07-16",
+      "cat": "lien",
+      "cat_label": "Federal Tax Lien",
+      "owner": "DOBBINS DEIDRE S",
+      "grantee": "U S A INTERNAL REVENUE SERVICE",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "1572 LIZZIE LN",
+      "prop_city": "BURLESON",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1572 LIZZIE LN",
+      "mail_city": "BURLESON",
+      "mail_state": "TX",
+      "mail_zip": "760280000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Tax lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-21985",
+      "doc_type": "Lie",
+      "filed": "2026-07-16",
+      "cat": "lien",
+      "cat_label": "Lien",
+      "owner": "VALDEZ MARGARITA",
+      "grantee": "CITY OF JOSHUA",
+      "amount": null,
+      "legal": "Subdivision - Name: BENTLEY ADDT Lot: 2 Block: 1",
+      "prop_address": "102 BENTLEY DR",
+      "prop_city": "JOSHUA",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "102 BENTLEY",
+      "mail_city": "JOSHUA",
+      "mail_state": "TX",
+      "mail_zip": "760580000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-21986",
+      "doc_type": "Lie",
+      "filed": "2026-07-16",
+      "cat": "lien",
+      "cat_label": "Lien",
+      "owner": "EISENHOWER WILLIAM IV",
+      "grantee": "CITY OF JOSHUA",
+      "amount": null,
+      "legal": "Subdivision - Name: MOUNTAIN VALLEY PH I Lot: 12 Block: 2",
+      "prop_address": "101 OAKWOOD PL",
+      "prop_city": "JOSHUA",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "101 OAKWOOD PL",
+      "mail_city": "JOSHUA",
+      "mail_state": "TX",
+      "mail_zip": "76058",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-21987",
+      "doc_type": "Lie",
+      "filed": "2026-07-16",
+      "cat": "lien",
+      "cat_label": "Lien",
+      "owner": "ADAMS CHRIS",
+      "grantee": "CITY OF JOSHUA",
+      "amount": null,
+      "legal": "Subdivision - Name: CHAPMAN Lot: 2 Block: 1",
+      "prop_address": "347 EDDY AVE",
+      "prop_city": "JOSHUA",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "31 CYPRESS VALLEY RD",
+      "mail_city": "VILONIA",
+      "mail_state": "AR",
+      "mail_zip": "721739492",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Lie&recordedDateRange=20260704,20260718&searchType=advancedSearch",
+      "flags": [
+        "Lien",
         "New this week"
       ],
       "score": 60,
