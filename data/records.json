@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-09-10T12:05:36.164541Z",
+  "fetched_at": "2026-09-11T12:04:38.080711Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "08/27/2026",
-    "to": "09/10/2026"
+    "from": "08/28/2026",
+    "to": "09/11/2026"
   },
-  "total": 14,
-  "with_address": 14,
+  "total": 17,
+  "with_address": 17,
   "records": [
     {
       "doc_num": "2026-26864",
@@ -26,7 +26,7 @@
       "mail_city": "FORT WORTH",
       "mail_state": "TX",
       "mail_zip": "761010000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=LiPn&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Lis pendens",
         "New this week"
@@ -52,7 +52,7 @@
       "mail_city": "RIALTO",
       "mail_state": "CA",
       "mail_zip": "923773725",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ReoLPn&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=ReoLPn&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Lis pendens",
         "New this week"
@@ -78,7 +78,7 @@
       "mail_city": "ARLINGTON",
       "mail_state": "TX",
       "mail_zip": "76012",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -104,7 +104,7 @@
       "mail_city": "DALLAS",
       "mail_state": "TX",
       "mail_zip": "75230",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -130,7 +130,7 @@
       "mail_city": "CLEBURNE",
       "mail_state": "TX",
       "mail_zip": "760310000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -156,7 +156,7 @@
       "mail_city": "CARROLLTON",
       "mail_state": "TX",
       "mail_zip": "750074810",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=Prt&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Probate / estate",
         "New this week"
@@ -182,7 +182,7 @@
       "mail_city": "VENUS",
       "mail_state": "TX",
       "mail_zip": "760840000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=FeTLe&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Tax lien",
         "New this week"
@@ -208,33 +208,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260827,20260910&searchType=advancedSearch",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "_demo": false
-    },
-    {
-      "doc_num": "2026-27155",
-      "doc_type": "AboJn",
-      "filed": "2026-09-01",
-      "cat": "judgment",
-      "cat_label": "Abstract of Judgment",
-      "owner": "MARRERO ASHTON",
-      "grantee": "CITIBANK NA",
-      "amount": null,
-      "legal": "N/A",
-      "prop_address": "1210 FOX CHASE DR",
-      "prop_city": "MANSFIELD",
-      "prop_state": "TX",
-      "prop_zip": "",
-      "mail_address": "1210 FOX CHASE DR",
-      "mail_city": "MANSFIELD",
-      "mail_state": "TX",
-      "mail_zip": "76063",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -260,7 +234,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "760630000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -269,24 +243,24 @@
       "_demo": false
     },
     {
-      "doc_num": "2026-27151",
+      "doc_num": "2026-27155",
       "doc_type": "AboJn",
       "filed": "2026-09-01",
       "cat": "judgment",
       "cat_label": "Abstract of Judgment",
-      "owner": "EADIE THOMAS II",
-      "grantee": "JPMORGAN CHASE BANK NA",
+      "owner": "MARRERO ASHTON",
+      "grantee": "CITIBANK NA",
       "amount": null,
       "legal": "N/A",
-      "prop_address": "10104 MARGAY CT",
-      "prop_city": "Cleburne",
+      "prop_address": "1210 FOX CHASE DR",
+      "prop_city": "MANSFIELD",
       "prop_state": "TX",
       "prop_zip": "",
-      "mail_address": "10104 MARGAY CT",
-      "mail_city": "GODLEY",
+      "mail_address": "1210 FOX CHASE DR",
+      "mail_city": "MANSFIELD",
       "mail_state": "TX",
-      "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "mail_zip": "76063",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -312,7 +286,33 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260828,20260911&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-27151",
+      "doc_type": "AboJn",
+      "filed": "2026-09-01",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "EADIE THOMAS II",
+      "grantee": "JPMORGAN CHASE BANK NA",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "10104 MARGAY CT",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "10104 MARGAY CT",
+      "mail_city": "GODLEY",
+      "mail_state": "TX",
+      "mail_zip": "760440000",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -338,7 +338,7 @@
       "mail_city": "ARLINGTON",
       "mail_state": "TX",
       "mail_zip": "760010000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -364,7 +364,85 @@
       "mail_city": "ARLINGTON",
       "mail_state": "TX",
       "mail_zip": "760010000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260827,20260910&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260828,20260911&searchType=advancedSearch",
+      "flags": [
+        "Mechanic lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-27416",
+      "doc_type": "AboJn",
+      "filed": "2026-09-03",
+      "cat": "judgment",
+      "cat_label": "Abstract of Judgment",
+      "owner": "LOCKWOOD KENNETH",
+      "grantee": "CITIBANK NA",
+      "amount": null,
+      "legal": "N/A",
+      "prop_address": "1007 ANGLIN ST",
+      "prop_city": "CLEBURNE",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1007 N ANGLIN ST",
+      "mail_city": "CLEBURNE",
+      "mail_state": "TX",
+      "mail_zip": "76031",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20260828,20260911&searchType=advancedSearch",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-27453",
+      "doc_type": "MeLCc",
+      "filed": "2026-09-03",
+      "cat": "lien",
+      "cat_label": "Mechanics Lien Contract",
+      "owner": "BENTLEY SOMMER",
+      "grantee": "WOLF VALLEY BUILDINGS LLC",
+      "amount": null,
+      "legal": "Survey- Name: A CRENSHAW SRVY Survey: 131 Acres: 1.000",
+      "prop_address": "6901 CR 305B",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "6901 CR 305B",
+      "mail_city": "GRANDVIEW",
+      "mail_state": "TX",
+      "mail_zip": "76050",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260828,20260911&searchType=advancedSearch",
+      "flags": [
+        "Mechanic lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-27535",
+      "doc_type": "MeLCc",
+      "filed": "2026-09-03",
+      "cat": "lien",
+      "cat_label": "Mechanics Lien Contract",
+      "owner": "BROWN BOBBY RUSSELL",
+      "grantee": "CENTRAL NATIONAL BANK",
+      "amount": null,
+      "legal": "Subdivision- Name: TRINITY ACRES Lot: 10 Block: 1, Reference - 2022 / 266",
+      "prop_address": "1080 NIGHTHAWK TRL",
+      "prop_city": "Cleburne",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1080 NIGHTHAWK TRL",
+      "mail_city": "ALVARADO",
+      "mail_state": "TX",
+      "mail_zip": "76009",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20260828,20260911&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
