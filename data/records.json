@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-11-14T13:59:27.085257Z",
+  "fetched_at": "2026-11-15T14:33:17.130754Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "10/31/2026",
-    "to": "11/14/2026"
+    "from": "11/01/2026",
+    "to": "11/15/2026"
   },
   "total": 4,
   "with_address": 4,
@@ -26,7 +26,7 @@
       "mail_city": "ROCKWALL",
       "mail_state": "TX",
       "mail_zip": "750327534",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20261031,20261114&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=AboJn&recordedDateRange=20261101,20261115&searchType=advancedSearch",
       "flags": [
         "Judgment lien",
         "New this week"
@@ -52,7 +52,7 @@
       "mail_city": "MANSFIELD",
       "mail_state": "TX",
       "mail_zip": "76063",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20261031,20261114&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20261101,20261115&searchType=advancedSearch",
       "flags": [
         "Notice of lien",
         "New this week"
@@ -78,7 +78,7 @@
       "mail_city": "BURLESON",
       "mail_state": "TX",
       "mail_zip": "760280000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20261031,20261114&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20261101,20261115&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
@@ -104,7 +104,7 @@
       "mail_city": "GODLEY",
       "mail_state": "TX",
       "mail_zip": "760440000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20261031,20261114&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=HoLe&recordedDateRange=20261101,20261115&searchType=advancedSearch",
       "flags": [
         "Hospital lien",
         "New this week"
