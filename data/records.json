@@ -1,13 +1,65 @@
 {
-  "fetched_at": "2026-11-22T15:05:08.138159Z",
+  "fetched_at": "2026-11-23T19:01:06.714120Z",
   "source": "Johnson County TX \u2013 PublicSearch",
   "date_range": {
-    "from": "11/08/2026",
-    "to": "11/22/2026"
+    "from": "11/09/2026",
+    "to": "11/23/2026"
   },
-  "total": 1,
-  "with_address": 1,
+  "total": 3,
+  "with_address": 3,
   "records": [
+    {
+      "doc_num": "2026-34542",
+      "doc_type": "NooLe",
+      "filed": "2026-11-09",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "CARIGNAN JOSHUA ALAN",
+      "grantee": "CROSS CREEK ESTATES OF CLEBURNE OWNERS ASSOCIATION",
+      "amount": null,
+      "legal": "Subdivision- Name: CROSS CREEK ESTATES SEC 2 Lot: 19 Block: 5, Reference - 9 / 958",
+      "prop_address": "1738 CROSS CREEK LN",
+      "prop_city": "CLEBURNE",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "308 S ROSS AVE",
+      "mail_city": "STREETMAN",
+      "mail_state": "TX",
+      "mail_zip": "758598030",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20261109,20261123&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
+    {
+      "doc_num": "2026-34733",
+      "doc_type": "NooLe",
+      "filed": "2026-11-10",
+      "cat": "lien",
+      "cat_label": "Notice of Lien",
+      "owner": "GARCIA ROCIO A",
+      "grantee": "REMINGTON RANCH HOMEOWNERS ASSOC",
+      "amount": null,
+      "legal": "Subdivision- Name: REMINGTON RANCH PH 1 Lot: 33 Block: 5, Reference - 9 / 2",
+      "prop_address": "1108 REMINGTON RANCH RD",
+      "prop_city": "MANSFIELD",
+      "prop_state": "TX",
+      "prop_zip": "",
+      "mail_address": "1108 REMINGTON RANCH RD",
+      "mail_city": "MANSFIELD",
+      "mail_state": "TX",
+      "mail_zip": "76063",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=NooLe&recordedDateRange=20261109,20261123&searchType=advancedSearch",
+      "flags": [
+        "Notice of lien",
+        "New this week"
+      ],
+      "score": 60,
+      "_demo": false
+    },
     {
       "doc_num": "2026-34722",
       "doc_type": "MeLCc",
@@ -26,7 +78,7 @@
       "mail_city": "JOSHUA",
       "mail_state": "TX",
       "mail_zip": "760580000",
-      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20261108,20261122&searchType=advancedSearch",
+      "clerk_url": "https://johnson.tx.publicsearch.us/results?department=RP&docTypes=MeLCc&recordedDateRange=20261109,20261123&searchType=advancedSearch",
       "flags": [
         "Mechanic lien",
         "New this week"
